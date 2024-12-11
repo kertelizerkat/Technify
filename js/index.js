@@ -10,6 +10,10 @@ let images_h= document.querySelector('.images');
 let prev_btn_h = document.querySelector('.prev');
 let next_btn_h = document.querySelector('.next');
 
+if (theme=='Light'){
+    
+}
+
 let category_s4= document.querySelector('.category_con');
 let category_s4_head= document.querySelector('.cathead');
 
@@ -36,7 +40,7 @@ const data= {
 };
 
 
-images_h.innerHTML= `<video autoplay muted playsinline controls class="item img js1" alt="Product image" id="active">
+images_h.innerHTML= `<video autoplay muted playsinline class="item img js1" alt="Product image" id="active">
 <source src="${data[1]['src']}">
 </video>`
 
