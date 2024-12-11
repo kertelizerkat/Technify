@@ -1,0 +1,39 @@
+/* Basic styles for the scrollable container */
+.scrollable {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+/* Custom scrollbar styles for Webkit browsers (e.g., Chrome, Safari) */
+.scrollable::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the track */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: #2C3D73; /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners of the thumb */
+    border: 3px solid #f1f1f1; /* Padding around the thumb */
+}
+
+/* Custom scrollbar styles for Firefox */
+.scrollable {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #2C3D73 #f1f1f1; /* Thumb and track colors */
+}
+
+.scrollable{
+    display: flex;
+    justify-content: space-between;
+    width: 10vw;
+    overflow-x: hidden;
+
+}
+p{
+    width: 100vw;}
