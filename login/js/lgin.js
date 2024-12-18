@@ -30,7 +30,13 @@ function validateForm() {
   console.log('Sanitized Password:', sanitizedPassword);
 
   data = { data: `${(en(sanitizedEmail,date2))}(@)${en(password,date2)}(@)` }
+  const c_btn = document.getElementById('btn_l')
+  c_btn.classList.add('load')
+  // c_btn.style.color='transparent'
+  c_btn.style.backgroundColor='black'
+  // c_btn.textContent=''
   sendFormData(data)
+  
   // alert('Login successful!');
   return false;
 }
@@ -68,16 +74,19 @@ function validateForm() {
                 reg_h.style.color='red'
 
                 const c_btn = document.getElementById('btn_l')
+                c_btn.classList.remove('load')
                 c_btn.textContent = 'Failed'
-                c_btn.style.backgroundColor = 'red'
+                c_btn.style.backgroundColor = 'red'  
+                
                 // c_btn.setAttribute('type','')
                 
                 setTimeout(()=>{
+                 
                   c_btn.textContent='Try again';
                   c_btn.style.backgroundColor='#007bff';
                   reg_h.textContent='Register'
                   reg_h.style.color='#ADD8E6'
-              }, 2000);
+              }, 1000);
               }
             }else{
                   
@@ -92,6 +101,7 @@ function validateForm() {
               storeInfo(en('email',date1),em)
 
               const c_btn = document.getElementById('btn_l')
+              c_btn.classList.remove('load')
               c_btn.textContent='Done';
               c_btn.style.backgroundColor='#28a745';
               reg_h.textContent='Register';
@@ -117,6 +127,7 @@ function validateForm() {
             reg_h.style.color='red'
 
             const c_btn = document.getElementById('btn_l')
+            c_btn.classList.remove('load')
             c_btn.textContent = 'Failed'
             c_btn.style.backgroundColor = 'red'
             // c_btn.setAttribute('type','')

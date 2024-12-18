@@ -91,13 +91,12 @@ function validateForm() {
     const data = { data: `${formData_.email}(@)${formData_.phone}(@)${formData_.username}(@)${formData_.password}(@)${formData_.cy}(@)` }
 
     // Alert user and return true for successful validation
-    pr = sendFormData(data);
-    if (pr == 'failed') {
-       
-    }
-    if (pr == 'passed') {
-       
-    }
+
+    const btn_s = document.getElementById('btn_s')
+    btn_s.classList.add('load')
+    btn_s.style.backgroundColor='black'
+    sendFormData(data);
+    
 
 
 
@@ -133,6 +132,7 @@ function sendFormData(data) {
             if (data['message'] == 'Registration Passed!') {
                 const reg_h= document.querySelector('.reg_h')
                 const c_btn = document.getElementById('btn_s')
+                c_btn.classList.remove('load')
                 c_btn.textContent = 'Done'
                 c_btn.style.backgroundColor = '#28a745'
                 reg_h.textContent='Register'
@@ -176,6 +176,7 @@ function sendFormData(data) {
                 }
                 
                 const c_btn = document.getElementById('btn_s')
+                c_btn.classList.remove('load')
                 c_btn.textContent = 'Failed'
                 c_btn.style.backgroundColor = 'red'
                 setTimeout(()=>{
@@ -194,6 +195,7 @@ function sendFormData(data) {
         .catch(error => {
             console.log("Something went wrong with the response", error);
             const c_btn = document.getElementById('btn_s')
+
                 c_btn.textContent = 'Failed'
                 c_btn.style.backgroundColor = 'red'
                 setTimeout(()=>{
