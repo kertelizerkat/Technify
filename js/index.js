@@ -122,7 +122,7 @@ const data = {
         item: "Latest NSPanel Lite",
         amount: "R600.00",
         type_: "Trading item",
-        src: "NSPanel-PRO.jpg",
+        src: "sources/NSPanel-PRO.jpg",
         description: "Latest Modern NSPanel image",
         tp: "img"
     },
