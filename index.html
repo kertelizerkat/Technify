@@ -12,15 +12,12 @@
         rel="stylesheet">
     <title>TechNify</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-
-    </style>
-
-
-
+    <!-- the style tag and all other empty tags are used dynamically in javaScrcipt, Do not remove them!,  -->
+    <style></style>
 </head>
 
 <body>
+    
     <div class="loader" id="loader">
         <div class="headl">TechNify</div>
 
@@ -43,11 +40,13 @@
         </div>
     </div>
     
+    
 
     <!-- <script src="loader.js"></script> -->
+    <script src="js/loader.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/loader2.js"></script>
     
-    <script src="theme.js"></script>
-    <script src="loader.js"></script>
 
     
     
@@ -66,7 +65,7 @@
             </div>
             <div class="cultural-identity">
                 <div class="currency">
-                    <select clas="lang" id="dropdown-menu " name="options" class="op1">
+                    <select clas="lang" id="dropdown-menu " name="options" class="opl">
                         <option value="ZAR">
                             ZAR R
                         </option>
@@ -75,7 +74,7 @@
                     </select>
                 </div>
                 <div class="language">
-                    <select clas="lang" class="op1" id="dropdown-menu " name="options">
+                    <select clas="lang" class="opl" id="dropdown-menu " name="options">
                         <option value="en-US">
                             ENGLISH
                         </option>
@@ -92,7 +91,7 @@
             <div class="search-bar">
                 <div class="searchBox">
 
-                    <input maxlength="27" class="searchInput" type="text" name="" placeholder="Search a product">
+                    <input maxlength="27"  writingsuggestions="true" class="searchInput" type="text" name="" placeholder="Search Type">
                     <button class="searchButton" href="#">
                         <i class="material-icons">search</i>
                     </button>
@@ -102,39 +101,32 @@
         </section>
     </header>
     <div class="tpcolor">
-
+        
     </div>
+    
     <section class="s1_1">
         <div class="space"></div>
         <nav>
             <ul>
                 <a href="#" id="main" class="main_navs">
-                    <li>Home</li>
+                    <li class='main'>Home</li>
                 </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>Services</li>
+                <a href="#"  class="main_navs">
+                    <li id="none">About</li>
                 </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>Products</li>
+                <a href="#"  class="main_navs">
+                    <li id="none">Contact</li>
                 </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>Hot Offers</li>
-                </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>Contact</li>
-                </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>Blog</li>
-                </a>
-                <a href="#" id="none" class="main_navs">
-                    <li>absolute</li>
-                </a>
+               
+               
 
             </ul>
         </nav>
     </section>
+    
     <section class="s2">
-        <div class="overlay"></div>
+        
+        <div class="overlay joj"></div>
 
         <div class="tr-item">
 
@@ -152,7 +144,7 @@
                 <div class="space"></div>
                 <div class="navs">
                     <div class="button prev"></div>
-                    <div class="button next"></div>
+                    <div class="button next">Play</div>
                 </div>
             </nav>
 
@@ -166,10 +158,8 @@
 
     <section class="s3">
         <div class="move-right"> <img class="left-nav" src="sources/output.gif" alt=""></div>
-        <div class="imgs3bk">
-            <img src="sources/s3.jpg" class="s3img"  alt="" srcset="">
-        </div>
-
+        <div class="line_"></div>
+        
         <div class="containers" id="scrollable">
         </div>
 
@@ -210,10 +200,68 @@
 
         </div>
     </section>
-    <section class='spc'></section>
-
-    
    
+
+<section class="s5">
+    <div class="container5">
+        <div class="slider">
+            <div class="slides">
+              <input type="radio" name="radio-btn" id="radio1">
+              <input type="radio" name="radio-btn" id="radio2">
+              <input type="radio" name="radio-btn" id="radio3">
+              <input type="radio" name="radio-btn" id="radio4">
+          
+              <div class="slide first">
+                <img src="sources/NSPanel-PRO.jpg" alt="Image 1">
+              </div>
+              <div class="slide">
+                <img src="sources/s1.jpg" alt="Image 2">
+              </div>
+              <div class="slide">
+                <img src="sources/s3.jpg" alt="Image 3">
+              </div>
+              <div class="slide">
+                <img src="sources/s5.jpeg" alt="Image 4">
+              </div>
+          
+              <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+              </div>
+            </div>
+          
+            <div class="navigation-manual">
+              <label for="radio1" class="manual-btn"></label>
+              <label for="radio2" class="manual-btn"></label>
+              <label for="radio3" class="manual-btn"></label>
+              <label for="radio4" class="manual-btn"></label>
+            </div>
+          </div>
+          
+          <script src="js/slider.js"></script>
+          <div class="info_nsp">
+            <ul>
+                <li class="inf_txt_nsp"><span class='nsp_h'>Centralized Control: </span>It lets you control various smart home devices like lights, switches, and appliances from one convenient panel.</li>
+                <li class="inf_txt_nsp"><span class='nsp_h'>Remote Access: </span>Can be controlled remotely using the eWeLink app.</li>
+                <li class="inf_txt_nsp"><span class='nsp_h'>Temperature Monitoring: </span>Built-in temperature sensor to monitor and adjust room temperature.</li>
+                <li class="inf_txt_nsp"><span class='nsp_h'>Voice Control: </span>Supports voice commands via Amazon Alexa, Google Assistant, and Siri.</li>
+            </ul>
+          </div>
+          
+    </div>
+</section>
+<div class="inf3_small">
+    <ul>
+        <li class="inf_txt_nsp"><span class='nsp_h'>Centralized Control: </span>It lets you control various smart home devices like lights, switches, and appliances from one convenient panel.</li>
+        <li class="inf_txt_nsp"><span class='nsp_h'>Remote Access: </span>Can be controlled remotely using the eWeLink app.</li>
+        <li class="inf_txt_nsp"><span class='nsp_h'>Temperature Monitoring: </span>Built-in temperature sensor to monitor and adjust room temperature.</li>
+        <li class="inf_txt_nsp"><span class='nsp_h'>Voice Control: </span>Supports voice commands via Amazon Alexa, Google Assistant, and Siri.</li>
+    </ul>
+</div>
+    
+ 
 <script src="js/index.js"></script>
     
 </body>
