@@ -99,6 +99,8 @@ function validateForm() {
               storeInfo(en('phone',date1),p)
               storeInfo(en('username',date1),us)
               storeInfo(en('email',date1),em)
+              storeInfo(en('logged',date1),'true')
+
 
               const c_btn = document.getElementById('btn_l')
               c_btn.classList.remove('load')
@@ -116,7 +118,7 @@ function validateForm() {
 
 
                 
-            }, 2000);
+            }, 1000);
             }
 
         })
@@ -137,7 +139,7 @@ function validateForm() {
               c_btn.style.backgroundColor='#007bff';
               reg_h.textContent='Register'
               reg_h.style.color='#ADD8E6'
-          }, 2000);
+          }, 1000);
          
 
         });

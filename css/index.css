@@ -2877,3 +2877,18 @@ li span{
     margin: 5px 0 0;
     font-size: 14px;
 }
+
+
+#none{
+    color: white;
+}
+.main{
+    color: #40D3DC;
+}
+
+
+.username{
+    color: rgb(0,255,0);
+    font-weight: 1000;
+
+}

@@ -3,7 +3,7 @@ let pagbodyC=pagbody.innerHTML
 let pagbody2= document.querySelector('body')
 let pageCode= pagbody.innerHTML
 let theme='none';
-const storageKey = '2s23jdhcxew';
+const storageKey = '2s23sjdshxdhcxew';
 let userInput = localStorage.getItem(storageKey);
 if (!userInput){
      pagbody.innerHTML=`<head>

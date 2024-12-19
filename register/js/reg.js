@@ -141,7 +141,7 @@ function sendFormData(data) {
                 setTimeout(()=>{
                     
                     window.location.assign("../login/index.html")
-                }, 2000);
+                }, 1000);
  // 2000 milliseconds = 2 seconds
             // window.location.assign("../login/index.html")
 
@@ -184,7 +184,7 @@ function sendFormData(data) {
                     c_btn.style.backgroundColor='#007bff';
                     reg_h.textContent='Register'
                     reg_h.style.color='#ADD8E6'
-                }, 2000); // 2000 milliseconds = 2 seconds
+                }, 1000); // 2000 milliseconds = 2 seconds
                 
 
              
@@ -201,7 +201,7 @@ function sendFormData(data) {
                 setTimeout(()=>{
                     c_btn.textContent='Try again';
                     c_btn.style.backgroundColor='#007bff'
-                }, 2000); // 2000 milliseconds = 2 seconds
+                }, 1000); // 2000 milliseconds = 2 seconds
          
 
         });

@@ -12,11 +12,6 @@ if (isIphone()) {
 } else {
     ip = false
 };
-
-
-
-
-
 function detectDeviceType2() {
     const userAgent = navigator.userAgent;
 
@@ -62,7 +57,7 @@ const deviceType = detectDeviceType1();
 
 
 
-
+let logged=accessInfo(en('logged',date1))
 let btn = document.querySelector('.searchButton');
 let inpt = document.querySelector('.searchInput');
 let btn_txt = document.querySelector('.material-icons');
@@ -76,7 +71,19 @@ let inf_nsp = document.querySelectorAll('.inf_txt_nsp');
 let inf_h_nsp = document.querySelectorAll('.nsp_h')
 
 
-
+if(logged){
+    tp_lg= document.querySelector('.status')
+    let usname= de(accessInfo(en('username',date1)),date1)
+    tp_lg.innerHTML=`
+    <p>
+        <span class="status-head">Welcome, <span class="username">${usname}</span></span> <span id="status-info"> We're glad to have you here.</span>
+    </p>
+    `
+    if(theme=='Light'){
+        let uslname= document.querySelector('.username');
+        uslname.style.color='#1E3A8A'
+    }
+}
 
 if (ip) {
     next_btn_h.style.opacity = 0
@@ -452,7 +459,7 @@ if (theme == 'Light') {
 
     nones.forEach(element => {
         element.style.fontWeight = 600
-        element.style.color='#008080'
+        element.style.color='#000'
 
     })
     ops.innerHTML = ops.innerHTML + `.op1{
@@ -605,11 +612,20 @@ displayDeviceWidth();
 window.addEventListener('resize', displayDeviceWidth);
 
 shopNowBtn.addEventListener('click', () => {
-    window.location.assign("login/index.html");
 
+   
+    if(logged){
+        window.location.assign("cost/index.html");       
+    }else{
+    window.location.assign("login/index.html");
+    }
 })
 
 let ov = document.querySelector('.overlay')
 ov.style.opacity = 0.5
 
 
+
+{/* <p>
+    <span class="status-head">Welcome, <span class="username">User</span>!</span> <span id="status-info">We're glad to have you here.</span>
+</p> */}
