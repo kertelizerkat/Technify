@@ -615,9 +615,9 @@ shopNowBtn.addEventListener('click', () => {
 
    
     if(logged){
-        window.location.assign("cost/index.html");       
+        window.location.assign("cost/");       
     }else{
-    window.location.assign("login/index.html");
+    window.location.assign("login/");
     }
 })
 
