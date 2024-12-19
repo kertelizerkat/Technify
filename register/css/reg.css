@@ -172,7 +172,7 @@
 
 .m2{
   font-size: small;
-  padding: 0 7%;
+  padding: 0 15%;
 }
 
 
@@ -220,4 +220,5 @@
     border-right:1px solid white ;
     border-left:1px solid white ;
   }
+
 }

@@ -114,7 +114,7 @@ function validateForm() {
               
               setTimeout(()=>{
                
-                window.location.assign("../cost/index.html")
+                window.location.assign("../cost/")
 
 
                 

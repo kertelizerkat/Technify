@@ -140,7 +140,7 @@ function sendFormData(data) {
                 
                 setTimeout(()=>{
                     
-                    window.location.assign("../login/index.html")
+                    window.location.assign("../login/")
                 }, 1000);
  // 2000 milliseconds = 2 seconds
             // window.location.assign("../login/index.html")

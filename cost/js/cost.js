@@ -28,7 +28,7 @@ if (username) {
     const username_ = document.querySelector('.Uname');
     username_.textContent = de(username, date1);
 } else {
-    window.location.assign("../login/index.html");
+    window.location.assign("../login/");
 }
 
 const currentDate = new Date();
