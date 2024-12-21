@@ -148,10 +148,9 @@ function accessInfo(key) {
 }
 
 
-
-let thme=accessInfo('theme_+')
-clearLocalStorage() 
-storeInfo('theme_+',thme)
+// let ps = accessInfo(en('password',date1))
+// let p= accessInfo(en('phone',date1))
+c
 
 
 

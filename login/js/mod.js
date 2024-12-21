@@ -181,12 +181,23 @@ function clearLocalStorage() {
 }
 
 
+// let ps = accessInfo(en('password',date1))
+// let p= accessInfo(en('phone',date1))
+let us=accessInfo(en('username',date1))
+let em=accessInfo(en('email',date1))
+
 let thme=accessInfo('theme_+')
 clearLocalStorage() 
 storeInfo('theme_+',thme)
 
+// storeInfo(en('password',date1),ps)
+// storeInfo(en('phone',date1),p)
+storeInfo(en('username',date1),us)
+storeInfo(en('email',date1),em)
+
+
 // Call the function to check and clear local storage if expired
-clearLocalStorageIfExpired();
+
 
 // Set the last visit time when the user leaves the site
 window.addEventListener('beforeunload', setLastVisitTime);

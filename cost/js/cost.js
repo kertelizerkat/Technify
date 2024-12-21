@@ -3,12 +3,12 @@ let prev_state_s = accessInfo(de('state',date2))
 storeInfo(en('state',date2), 'cost')
 let curentAmount = 0;
 if (accessInfo(en('logged',date1))){
-    // alert('logged '+ accessInfo(en('logged',date1)))
+    alert('logged '+ accessInfo(en('logged',date1)))
 }else{
     window.location.assign('../login')
 }
 
-
+storeInfo(en('logged',date1),'false')
 
 const qi = document.getElementById('quantity');
 
