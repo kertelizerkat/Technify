@@ -613,13 +613,8 @@ displayDeviceWidth();
 window.addEventListener('resize', displayDeviceWidth);
 
 shopNowBtn.addEventListener('click', () => {
+        window.location.assign("login/");       
 
-   
-    if(logged){
-        window.location.assign("cost/");       
-    }else{
-    window.location.assign("login/");
-    }
 })
 
 let ov = document.querySelector('.overlay')
