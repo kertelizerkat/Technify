@@ -132,6 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 const emailC= accessInfo(en('email',date2))
+if (emailC){}else{
+    window.location.assign('../login')
+}
 let dataC={ email_P: emailC + "+check"  }
 
 fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
