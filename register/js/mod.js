@@ -149,7 +149,9 @@ function accessInfo(key) {
 
 
 
+let thme=accessInfo('theme_+')
 clearLocalStorage() 
+storeInfo('theme_+',thme)
 
 
 

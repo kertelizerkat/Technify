@@ -174,8 +174,16 @@ function clearLocalStorageIfExpired() {
 function clearLocalStorage() {
   localStorage.clear();
   console.log("Local storage has been cleared.");
+
+
+  
+
 }
+
+
+let thme=accessInfo('theme_+')
 clearLocalStorage() 
+storeInfo('theme_+',thme)
 
 // Call the function to check and clear local storage if expired
 clearLocalStorageIfExpired();

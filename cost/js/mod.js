@@ -167,7 +167,11 @@ function clearLocalStorageIfExpired() {
   const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
 
   if (lastVisitTime && (currentTime - lastVisitTime > twoHoursInMilliseconds)) {
+      let thme=accessInfo('theme_+')
       localStorage.clear();
+      
+
+      storeInfo('theme_+',thme)
       console.log("Local storage has been cleared.");
   }
 }
