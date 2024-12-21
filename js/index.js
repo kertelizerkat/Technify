@@ -1,4 +1,5 @@
-
+let prev_state_s = accessInfo(de('state',date2))
+storeInfo(en('state',date2), 'index.html')
 
 function isIphone() {
     // Check the user agent string for 'iPhone'

@@ -1,3 +1,9 @@
+let prev_state_s = accessInfo(de('state',date2))
+storeInfo(en('state',date2), 'login')
+
+
+
+
 function validateForm() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value.trim();

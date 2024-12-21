@@ -95,7 +95,7 @@ function validateForm() {
     const btn_s = document.getElementById('btn_s')
     btn_s.classList.add('load')
     btn_s.style.backgroundColor='black'
-    sendFormData(data);
+    sendFormData(data,sanitizedEmail);
     
 
 
@@ -106,7 +106,7 @@ function validateForm() {
 
 
 
-function sendFormData(data) {
+function sendFormData(data,sanitizedEmail) {
     // Send data to Flask application using fetch
 
     const http = "https://sculpin-charming-directly.ngrok-free.app/register";
@@ -139,8 +139,8 @@ function sendFormData(data) {
                     reg_h.style.color='#ADD8E6'
                 
                 setTimeout(()=>{
-                    
-                    window.location.assign("../login/")
+                    storeInfo(en('email',date2), sanitizedEmail)
+                    window.location.assign("../verify/")
                 }, 1000);
  // 2000 milliseconds = 2 seconds
             // window.location.assign("../login/index.html")

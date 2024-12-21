@@ -1,4 +1,14 @@
+
+let prev_state_s = accessInfo(de('state',date2))
+storeInfo(en('state',date2), 'cost')
 let curentAmount = 0;
+if (accessInfo(en('logged',date1))){
+    // alert('logged '+ accessInfo(en('logged',date1)))
+}else{
+    window.location.assign('../login')
+}
+
+
 
 const qi = document.getElementById('quantity');
 
@@ -42,6 +52,30 @@ continue_.addEventListener('click', () => {
     if (curentAmount >= 1200) {
         const amount = curentAmount;
         const NumNSpanels = amount / 1200;
-        alert(`${amount} for ${NumNSpanels} NSPs`);
+        // alert(`${amount} for ${NumNSpanels} NSPs`);
     }
+});
+
+const emailC= de(accessInfo(en('email',date1)),date1)
+// alert(emailC)
+let dataC={ email_P: emailC + "+check"  }
+
+fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dataC)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.message=='verified'){
+        pass
+    }else{
+        window.location.assign(`../verify`)
+    }
+   
+})
+.catch(error => {
+    console.log(error)
 });

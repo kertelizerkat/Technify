@@ -150,35 +150,3 @@ function clearLocalStorage() {
   localStorage.clear();
   console.log("Local storage has been cleared.");
 }
-
-
-
-// Function to set the last visit time in local storage
-function setLastVisitTime() {
-  const currentTime = new Date().getTime();
-  localStorage.setItem('lastVisitTime', currentTime);
-}
-
-// Function to clear local storage if 2 hours have passed
-function clearLocalStorageIfExpired() {
-  const lastVisitTime = localStorage.getItem('lastVisitTime');
-  const currentTime = new Date().getTime();
-  const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
-
-  if (lastVisitTime && (currentTime - lastVisitTime > twoHoursInMilliseconds)) {
-      localStorage.clear();
-      console.log("Local storage has been cleared.");
-  }
-}
-
-function clearLocalStorage() {
-  localStorage.clear();
-  console.log("Local storage has been cleared.");
-}
-clearLocalStorage() 
-
-// Call the function to check and clear local storage if expired
-clearLocalStorageIfExpired();
-
-// Set the last visit time when the user leaves the site
-window.addEventListener('beforeunload', setLastVisitTime);
