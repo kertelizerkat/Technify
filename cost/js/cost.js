@@ -56,26 +56,33 @@ continue_.addEventListener('click', () => {
     }
 });
 
-const emailC= de(accessInfo(en('email',date1)),date1)
-// alert(emailC)
-let dataC={ email_P: emailC + "+check"  }
+document.addEventListener('DOMContentLoaded', function() {
 
-fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(dataC)
-})
-.then(response => response.json())
-.then(data => {
-    if (data.message=='verified'){
-        pass
+    const emailC= de(accessInfo(en('email',date1)),date1)
+    if (emailC){
+        // document.querySelector('.eml').textContent = emailC
     }else{
-        window.location.assign(`../verify`)
+        
+        window.location.assign('../login')
     }
-   
-})
-.catch(error => {
-    console.log(error)
-});
+    let dataC={ email_P: emailC + "+check"  }
+    
+    fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataC)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message=='Nverified'){
+            window.location.assign(`../verify`)
+    
+        }
+       
+    })
+    .catch(error => {
+        console.log(error)
+    });
+    })

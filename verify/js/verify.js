@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
 
 const emailC= de(accessInfo(en('email',date1)),date1)
 if (emailC){
@@ -158,3 +159,4 @@ fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
 .catch(error => {
     console.log(error)
 });
+})

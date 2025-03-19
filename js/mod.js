@@ -168,9 +168,9 @@ function clearLocalStorageIfExpired() {
       let us=accessInfo(en('username',date1))
       let em=accessInfo(en('email',date1))
 
-      let thme=accessInfo('theme_+')
+      let thme=accessInfo('theme_+-----')
       localStorage.clear() 
-      storeInfo('theme_+',thme)
+      storeInfo('theme_+-----',thme)
 
       // storeInfo(en('password',date1),ps)
       // storeInfo(en('phone',date1),p)

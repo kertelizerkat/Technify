@@ -2,14 +2,18 @@ let pagbody= document.querySelector('html')
 let pagbodyC=pagbody.innerHTML
 let pagbody2= document.querySelector('body')
 let pageCode= pagbody.innerHTML
-let theme='none';
-const storageKey = 'theme_+';
+// let theme='none';
+const storageKey = 'theme_+-----';
 let userInput = localStorage.getItem(storageKey);
+theme= userInput
+//temporary theme
+theme='Light'
+
 if (!userInput){
      pagbody.innerHTML=`<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNify >>Theme</title>
+    <title>TechNify | Theme</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
         body{
@@ -109,9 +113,9 @@ if (!userInput){
 
 
 }else{
-    theme= userInput
+    
     if (theme=='Light'){
-    pagbody2.style.color='black'
+    pagbody2.style.color='white'
 
     document.querySelectorAll('select').forEach(element =>{
         element.style.color= 'black'
