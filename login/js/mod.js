@@ -147,7 +147,9 @@ function accessInfo(key) {
   }
 }
 function clearLocalStorage() {
-  localStorage.clear();
+  let theeme=accessInfo('theme_+-----')
+  localStorage.clear() 
+  storeInfo('theme_+-----',theeme)
   console.log("Local storage has been cleared.");
 }
 
@@ -185,12 +187,6 @@ function clearLocalStorage() {
 // let p= accessInfo(en('phone',date1))
 let us=accessInfo(en('username',date1))
 let em=accessInfo(en('email',date1))
-
-let thme=accessInfo('theme_+')
-clearLocalStorage() 
-storeInfo('theme_+',thme)
-
-// storeInfo(en('password',date1),ps)
 // storeInfo(en('phone',date1),p)
 storeInfo(en('username',date1),us)
 storeInfo(en('email',date1),em)
