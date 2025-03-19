@@ -52,6 +52,31 @@ function en(text, key) {
   return encryptedText;
 }
 
+
+let theme=accessInfo('theme_+-----')
+
+
+// Function to change the stylesheet link
+function changeStylesheet(newHref) {
+  // Select the <link> element with rel="stylesheet"
+  const linkElement = document.querySelector('link[rel="stylesheet"]');
+
+  // Check if the <link> element exists
+  if (linkElement) {
+    // Change its href attribute to the new stylesheet path
+    linkElement.href = newHref;
+    console.log(`Stylesheet changed to: ${newHref}`);
+  } else {
+    console.error('Stylesheet link not found.');
+  }
+}
+
+if (theme){
+  if (theme=='Light'){
+    changeStylesheet('css/Llgin.css')
+  }
+}
+
 // Example usage
 // const text = "exampleText";
 // const key = "12345";
