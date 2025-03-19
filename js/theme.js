@@ -6,7 +6,6 @@ let pageCode= pagbody.innerHTML
 const storageKey = 'theme_+-----';
 let userInput = localStorage.getItem(storageKey);
 theme= userInput
-//temporary theme
 
 
 if (!userInput){

@@ -158,5 +158,7 @@ fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
 })
 .catch(error => {
     console.log(error)
+    window.location.assign('../login')
+
 });
 })
