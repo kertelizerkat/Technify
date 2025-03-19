@@ -7,7 +7,7 @@ const storageKey = 'theme_+-----';
 let userInput = localStorage.getItem(storageKey);
 theme= userInput
 //temporary theme
-theme='Light'
+
 
 if (!userInput){
      pagbody.innerHTML=`<head>
