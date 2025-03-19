@@ -1,7 +1,7 @@
 let date2=18
 let date1=17
 let theme=accessInfo('theme_+-----')
-
+theme="Dark"
 // Function to change the stylesheet link
 function changeStylesheet(newHref) {
   // Select the <link> element with rel="stylesheet"
