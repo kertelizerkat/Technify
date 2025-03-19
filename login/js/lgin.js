@@ -1,7 +1,8 @@
 let prev_state_s = accessInfo(de('state',date2))
 storeInfo(en('state',date2), 'login')
 
-
+let currentYear = new Date().getFullYear();
+document.getElementById('current-year').innerHTML = currentYear;
 
 
 function validateForm() {

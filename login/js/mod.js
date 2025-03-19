@@ -1,5 +1,9 @@
 let date2=18
 let date1=17
+
+
+
+
 function en(text, key) {
   const symbols = "~!@#$%^&*()_+=-{}[]\\|'\"<>,.?/;:` \n";
   const letters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
