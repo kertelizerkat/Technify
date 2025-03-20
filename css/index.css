@@ -4,7 +4,34 @@
     box-sizing: 0;
 }
 
-
+.notification {
+    position: fixed;
+    top: 50vh;
+    right: 20px;
+    height: 40px;
+    width: 30%;
+    background-color: black; /* Dark theme for notification */
+    color: #fff; /* Light text for readability */
+    
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .notification a{
+    color: aqua;
+    text-decoration: none;
+    text-decoration: underline;
+    font-weight: 300;
+    font-family: sans-serif;
+  }
+  .notification.show {
+    opacity: 0.75; /* Fully visible */
+    transform: translateY(20px);
+  }
+  
 
 #msg {
     display: none;

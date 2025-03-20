@@ -6,6 +6,22 @@ function isIphone() {
     return /iPhone/.test(navigator.userAgent);
 }
 
+
+// Function to show and hide the notification
+function showNotification() {
+    const notification = document.getElementById("notification");
+    notification.classList.add("show"); // Add 'show' class for visibility
+  
+    // Hide the notification after 3 seconds
+    setTimeout(() => {
+      notification.classList.remove("show"); // Remove 'show' class
+    }, 7000);
+  }
+  
+  // Call the function to trigger the notification
+  
+  
+
 // Example usage
 let ip = 'none'
 if (isIphone()) {
@@ -315,11 +331,7 @@ let item_length = Object.keys(data).length;
 // }js
 
 
-window.addEventListener('load', () => {
-    // playvid()
-    // video.play().catch(function (error) {
-    // alert(error)})
-})
+
 
 function playvid() {
     var video = document.querySelector('video');
@@ -620,6 +632,11 @@ let ov = document.querySelector('.overlay')
 ov.style.opacity = 0.5
 
 
+
+
+window.addEventListener('load', () => {
+    showNotification();
+})
 
 {/* <p>
     <span class="status-head">Welcome, <span class="username">User</span>!</span> <span id="status-info">We're glad to have you here.</span>
