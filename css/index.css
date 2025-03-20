@@ -8,17 +8,21 @@
     position: fixed;
     top: 50vh;
     right: 20px;
-    height: 40px;
-    width: 30%;
-    background-color: black; /* Dark theme for notification */
+    height: 25px;
+    width: 15vw;
+     
+      /* Dark theme for notification */
     color: #fff; /* Light text for readability */
+    border: 1px solid #000;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
     
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); Subtle shadow */
     opacity: 0; /* Initially hidden */
     transform: translateY(-20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease, transform 1s ease;
   }
   .notification a{
     color: aqua;
@@ -27,9 +31,14 @@
     font-weight: 300;
     font-family: sans-serif;
   }
+  .notification p{
+
+    background-color: rgba(11, 47, 165, 0.596);
+  }
   .notification.show {
-    opacity: 0.75; /* Fully visible */
-    transform: translateY(20px);
+    opacity: 1; /* Fully visible */
+    transform: translateY(0);
+    background: transparent;
   }
   
 
