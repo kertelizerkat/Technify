@@ -6,7 +6,7 @@
 
 .notification {
     position: fixed;
-    top: 50vh;
+    top: 5vh;
     right: 20px;
     height: 25px;
     width: 15vw;
@@ -20,7 +20,7 @@
     /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); Subtle shadow */
     opacity: 0; /* Initially hidden */
     transform: translateY(-20px);
-    transition: opacity 0.5s ease, transform 1s ease;
+    transition: opacity 2s ease, transform 0.5s ease;
   }
   .notification a{
     color: aqua;
