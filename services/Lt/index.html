@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTS | Home</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">BTS</div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a style="color: green" href="#">BTS</a></li>
+          <li><a href="#">Tips</a></li>
+          <li><a href="../../">Home</a></li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+    <div class="status_heading" id="Win">Obvious Wining Match</div>
+    <main>
+      <section>
+        <div class="holder">
+          <div id="cencon" class="container">
+            <div class="form">
+              <div class="cap">Enter your soccer team's name</div>
+              <label for="input"
+                >Query:
+                <input
+                  id="input"
+                  placeholder="Name or country-england"
+                  type="text"
+                  minlength="1"
+              /></label>
+              <button class="btn" onclick="runPythonScript()" >Submit</button>
+              <div class="state">Get more info about an individual match</div>
+              <div class="selections pr">
+                <div class="pversion">Premium</div>
+                
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="output">
+              <!-- info -->
+                 
+              <!-- end of info -->
+            </div>
+
+            <footer>
+              <h4>Copyright &copy; 2024. Katlego mathe. All rights reserved</h4>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script id="main_js" src="js/index.js"></script>
+  </body>
+</html>
