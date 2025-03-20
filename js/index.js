@@ -15,7 +15,7 @@ function showNotification() {
     // Hide the notification after 3 seconds
     setTimeout(() => {
       notification.classList.remove("show"); // Remove 'show' class
-    }, 7000);
+    }, 19000);
   }
   
   // Call the function to trigger the notification

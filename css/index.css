@@ -31,7 +31,7 @@
   }
   .notification p{
 
-    background-color: rgba(0,0,0,0);
+    background-color:black;
   }
   .notification.show {
     opacity: 1; /* Fully visible */
