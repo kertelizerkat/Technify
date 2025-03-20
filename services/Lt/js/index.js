@@ -12,7 +12,7 @@ let main_state="wining_matches";
 let theme=accessInfo('theme_+-----')
 if (theme){
     if (theme=='Dark'){
-        window.location.assign('../../Dk')
+        window.location.assign('../Dk')
     }
 
 }
