@@ -1,5 +1,5 @@
 html {
-  background-color: rgba(0, 0, 20, 0.95); /* Darker background for dark theme */
+  background-color: #1E1E1E; /* Darker background for dark theme */
   overflow-x: hidden;
   color: #e0e0e0; /* Light text for visibility */
 }
@@ -21,6 +21,7 @@ header {
   background-color: transparent; /* Darker header background */
   padding: 0 20px;
   z-index: 11;
+  
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
 }
 
@@ -47,12 +48,12 @@ header nav a {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 1.8em;
   font-weight: bold;
-  color: #d0d0d0; /* Light gray text for high contrast */
+  color: #A9A9A9; /* Light gray text for high contrast */
   z-index: 10000;
 }
 
 header nav a:hover {
-  color: #ffffff; /* Bright white for hover effect */
+  color: #007ACC; /* Bright white for hover effect */
 }
 
 @media (max-width: 558px) {
@@ -66,16 +67,17 @@ header nav a:hover {
     top: 0;
     width: 50vw;
     justify-content: center;
-    background-color:rgb(60, 25, 60);
+    background-color:#1E1E1E;
     border-top-left-radius: 20px;
     z-index: 10;
+    border-left:1px solid #3C3C3C ;
     transition-property: all;
     transition-duration: 2s;
     transition-timing-function: ease-in-out;
     transform: translateX(160%);
   }
   header nav ul a {
-    color: white;
+    color: #FFFFFF;
     width: 100%;
   }
   li {
@@ -84,7 +86,7 @@ header nav a:hover {
     padding: 20px 0;
   }
   header nav ul li:hover {
-    background-color:rgb(185, 4, 185);
+    background-color:#282828;
   }
   header nav ul a:hover {
     color:white;
@@ -101,7 +103,7 @@ header nav a:hover {
     z-index: 11;
     top: 20px;
     right: 20px;
-    background-color: rgba(173, 26, 173, 0.9);
+    background-color: #388E3C;
     transition-property: all;
     transition-duration: 3s;
     transition-timing-function: ease-in-out;
@@ -111,7 +113,7 @@ header nav a:hover {
     color: white;
   }
   .pink {
-    background-color: rgba(173, 26, 173, 0.9);
+    background-color:#B71C1C
   }
   .open {
     transform: translateX(0%);
@@ -132,7 +134,7 @@ section {
 .container {
   width: 500px;
   height: 340px;
-  border: 1px solid rgb(185, 4, 185);
+  border: 1px solid #3C3C3C;
   border-radius: 40px;
 }
 .cap {
@@ -140,25 +142,26 @@ section {
   margin-bottom: 40px;
   font-size: xx-large;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(185, 4, 185);
+  color:#A9A9A9;
   font-weight: 600;
   text-align: center;
 }
 label {
   font-weight: bold;
-  color: rgb(185, 4, 185);
+  color: #A9A9A9;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: larger;
 }
 #input {
-  height: 30px;
+  height: 35px;
   padding: 0 25px;
-  border: 2px solid rgba(60, 25, 60);
+  border: 2px solid #3C3C3C;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
-  color: rgb(60, 25, 60);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  background-color: #1E1E1E;
+  color:#A9A9A9;
+  font-family:  sans-serif;
+  /* font-weight: ; */
+  
 }
 .form {
   height: 100%;
@@ -171,7 +174,7 @@ label {
 .logo_name {
   font-size: xx-large;
   font-weight: 900;
-  color:  rgb(185, 4, 185);
+  color:  #FFFFFF;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   animation-name: logo_name_animation;
   animation-delay: 6s;
@@ -190,18 +193,20 @@ button {
   width: 60px;
   margin-top: 30px;
   height: 40px;
-  background-color:  rgb(185, 4, 185);
+  background-color: #1E1E1E ;
   color: white;
   border-radius: 10px;
-  border: 1px solid  rgba(60, 25, 60);
+  border: 1px solid  black;
+  border-right-color:transparent ;
+  border-left-color:transparent ;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
 button:hover {
-  background-color: black;
-  color: white;
-  border: 3px solid  rgb(185, 4, 185);
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  border: 3px solid  #282828;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }
@@ -252,7 +257,7 @@ button:hover {
 .line {
   width: 60px;
   height: 10px;
-  background-color: rgb(185, 4, 185);
+  background-color: #3C3C3C;
   animation-name: slide;
   animation-duration: 6s;
   animation-timing-function: ease-in-out;
@@ -273,28 +278,28 @@ footer {
 }
 footer h4 {
   text-align: center;
-  color: aqua;
+  color: #A9A9A9;
 }
 @keyframes rotate {
   0% {
-    border: 2px solid rgb(185, 4, 185);
+    border: 2px solid #3C3C3C;
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
-    background-color: black;
+    background-color: #1E1E1E;
     color: white;
   }
   50% {
-    border: 2px solid rgb(185, 4, 185);
+    border: 2px solid #3C3C3C;
     border-left: 2px solid transparent;
     border-left: 2px solid transparent;
-    background-color: black;
+    background-color: #1E1E1E;
     color: white;
   }
   100% {
-    border: 2px solid rgb(185, 4, 185);
+    border: 2px solid #3C3C3C;
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
-    background-color: black;
+    background-color: #1E1E1E;
     color: white;
   }
 }
@@ -314,7 +319,7 @@ footer h4 {
   padding: 30px;
 
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(185, 4, 185);
+  color: #FFFFFF;
   font-weight: bold;
   text-decoration: underline;
   font-size: large;
@@ -322,20 +327,20 @@ footer h4 {
 
 .match {
   text-align: center;
-  color: rgb(185, 4, 185);
+  color: #A9A9A9;
   font-weight: 800;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 10px;
 }
 .match_container {
-  border: 1px solid rgb(185, 4, 185);
+  border: 1px solid #3C3C3C;
   padding: 10px;
   padding-right: 5px;
   padding-left: 5px;
 }
 .match_info {
   font-weight: 600;
-  color: rgb(185, 4, 185);
+  color: #A9A9A9;
   font-family: "Times New Roman", Times, serif;
   max-width: 90%;
   font-size: small;
@@ -368,7 +373,7 @@ footer h4 {
   overflow-x: hidden;
   padding: 20px;
   gap: 20px;
-  color: red;
+  color: #D32F2F;
   justify-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -394,7 +399,7 @@ footer h4 {
 .status_heading {
   margin-top: 80px;
   font-size: x-large;
-  color: rgb(185, 4, 185);
+  color: #A9A9A9;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
@@ -403,7 +408,7 @@ footer h4 {
 }
 .state{
     margin-top: 30px;
-    color: rgb(185, 4, 185);
+    color:#A9A9A9;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight:700;
     text-decoration:underline;
@@ -413,7 +418,7 @@ footer h4 {
     color: rgba(0,255,0)
 }
 #red{
-    color: rgba(255,0,0)
+    color: rgba(255,0,0);
 }
 #vs_info{
   color: white;
@@ -425,7 +430,7 @@ footer h4 {
   flex-wrap: wrap;
   width:90%;
 padding: 10px;
-border-bottom: 1px solid purple;
+border-bottom: 1px solid #3C3C3C;
  
   
   
@@ -459,7 +464,7 @@ width:100%;
 .pr{
   font-weight:700;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:rgba(0,255,0);
+  color:    #A9A9A9;
   text-decoration: underline;
   cursor:pointer
 }
@@ -480,7 +485,7 @@ width:100%;
   margin:20px auto;
 }
 .t-and-info{
-  border: 1px solid aqua;
+  border: 1px solid #3C3C3C;
   padding: 40px;
   margin:80px;
  
@@ -495,7 +500,7 @@ width:100%;
   .chance_w{
     padding:10px;
      margin:20px auto;
-     border: 1px solid purple;
+     border: 1px solid #3C3C3C;
      
 }
   .info_line{
@@ -560,4 +565,11 @@ width:100%;
   .status_heading{
     font-size: small;
   }
+}
+.Removebtn{
+   color: transparent;
+   background-color: transparent;
+   border-color:transparent;
+   visibility: hidden;
+
 }
