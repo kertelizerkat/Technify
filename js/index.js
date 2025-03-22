@@ -634,9 +634,9 @@ ov.style.opacity = 0.5
 
 
 
-window.addEventListener('load', () => {
-    showNotification();
-})
+// window.addEventListener('load', () => {
+//     showNotification();
+// })
 
 {/* <p>
     <span class="status-head">Welcome, <span class="username">User</span>!</span> <span id="status-info">We're glad to have you here.</span>
