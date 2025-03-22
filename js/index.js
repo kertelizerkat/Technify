@@ -602,7 +602,7 @@ function displayDeviceWidth() {
     const deviceWidth = getDeviceWidth();
     let st = 0
     if (deviceWidth <= 236 & !(deviceType == 'Desktop/Laptop')) {
-        window.location.replace("spt.html");
+        window.location.replace("test2.html");
 
     }
 

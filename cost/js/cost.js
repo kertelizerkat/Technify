@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     let dataC={ email_P: emailC + "+check"  }
     
-    fetch('https://sculpin-charming-directly.ngrok-free.app/resend_c', {
+    fetch(line+ '/resend_c', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
