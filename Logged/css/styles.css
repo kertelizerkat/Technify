@@ -92,7 +92,7 @@ html {
       z-index: 10;
       border-left:1px solid #3C3C3C ;
       transition-property: all;
-      transition-duration: 2s;
+      transition-duration: 0.5s;
       transition-timing-function: ease-in-out;
       transform: translateX(160%);
     }
