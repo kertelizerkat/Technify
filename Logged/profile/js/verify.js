@@ -2,12 +2,12 @@
 window.addEventListener('DOMContentLoaded',()=>{
     let date2=18
     let date1=17
-    const pstate=accessInfo(en('state',date2))
-    const pasw=accessInfo(en('password',date1))
-    const phon=accessInfo(en('phone',date1))
-    const usern=accessInfo(en('username',date1))
-    const email= accessInfo(en('email',date1))
-    const logged= accessInfo(en('logged',date1))
+    let pstate=accessInfo(en('state',date2))
+    let pasw=accessInfo(en('password',date1))
+    let phon=accessInfo(en('phone',date1))
+    let usern=accessInfo(en('username',date1))
+    let email= accessInfo(en('email',date1))
+    let logged= accessInfo(en('logged',date1))
     if (pasw && phon && usern && email && logged=='true'){
         
         if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged")){window.location.assign('../logged')};
