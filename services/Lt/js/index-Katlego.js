@@ -97,8 +97,8 @@ function runPythonScript() {
     let bgcolor=btn.style.backgroundColor;
     let animation=btn.style.animationName
     btn.textContent="Loading";
-    btn.style.color="rgb(65,25,65)"
-    btn.style.backgroundColor= "rgba(255,255,255,0.6)";
+    btn.style.color="white"
+    btn.style.backgroundColor= "black";
     btn.style.animationName="rotate";
     btn.style.animationDuration="1s"
     btn.style.timingFunction="ease-in-out"
@@ -111,8 +111,8 @@ function runPythonScript() {
     let bgcolorc=cencon.style.backgroundColor;
     let animationc=cencon.style.animationName
     
-    cencon.style.color="rgb(65,25,65)"
-    cencon.style.backgroundColor= "rgba(255,255,255,0.6)";
+    cencon.style.color="white"
+    cencon.style.backgroundColor= "black";
     cencon.style.animationName="rotate";
     cencon.style.animationDuration="1s"
     cencon.style.timingFunction="ease-in-out"

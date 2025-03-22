@@ -109,7 +109,7 @@ function validateForm() {
 function sendFormData(data,sanitizedEmail) {
     // Send data to Flask application using fetch
 
-    const http = "https://sculpin-charming-directly.ngrok-free.app/register";
+    const http = line + "/register";
      fetch(http, {
         method: "POST",
         headers: {

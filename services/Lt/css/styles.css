@@ -1,49 +1,62 @@
 html {
-  background-color: rgba(60, 25, 60, 0.3);
+  background-color: #e0e0e0; /* Darker background for dark theme */
   overflow-x: hidden;
+  color: #000; /* Light text for visibility */
 }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 header {
   display: flex;
   width: 100vw;
   height: 70px;
-
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
-  background-color: rgba(65, 25, 65, 0.1);
-
+  background-color: rgba(255,255,255,0.2); /* Darker header background */
   padding: 0 20px;
-  z-index: 8;
+  z-index: 11;
+  
+  
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
 }
-/* main{
 
-} */
 header nav ul {
   display: flex;
   gap: 20px;
+  z-index: 10000;
 }
+
 .menu {
   display: none;
 }
+
 header nav ul li {
   list-style: none;
 }
+
 body {
   position: relative;
 }
+
 header nav a {
   text-decoration: none;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 1.8em;
   font-weight: bold;
-  color: rgba(60, 25, 60);
+  color: #282828; /* Light gray text for high contrast */
+  z-index: 10000;
 }
+
+header nav a:hover {
+  color: #3C3C3C; /* Bright white for hover effect */
+}
+
 @media (max-width: 558px) {
   header nav ul {
     height: 100vh;
@@ -55,29 +68,37 @@ header nav a {
     top: 0;
     width: 50vw;
     justify-content: center;
-    background-color: rgb(60, 25, 60);
+    background-color: rgba(255,255,255,0.6);
     border-top-left-radius: 20px;
     z-index: 10;
+    border-left:1px solid #3C3C3C ;
     transition-property: all;
     transition-duration: 2s;
     transition-timing-function: ease-in-out;
     transform: translateX(160%);
+    overflow: hidden;
   }
   header nav ul a {
-    color: white;
+    color: #1E1E1E;
     width: 100%;
   }
   li {
     width: 100%;
     text-align: center;
     padding: 20px 0;
+    background-color: whitesmoke;
+    border: 1px solid #007ACC;
+    border-top-color: transparent;
+    border-left-color: transparent;
   }
+ 
   header nav ul li:hover {
-    background-color: rgba(75, 25, 75, 0.9);
+    background-color:rgba(0, 0, 0, 1);
   }
   header nav ul a:hover {
-    color: rgba(173, 26, 173, 1);
+    color:white;
   }
+
   .menu {
     cursor: pointer;
     border-radius: 10px;
@@ -90,7 +111,7 @@ header nav a {
     z-index: 11;
     top: 20px;
     right: 20px;
-    background-color: rgba(75, 25, 75, 0.9);
+    background-color: #007ACC;
     transition-property: all;
     transition-duration: 3s;
     transition-timing-function: ease-in-out;
@@ -100,7 +121,7 @@ header nav a {
     color: white;
   }
   .pink {
-    background-color: rgba(173, 26, 173, 0.9);
+    background-color: black
   }
   .open {
     transform: translateX(0%);
@@ -121,33 +142,38 @@ section {
 .container {
   width: 500px;
   height: 340px;
-  border: 1px solid rgba(60, 25, 60);
+  border: 2px solid #007ACC;
   border-radius: 40px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  background-color: transparent;
+  box-shadow:  0 16px 16px rgba(0, 0, 0, 0.5);;
 }
 .cap {
   margin-top: -30px;
   margin-bottom: 40px;
   font-size: xx-large;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgba(60, 25, 60);
+  color:rgba(0,0,0);
   font-weight: 600;
   text-align: center;
 }
 label {
   font-weight: bold;
-  color: rgba(60, 25, 60);
+  color: rgba(0,0,0);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: larger;
 }
 #input {
-  height: 30px;
+  height: 35px;
   padding: 0 25px;
-  border: 2px solid rgba(60, 25, 60);
+  border: 2px solid #3C3C3C;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
-  color: rgb(60, 25, 60);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  background-color: transparent;
+  color: black;
+  font-family:  sans-serif;
+  /* font-weight: ; */
+  
 }
 .form {
   height: 100%;
@@ -160,7 +186,7 @@ label {
 .logo_name {
   font-size: xx-large;
   font-weight: 900;
-  color: rgba(60, 25, 60);
+  color:  #000;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   animation-name: logo_name_animation;
   animation-delay: 6s;
@@ -179,18 +205,22 @@ button {
   width: 60px;
   margin-top: 30px;
   height: 40px;
-  background-color: rgba(60, 25, 60);
+  background-color: #007ACC ;
   color: white;
   border-radius: 10px;
-  border: 1px solid rgba(60, 25, 60);
+  border: 1px solid  white;
+  border-right-color:transparent ;
+  border-left-color:transparent ;
   font-weight: bold;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
 }
 button:hover {
-  background-color: white;
-  color: rgba(60, 25, 60);
-  border: 3px solid rgba(60, 25, 60);
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  border: 3px solid  #282828;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
 }
 @media (max-width: 558px) {
   html {
@@ -216,7 +246,7 @@ button:hover {
     font-size: larger;
   }
   .status_heading{
-    font-size: large;
+    font-size: larger;
 
   }
 }
@@ -234,14 +264,16 @@ button:hover {
 .smoother {
   padding-top: 56px;
   padding-left: 20px;
+  z-index: 1000000;
 }
 .line {
   width: 60px;
   height: 10px;
-  background-color: rgba(60, 25, 65);
+  background-color: black;
   animation-name: slide;
   animation-duration: 6s;
   animation-timing-function: ease-in-out;
+  z-index: 10000;
 }
 @keyframes slide {
   50% {
@@ -258,23 +290,29 @@ footer {
 }
 footer h4 {
   text-align: center;
-  color: rgba(60, 25, 60);
+  color: black;
 }
 @keyframes rotate {
   0% {
-    border: 2px solid rgb(60, 25, 65);
+    border: 2px solid #007ACC;
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
+    background-color: transparent;
+    color: black;
   }
   50% {
-    border: 2px solid rgb(60, 25, 65);
+    border: 2px solid #007ACC;
     border-left: 2px solid transparent;
     border-left: 2px solid transparent;
+    background-color: transparent;
+    color: black;
   }
   100% {
-    border: 2px solid rgb(60, 25, 65);
+    border: 2px solid #007ACC;
     border-top: 2px solid transparent;
     border-bottom: 2px solid transparent;
+    background-color: transparent;
+    color: black;
   }
 }
 .out {
@@ -293,7 +331,7 @@ footer h4 {
   padding: 30px;
 
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(65, 25, 65);
+  color: black;
   font-weight: bold;
   text-decoration: underline;
   font-size: large;
@@ -301,20 +339,20 @@ footer h4 {
 
 .match {
   text-align: center;
-  color: rgb(60, 25, 60);
+  color: #007ACC;
   font-weight: 800;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 10px;
 }
 .match_container {
-  border: 1px solid rgb(65, 25, 65);
+  border: 1px solid black;
   padding: 10px;
   padding-right: 5px;
   padding-left: 5px;
 }
 .match_info {
   font-weight: 600;
-  color: rgba(60, 25, 60);
+  color: #3C3C3C;
   font-family: "Times New Roman", Times, serif;
   max-width: 90%;
   font-size: small;
@@ -347,7 +385,7 @@ footer h4 {
   overflow-x: hidden;
   padding: 20px;
   gap: 20px;
-  color: red;
+  color: #D32F2F;
   justify-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -373,7 +411,7 @@ footer h4 {
 .status_heading {
   margin-top: 80px;
   font-size: x-large;
-  color: rgb(65, 25, 65);
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: bold;
@@ -382,7 +420,7 @@ footer h4 {
 }
 .state{
     margin-top: 30px;
-    color: rgb(65, 25, 65);
+    color: black;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight:700;
     text-decoration:underline;
@@ -392,10 +430,10 @@ footer h4 {
     color: rgba(0,255,0)
 }
 #red{
-    color: rgba(255,0,0)
+    color: rgba(255,0,0);
 }
 #vs_info{
-  color: rgb(60, 25, 60);
+  color: black;
   /* text-align: left; */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight:600;
@@ -404,7 +442,7 @@ footer h4 {
   flex-wrap: wrap;
   width:90%;
 padding: 10px;
-border-bottom: 1px solid purple;
+border-bottom: 1px solid #007ACC;
  
   
   
@@ -438,7 +476,7 @@ width:100%;
 .pr{
   font-weight:700;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:rgba(95, 15, 95);
+  color:    black;
   text-decoration: underline;
   cursor:pointer
 }
@@ -453,13 +491,13 @@ width:100%;
 .time{
   font-weight:700;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:rgba(95, 15, 95);
+  color:rgb(0, 189, 63);
   display:block;
   width:100vw;
   margin:20px auto;
 }
 .t-and-info{
-  border: 1px solid rgb(65, 25, 65);
+  border: 1px solid #3C3C3C;
   padding: 40px;
   margin:80px;
  
@@ -474,7 +512,7 @@ width:100%;
   .chance_w{
     padding:10px;
      margin:20px auto;
-     border: 1px solid purple;
+     border: 1px solid #3C3C3C;
      
 }
   .info_line{
@@ -535,8 +573,15 @@ width:100%;
 }
 }
 
-@media (max-width: 345){
+@media (max-width: 345px){
   .status_heading{
-    font-size: small;
+    font-size: large;
   }
+}
+.Removebtn{
+   color: transparent;
+   background-color: transparent;
+   border-color:transparent;
+   visibility: hidden;
+
 }

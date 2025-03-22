@@ -54,7 +54,7 @@ function validateForm() {
   function sendFormData(data) {
     // Send data to Flask application using fetch
 
-    const http = "https://sculpin-charming-directly.ngrok-free.app/login";
+    const http = line + "/login";
      fetch(http, {
         method: "POST",
         headers: {
