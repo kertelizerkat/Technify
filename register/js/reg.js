@@ -183,7 +183,7 @@ function sendFormData(data,sanitizedEmail) {
                     c_btn.textContent='Try again';
                     c_btn.style.backgroundColor='#007bff';
                     reg_h.textContent='Register'
-                    reg_h.style.color='#ADD8E6'
+                    reg_h.style.color='#0056b3'
                 }, 1000); // 2000 milliseconds = 2 seconds
                 
 

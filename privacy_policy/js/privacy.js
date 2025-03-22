@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let theme=accessInfo('theme_+-----');
     if (theme){
       if (theme=='Dark'){
-        changeStylesheet('css/Dts_and_cs.css')
+        changeStylesheet('css/privacy.css');
+        console.log('changing theme')
+        
+      }else{
+        changeStylesheet('css/Lprivacy.css');
       }
     }
     
@@ -38,9 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
+  function changeStylesheet(newHref) {
+    // Select the <link> element with rel="stylesheet"
+    const linkElement = document.querySelector('link[rel="stylesheet"]');
+  
+    // Check if the <link> element exists
+    if (linkElement) {
+      // Change its href attribute to the new stylesheet path
+      linkElement.href = newHref;
+      console.log(`Stylesheet changed to: ${newHref}`);
+    } else {
+      console.error('Stylesheet link not found.');
+    }
+  }
+
   window.addEventListener('load',()=>{
     // alert('hey')
       document.getElementById('bs2_').style.visibility='visible'
-      // document.getElementById('bs2_').style.backgroundColor=''
   
   })

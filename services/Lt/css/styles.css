@@ -427,7 +427,7 @@ footer h4 {
     cursor:pointer;
 }
 #green{
-    color: rgba(0,255,0)
+    color: green
 }
 #red{
     color: rgba(255,0,0);

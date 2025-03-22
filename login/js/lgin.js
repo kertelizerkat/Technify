@@ -91,8 +91,8 @@ function validateForm() {
                  
                   c_btn.textContent='Try again';
                   c_btn.style.backgroundColor='#007bff';
-                  reg_h.textContent='Register'
-                  reg_h.style.color='#ADD8E6'
+                  reg_h.textContent='Login'
+                  reg_h.style.color='#0056b3'
               }, 1000);
               }
             }else{
@@ -113,7 +113,7 @@ function validateForm() {
               c_btn.classList.remove('load')
               c_btn.textContent='Done';
               c_btn.style.backgroundColor='#28a745';
-              reg_h.textContent='Register';
+              reg_h.textContent='Login';
               reg_h.style.color='#ADD8E6';
               // c_btn.textContent = 'Failed'
               // c_btn.style.backgroundColor = 'red'
@@ -144,8 +144,8 @@ function validateForm() {
             setTimeout(()=>{
               c_btn.textContent='Try again';
               c_btn.style.backgroundColor='#007bff';
-              reg_h.textContent='Register'
-              reg_h.style.color='#ADD8E6'
+              reg_h.textContent='Login'
+              reg_h.style.color='#0056b3'
           }, 1000);
          
 
@@ -153,3 +153,16 @@ function validateForm() {
 
     // return "passed"// Prevent form from submitting the traditional way n Incorrect2007@
       }
+
+
+// Function to prevent the submit button's default behavior
+// function preventButtonReload(event) {
+//   event.preventDefault(); // Prevent the page from refreshing or submitting data
+//   console.log("Submit button clicked, but no reload or data submission occurred!");
+// }
+
+// Attach the function to the submit button
+// document.addEventListener("DOMContentLoaded", function() {
+//   const submitButton = document.querySelector("button[type='submit']"); // Adjust selector if needed
+//   submitButton.addEventListener("click", preventButtonReload);
+// });

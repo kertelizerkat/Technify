@@ -179,7 +179,11 @@ function accessInfo(key) {
 
 
 
+window.addEventListener('load',()=>{
+  // alert('hey')
+    document.getElementById('bs2_').style.visibility='visible'
 
+})
 
 
 

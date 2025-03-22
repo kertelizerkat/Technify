@@ -79,8 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (theme){
     if (theme=='Light'){
       changeStylesheet('css/Llgin.css')
+    }else{
+      changeStylesheet('css/lgin.css')
     }
   }})
+
+window.addEventListener('load',()=>{
+  // alert('hey')
+    document.getElementById('bs2_').style.visibility='visible'
+
+})
 
 
 // Example usage
