@@ -1,7 +1,10 @@
 let date2=18
 let date1=17
 
-
+function storeInfo(key, value) {
+    localStorage.setItem(key, value);
+    // console.log(`Data stored: ${key} = ${value}`);
+  }
 
 
 function en(text, key) {
@@ -237,3 +240,14 @@ storeInfo(en('email',date1),em)
 
 // Set the last visit time when the user leaves the site
 window.addEventListener('beforeunload', setLastVisitTime);
+function logout(){
+  storeInfo(en('state',date2),'')
+  storeInfo(en('password',date1),'')
+  storeInfo(en('phone',date1),'')
+  storeInfo(en('username',date1),'')
+  storeInfo(en('email',date1),'')
+  storeInfo(en('logged',date1),'')
+  
+ 
+  }
+  logout()

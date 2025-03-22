@@ -119,13 +119,7 @@ function validateForm() {
               // c_btn.style.backgroundColor = 'red'
               // c_btn.setAttribute('type','')
               
-              setTimeout(()=>{
-               
-                window.location.assign("../cost/")
-
-
-                
-            }, 1000);
+              ;window.location.assign("../Logged/");
             }
 
         })

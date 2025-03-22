@@ -185,5 +185,15 @@ window.addEventListener('load',()=>{
 
 })
 
-
+function logout(){
+  storeInfo(en('state',date2),'')
+  storeInfo(en('password',date1),'')
+  storeInfo(en('phone',date1),'')
+  storeInfo(en('username',date1),'')
+  storeInfo(en('email',date1),'')
+  storeInfo(en('logged',date1),'')
+  
+   
+  }
+  logout()
 

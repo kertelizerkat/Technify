@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - TechNify</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <script src="js/mod.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">TechNify</div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a  href="../">Dashboard</a></li>
+          <li><a style="color:#007ACC;text-decoration:none" href="#">Profile</a></li>
+          <li ><a href="../../services/">BTS</a></li>
+          <li ><a href="../oders/">Orders</a></li>
+          <li style="margin-right: 20px;" ><a onclick="logout()" href="../../">Log Out</a></li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+    <main>
+      <section class="card us">
+        <h2>Personal <span class="username">Information</span></h2>
+        <p></p>
+      </section>
+      <div class="cards">
+        <div class="profile-container them">
+          <h2 class="user-username">Username: <span id="username"></span></h2>
+          <p class="user-email">Email: <span id="email"></span> <span class="verified"></span></p>
+          <p class="user-phone">Phone: <span id="phone"></span></p>
+          <p class="user-password">Password: <span id="password">•••••••••</span></p>
+          <button class="edit-profile">Edit Profile</button>
+        </div>
+        
+      </section>
+   
+    </div>
+    </main>
+    
+    
+    <footer>
+      <p>&copy; <span id="current-year"></span> TechNify. All rights reserved.</p>
+    </footer>
+  </div>
+ <script src="js/verify.js"></script>
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

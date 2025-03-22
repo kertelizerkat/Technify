@@ -9,6 +9,7 @@ if (dmcon) {
 }
 
 
+
 let menu_img = document.querySelector(".menu");
 let menu = document.querySelector(".closed");
 let qry = document.getElementById("input");

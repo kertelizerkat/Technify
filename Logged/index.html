@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - TechNify</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <script src="js/mod.js"></script>
+  <style>
+    /* Ensure the page takes up full viewport height */
+
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* Match page background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 8px solid #ccc; /* Light grey border */
+  border-top: 8px solid #3498db; /* Blue border for animation */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+p {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="loading-container">
+    <div class="loader"></div>
+    <p>Verifying Login details, please wait...</p>
+  </div>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">TechNify</div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a style="color:#007ACC;text-decoration:none" href="#">Dashboard</a></li>
+          <li><a href="profile/">Profile</a></li>
+          <li ><a href="../services/">BTS</a></li>
+          <li ><a href="oders/">Orders</a></li>
+          <li style="margin-right: 20px;" ><a  onclick="logout()" href="#">Log Out</a></li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+    <main>
+      <section class="card us" id="user">
+        <h2>Welcome, <span class="username">username</span></h2>
+        <p></p>
+      </section>
+      <div class="cards">
+      <section class="card them">
+        <img src="placeholder.jpg" alt="Product Image">
+        <h3>Featured Product</h3>
+        <p>NSPanel Lite - R600.00</p>
+        <button>Add to Cart</button>
+      </section>
+
+      <section class="card them">
+        <img src="placeholder.jpg" alt="Product Image">
+        <h3>Trending Now</h3>
+        <p>NSPanel Pro - R1,200.00</p>
+        <button>Add to Cart</button>
+      </section>
+      <section class="card them">
+        <img src="placeholder.jpg" alt="Product Image">
+        <h3>Trending Now</h3>
+        <p>NSPanel Pro - R1,200.00</p>
+        <button>Add to Cart</button>
+      </section>
+      <section class="card them">
+        <img src="placeholder.jpg" alt="Product Image">
+        <h3>Trending Now</h3>
+        <p>NSPanel Pro - R1,200.00</p>
+        <button>Add to Cart</button>
+      </section>
+      <section class="card them">
+        <img src="placeholder.jpg" alt="Product Image">
+        <h3>Trending Now</h3>
+        <p>NSPanel Pro - R1,200.00</p>
+        <button>Add to Cart</button>
+      </section>
+   
+    </div>
+
+    </main>
+    
+
+
+    <footer>
+      <p>&copy; <span id="current-year"></span> TechNify. All rights reserved.</p>
+    </footer>
+  </div>
+  <script src="js/verify.js"></script>
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
