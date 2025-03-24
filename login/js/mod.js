@@ -87,11 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }})
 
-window.addEventListener('load',()=>{
-  // alert('hey')
-    document.getElementById('bs2_').style.visibility='visible'
 
-})
 
 
 // Example usage
