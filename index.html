@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -361,7 +362,8 @@ top:0;
     <script>
         window.addEventListener('load',()=>{
             // document.querySelector("link[rel='stylesheet']").href='css/index.css'
-         document.querySelector('style').innerHTML=''
+          if(!(localStorage.getItem("theme_+-----"))){
+         document.querySelector('style').innerHTML=''}
          
         
                  })
@@ -369,6 +371,7 @@ top:0;
 </head>
 
 <body>
+  
     
     <div class="loader" id="loader">
         <div class="headl">TechNify</div>
@@ -391,6 +394,7 @@ top:0;
             </div>
         </div>
     </div>
+    
     
     
 
@@ -626,13 +630,14 @@ top:0;
 </section>    
 <script>
     window.addEventListener('load',()=>{
-     document.querySelector('#loader').style.display='none'
+     let ld=document.querySelector('#loader')
      let head_st=` <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">`
     let hd_cont= document.querySelector('head')
     hd_cont.innerHTML=hd_cont.innerHTML + head_st
+    ld.style.display='none'
       
     })
 </script>
@@ -644,5 +649,6 @@ top:0;
 <div id="msg">
     <div class="s">Device Screen Size Not Supported</div>
 </div>
+  
 
 </html>
