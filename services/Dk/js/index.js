@@ -4,7 +4,8 @@ let pmain_state = accessInfo('main_state')
 if (givendt) {
     checkTimeDifference(givendt, onThresholdMet);
 }
-if (dmcon) {
+if (dmcon & online) {
+
     document.body.innerHTML = dmcon
 }
 
@@ -460,8 +461,8 @@ function checkTimeDifference(dateGiven, callbackFunction) {
     // Calculate the time difference in milliseconds
     const timeDifference = currentTime - givenTime;
 
-    // Check if the time difference is 10 minutes or more (10 minutes = 600,000 milliseconds)
-    if (timeDifference >= 180000) {
+    // Check if the time difference is 2 minutes or more (10 minutes = 600,000 milliseconds)
+    if (timeDifference >= 120000) {
         ; // Call the provided function
         localStorage.setItem('domContent', '')
         localStorage.setItem('domContentdate', '')

@@ -195,6 +195,7 @@ function sendFormData(data,sanitizedEmail) {
         .catch(error => {
             console.log("Something went wrong with the response", error);
             const c_btn = document.getElementById('btn_s')
+            c_btn.classList.remove('load')
 
                 c_btn.textContent = 'Failed'
                 c_btn.style.backgroundColor = 'red'
