@@ -1,6 +1,7 @@
 let prev_state_s = accessInfo(de('state',date2))
 storeInfo(en('state',date2), 'index.html')
-
+let st= document.querySelector('style')
+st.innerHTML=''
 function isIphone() {
     // Check the user agent string for 'iPhone'
     return /iPhone/.test(navigator.userAgent);

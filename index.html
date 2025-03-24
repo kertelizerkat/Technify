@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -264,21 +263,18 @@ top:0;
 .earth-orbit {
 	width: 165px;
 	height: 165px;
-  animation:spin 12s linear 0s infinite;
   -webkit-animation: spin 12s linear 0s infinite;
 }
 
 .venus-orbit {
 	width: 120px;
 	height: 120px;
-  animation:spin 7.4s linear 0s infinite;
   -webkit-animation: spin 7.4s linear 0s infinite;
 }
 
 .mercury-orbit {
 	width: 90px;
 	height: 90px;
-  animation:spin 3s linear 0s infinite;;
   -webkit-animation: spin 3s linear 0s infinite;
 }
 
@@ -310,7 +306,6 @@ top:0;
 	width: 165px;
 	height: 165px;
   border: 1px solid #91daffa5;
-  animation:spin3D 3s linear .2s infinite;
   -webkit-animation: spin3D 3s linear .2s infinite;
 }
 
@@ -318,7 +313,6 @@ top:0;
 	width: 120px;
 	height: 120px;
   border: 1px solid #91ffbfa5;
-  animation:  spin3D 2s linear 0s infinite;
   -webkit-animation: spin3D 2s linear 0s infinite;
 }
 
@@ -326,7 +320,6 @@ top:0;
 	width: 90px;
 	height: 90px;
   border: 1px solid #ffca91a5;
-  animation:spin3D 1s linear 0s infinite;
   -webkit-animation: spin3D 1s linear 0s infinite;
 }
 
@@ -334,7 +327,6 @@ top:0;
 	width: 60px;
 	height: 60px;
   border: 2px solid #ffffff;
-  animation:spin3D 10s linear 0s infinite;
   -webkit-animation: spin3D 10s linear 0s infinite;
 }
 
@@ -362,7 +354,7 @@ top:0;
     <script>
         window.addEventListener('load',()=>{
             // document.querySelector("link[rel='stylesheet']").href='css/index.css'
-          if(!(localStorage.getItem("theme_+-----"))){
+          if (!(localStorage.getItem('theme_+-----'))){
          document.querySelector('style').innerHTML=''}
          
         
@@ -371,7 +363,6 @@ top:0;
 </head>
 
 <body>
-  
     
     <div class="loader" id="loader">
         <div class="headl">TechNify</div>
@@ -394,7 +385,6 @@ top:0;
             </div>
         </div>
     </div>
-    
     
     
 
@@ -630,14 +620,13 @@ top:0;
 </section>    
 <script>
     window.addEventListener('load',()=>{
-     let ld=document.querySelector('#loader')
+     document.querySelector('#loader').style.display='none'
      let head_st=` <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">`
     let hd_cont= document.querySelector('head')
     hd_cont.innerHTML=hd_cont.innerHTML + head_st
-    ld.style.display='none'
       
     })
 </script>
@@ -649,6 +638,5 @@ top:0;
 <div id="msg">
     <div class="s">Device Screen Size Not Supported</div>
 </div>
-  
 
 </html>
