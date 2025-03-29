@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Verification Code</title>
+    <link rel="stylesheet" href="css/varify.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/mod.js"></script>
+</head>
+<body>
+
+    <div class="comp-name">Code sent to <span class="eml"></span></div>
+    <div class="container">
+        <h1>Enter Verification Code</h1>
+        <form id="verificationForm">
+            <label for="verificationCode">Verification Code:</label>
+            <input type="text" maxlength="5" id="verificationCode" name="verificationCode" required>
+        </form>
+        <div id="countdown">Resend code in <span id="timer">30</span> seconds</div>
+        <button id="resendButton" disabled>Resend</button>
+        <div id="message"></div>
+    </div>
+    <script src="js/verify.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNify | Welcome</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <style>
+        body{
+            height:110vh;
+            width:100vw;
+            background-color:black;
+            overflow: hidden;
+        }
+        .loading{
+ height:110vh;
+ overflow: hidden;
+    
+}
+.loader{
+    height:100vh;
+    width:100vw;
+    position: absolute;
+    z-index: 10000000000000000000;
+    background-color: black;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+
+}
+.headl{
+    font-size: 2rem;
+    color: aqua;
+}
+.hide{
+    visibility: hidden;
+    min-height: 0px;
+    min-width: 0px;
+    max-width: 0px;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+}
+.bload{
+top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   overflow:hidden;
+   height:100vh
+    
+}
+    
+    
+    @keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin3D {
+  from {
+    transform: rotate3d(.5,.5,.5, 360deg);
+  }
+  to{
+    transform: rotate3d(0deg);
+  }
+}
+
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .25;
+    transform: scale(.75);
+  }
+}
+
+/* GRID STYLING */
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* SPINNING CIRCLE */
+
+
+
+
+/* ALTERNATING ORBITS */
+
+.circle-border {
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+  animation: spin .8s linear 0s infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+  border-radius: 50%;
+}
+
+/* X-ROTATING BOXES */
+
+.configure-border-1 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fb5b53;
+  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-border-2 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  left: -115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(63,249,220);
+  transform: rotate(45deg);
+  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+}
+
+/* PULSE BUBBLES */
+
+.pulse-container {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pulse-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #3ff9dc;
+}
+
+.pulse-bubble-1 {
+    animation: pulse .4s ease 0s infinite alternate;
+}
+.pulse-bubble-2 {
+    animation: pulse .4s ease .2s infinite alternate;
+}
+.pulse-bubble-3 {
+    animation: pulse .4s ease .4s infinite alternate;
+}
+
+/* SOLAR SYSTEM */
+
+.solar-system {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fafbfC;
+	border-radius: 50%;
+} 
+
+.earth-orbit {
+	width: 165px;
+	height: 165px;
+  animation:spin 12s linear 0s infinite;
+  -webkit-animation: spin 12s linear 0s infinite;
+}
+
+.venus-orbit {
+	width: 120px;
+	height: 120px;
+  animation: spin 7.4s linear 0s infinite;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+}
+
+.mercury-orbit {
+	width: 90px;
+	height: 90px;
+  animation:spin 3s linear 0s infinite;
+  -webkit-animation: spin 3s linear 0s infinite;
+}
+
+.planet {
+	position: absolute;
+	top: -5px;
+  width: 10px;
+  height: 10px;
+	border-radius: 50%;
+  background-color: #3ff9dc;
+}
+
+.sun {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color: #ffab91;
+}
+
+.leo {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.blue-orbit {
+	width: 165px;
+	height: 165px;
+  border: 1px solid #91daffa5;
+  animation: spin3D 3s linear .2s infinite;
+  -webkit-animation: spin3D 3s linear .2s infinite;
+  
+}
+
+.green-orbit {
+	width: 120px;
+	height: 120px;
+  border: 1px solid #91ffbfa5;
+  animation:spin3D 2s linear 0s infinite;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+
+.red-orbit {
+	width: 90px;
+	height: 90px;
+  border: 1px solid #ffca91a5;
+  animation: spin3D 1s linear 0s infinite;
+  -webkit-animation: spin3D 1s linear 0s infinite;
+}
+
+.white-orbit {
+	width: 60px;
+	height: 60px;
+  border: 2px solid #ffffff;
+  animation: spin3D 10s linear 0s infinite;
+  -webkit-animation: spin3D 10s linear 0s infinite;
+}
+
+.w1 {
+  transform: rotate3D(1, 1, 1, 90deg);
+}
+
+.w2 {
+  transform: rotate3D(1, 2, .5, 90deg);
+}
+
+.w3 {
+  transform: rotate3D(.5, 1, 2, 90deg);
+}
+
+.three-quarter-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fb5b53;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin .5s linear 0s infinite;
+}
+    </style>
+    <script>
+        window.addEventListener('load',()=>{
+         document.querySelector('style').innerHTML=`/* Global Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: whitesmoke;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    
+    /* Header Syles */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      /* border: 1px solid red; */
+    }
+    .site-header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+
+      margin: 20px;
+    }
+    .site-header .nav-menu ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      padding-right: 20px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li {
+      margin-left: 10px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      font-size: large;
+      font-family: sans-serif;
+    }
+    .site-header .nav-menu ul li a:hover {
+      color: #007bff;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    /* Background Video */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+      }
+    
+    /* Dark Overlay for Contrast */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 44;
+    }
+    
+    /* Hero Content */
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
+      z-index: 44;
+    }
+    
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: slideDown 1s ease-out;
+      color: #fff;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      animation: slideDown 1.5s ease-out;
+    }
+    
+    /* CTA Buttons */
+    .cta-buttons {
+      display: inline-flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .cta-button {
+      background: #007bff;
+      border: 2px solid #007bff;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s, color 0.3s;
+      animation: fadeIn 2s ease;
+    }
+    
+    .cta-button:hover {
+      background: transparent;
+      color: #007bff;
+      transform: scale(1.1);
+    }
+    
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+      @media only screen and (max-width:520px){
+      .hero-content h1{
+      font-size: 1.8rem}
+      }`
+        })
+    </script>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="headl">TechNify</div>
+
+        <div class="spinner-box">
+            <div class="blue-orbit leo">
+            </div>
+
+            <div class="green-orbit leo">
+            </div>
+
+            <div class="red-orbit leo">
+            </div>
+
+            <div class="white-orbit w1 leo">
+            </div>
+            <div class="white-orbit w2 leo">
+            </div>
+            <div class="white-orbit w3 leo">
+            </div>
+        </div>
+    </div>
+    <header class="site-header">
+      <div class="logo">TechNify</div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="../login/">Login</a></li>
+          <li><a href="../">Explore</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+  
+    <!-- Hero Section with Background Video -->
+    <section class="hero-section">
+      <!-- Background Video -->
+      <video class="hero-video" loop muted autoplay playsinline>
+        <source src="../sources/v1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Overlay for Contrast -->
+      <div class="overlay"></div>
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1>Experience The Future</h1>
+        <p>Innovate, connect, and transform your world with us.</p>
+        <div class="cta-buttons">
+          <button class="cta-button">Create Account</button>
+          <!-- <button class="cta-button">Explore More</button> -->
+        </div>
+      </div>
+    </section>
+  
+
+    <script>
+        window.addEventListener('load',()=>{
+         document.querySelector('#loader').style.display='none'
+         let tbn= document.querySelector('.cta-button')
+         tbn.addEventListener('click',()=>{
+          window.location.assign('../register/')
+         })
+        })
+    </script>
+    
+</body>
+</html>
