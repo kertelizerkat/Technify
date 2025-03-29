@@ -31,13 +31,13 @@ window.addEventListener('DOMContentLoaded',()=>{
         }
         else{
         // alert('failed to use data data')
-        location.reload()
+        
     }
         let r_data='';
         for (r in cards_data){
             r_data= r_data + `<div class="product-card">
             <div class="img-container">
-                <img src="../../sources/${cards_data[r].image_loc}" alt="Product Image">
+                <img src="../sources/${cards_data[r].image_loc}" alt="Product Image">
                 </div>
                 <div class="product-info">
                     <h3>${cards_data[r].type_}</h3>
@@ -135,7 +135,7 @@ function getproducts(){
     })
     .catch(error => {
         // alert('failed to recieve data')
-        location.reload()
+        // location.reload()
             
     });
 }
