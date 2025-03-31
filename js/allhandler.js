@@ -1,7 +1,7 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
-line="http://localhost:5700"
-let theme_m='Darskn'
+// line="http://localhost:5700"
+let theme_m='Dark'
 localStorage.setItem('theme_+-----', theme_m)
 let access_="domContent"
 let online=false
@@ -40,10 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
             width:100vw;
             background-color:black;
             overflow: hidden;
+            transform: scale(0.8)
         }
         .loading{
  height:100vh;
  overflow: hidden;
+ 
     
 }
 .loader{
