@@ -1,7 +1,7 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
 line="http://localhost:5700"
-let theme_m='Dark'
+let theme_m='Darskn'
 localStorage.setItem('theme_+-----', theme_m)
 let access_="domContent"
 let online=false
@@ -282,18 +282,21 @@ top:0;
 .earth-orbit {
 	width: 165px;
 	height: 165px;
+  animation: spin 12s linear 0s infinite;
   -webkit-animation: spin 12s linear 0s infinite;
 }
 
 .venus-orbit {
 	width: 120px;
 	height: 120px;
+  animation: spin 7.4s linear 0s infinite;
   -webkit-animation: spin 7.4s linear 0s infinite;
 }
 
 .mercury-orbit {
 	width: 90px;
 	height: 90px;
+ animation: spin 3s linear 0s infinite;
   -webkit-animation: spin 3s linear 0s infinite;
 }
 
@@ -325,6 +328,7 @@ top:0;
 	width: 165px;
 	height: 165px;
   border: 1px solid #91daffa5;
+  animation: spin3D 3s linear .2s infinite;
   -webkit-animation: spin3D 3s linear .2s infinite;
 }
 
@@ -332,13 +336,19 @@ top:0;
 	width: 120px;
 	height: 120px;
   border: 1px solid #91ffbfa5;
+animation: spin3D 2s linear 0s infinite;
   -webkit-animation: spin3D 2s linear 0s infinite;
+}
+.inf{
+  text-align: center;
+  /* transform: scale(1); */
 }
 
 .red-orbit {
 	width: 90px;
 	height: 90px;
   border: 1px solid #ffca91a5;
+ animation: spin3D 1s linear 0s infinite;
   -webkit-animation: spin3D 1s linear 0s infinite;
 }
 
@@ -346,6 +356,7 @@ top:0;
 	width: 60px;
 	height: 60px;
   border: 2px solid #ffffff;
+  animation: spin3D 10s linear 0s infinite;
   -webkit-animation: spin3D 10s linear 0s infinite;
 }
 
