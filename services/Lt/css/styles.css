@@ -238,12 +238,13 @@ button:hover {
     height: 300px;
     width: unset;
     min-width: 350px;
-    max-width: 100%;
+    max-width:80vw;
     margin: 0 0;
     scale: 0.89;
   }
   .cap {
     font-size: larger;
+    margin-top:20px;
   }
   .status_heading{
     font-size: larger;
