@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // location.reload(false)
        
         }
-        online=true
+        online=false
        
     })
     .catch(error => {
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechNify | offline</title>
+    
     <style>
         body{
             height:100vh;
@@ -440,6 +441,36 @@ h5{
    
 </div>
 
+
+<script>
+setInterval(function(){
+  fetch('${line}/status', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify('hi')
+})
+.then(response => response.json())
+.then(data => {
+    if (data.message=='okay'){
+       
+            online=true
+          
+    }else{
+        online=true
+    
+   
+    }
+    location.reload()
+    online=false
+   
+})
+.catch(error => {
+    console.log('testing')
+});
+},5000)
+</script>
     
     
 </body>

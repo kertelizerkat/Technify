@@ -21,7 +21,8 @@
   <script>
     window.addEventListener('load',()=>{
   // alert('hey')
-    document.getElementById('bs2_').style.visibility='visible'
+    let rst= document.getElementById('bs2_')
+    if (rst){rst.style.visibility='visible'}
 
 })
 
@@ -50,4 +51,7 @@
   <p class="message m2">Copyright &copy; <span id='current-year'>2024</span> TechNify</p>
   <script src="js/lgin.js"></script>
 </body>
+
 </html>
+
+

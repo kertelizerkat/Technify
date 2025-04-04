@@ -1,5 +1,5 @@
-let dmcon = accessInfo(access_)
-let givendt = accessInfo('domContentdate')
+let dmcon = accessInfo("index-js")
+let givendt = accessInfo('jsdomContentdate')
 let pmain_state = accessInfo('main_state')
 if (givendt) {
     checkTimeDifference(givendt, onThresholdMet);
@@ -464,9 +464,9 @@ function checkTimeDifference(dateGiven, callbackFunction) {
     // Check if the time difference is 2 minutes or more (10 minutes = 600,000 milliseconds)
     if (timeDifference >= 120000) {
         ; // Call the provided function
-        localStorage.setItem('domContent', '')
-        localStorage.setItem('domContentdate', '')
-        localStorage.setItem('main_state', '')
+        localStorage.setItem('index-js', '')
+        localStorage.setItem('jsdomContentdate', '')
+        // localStorage.setItem('main_state', '')
     } else {
         console.log('The 10-minute threshold has not yet been reached.');
     }

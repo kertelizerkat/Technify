@@ -81,7 +81,7 @@ html {
       flex-direction: column;
       align-items: center;
       box-sizing: border-box;
-      /* overflow-x: hidden; */
+      overflow: hidden;
       position: absolute;
       right: 0;
       top: 0;

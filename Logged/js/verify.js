@@ -1,5 +1,17 @@
 
 window.addEventListener('DOMContentLoaded',()=>{
+    let dmcon = accessInfo(access_)
+    let givendt = accessInfo('domContentdate')
+    
+    if (givendt) {
+        checkTimeDifference(givendt, onThresholdMet);
+    }
+    if (dmcon & online) {
+    
+        document.body.innerHTML = dmcon
+        return true
+    }
+
     let date2=18
     let date1=17
     const pstate=accessInfo(en('state',date2))
@@ -8,6 +20,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     const usern=accessInfo(en('username',date1))
     const email= accessInfo(en('email',date1))
     const logged= accessInfo(en('logged',date1))
+
     if (pasw && phon && usern && email && logged=='true'){
         if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged")){window.location.assign('../login')}else{
 
@@ -17,12 +30,13 @@ window.addEventListener('DOMContentLoaded',()=>{
         usht.textContent=de(usern,date1);
         storeInfo(en('state',date2), 'logged')
         data = { data: `${(en(de(email,date1),date2))}(@)${en(de(pasw,date1),date2)}(@)` }
+       
         sendFormData(data)
         getproducts()
         let cards_data=JSON.parse(accessInfo('ddata'))
-        console.log(cards_data)
-        console.log(cards_data)
-        console.log(cards_data)
+        // console.log(cards_data)
+        // console.log(cards_data)
+        // console.log(cards_data)
         console.log(cards_data)
         console.log('hey')
         if(cards_data){
@@ -95,6 +109,9 @@ window.addEventListener('DOMContentLoaded',()=>{
 window.addEventListener('load',()=>{
     let loader= document.querySelector('.loading-container')
     loader.style.display='none'
+   if (document.querySelector('.products-grid').innerHTML==''){
+    location.reload(false)
+   }
   
 })
 
@@ -181,7 +198,7 @@ function sendFormData(data) {
               // c_btn.setAttribute('type','')
               
                resp= 'verified'
-            }
+            } 
 
         })
         .catch(error => {
@@ -195,3 +212,46 @@ function sendFormData(data) {
 
     // return "passed"// Prevent form from submitting the traditional way n Incorrect2007@
       }
+      function saveDOMBeforeReload() {
+        window.addEventListener('beforeunload', function () {
+            try {
+                // Get the current DOM content
+                const domContent = document.body.innerHTML;
+                const exampleDate = new Date();
+                // Save it in local storage
+                localStorage.setItem('domContent', domContent);
+                localStorage.setItem('domContentdate', exampleDate);
+                localStorage.setItem('main_state', main_state);
+    
+                console.log('DOM content saved before reload!');
+            } catch (error) {
+                console.error('Error saving DOM content:', error);
+            }
+        });
+    }
+    
+    // Call the function to start listening for reloads
+    saveDOMBeforeReload();
+    function checkTimeDifference(dateGiven, callbackFunction) {
+        const currentTime = dateGiven; // Get the current date and time
+        const givenTime = new Date(dateGiven); // Convert the given date to a Date object
+    
+        // Calculate the time difference in milliseconds
+        const timeDifference = currentTime - givenTime;
+    
+        // Check if the time difference is 2 minutes or more (10 minutes = 600,000 milliseconds)
+        if (timeDifference >= 120000) {
+            ; // Call the provided function
+            localStorage.setItem('domContent', '')
+            localStorage.setItem('domContentdate', '')
+            localStorage.setItem('main_state', '')
+        } else {
+            console.log('The 10-minute threshold has not yet been reached.');
+        }
+    }
+    
+    // Example usage:
+    // Define the function to execute
+    function onThresholdMet() {
+        console.log('10 minutes have passed since the given date!');
+    }    
