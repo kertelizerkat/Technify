@@ -115,7 +115,7 @@ window.addEventListener('load',()=>{
    if (document.querySelector('.products-grid').innerHTML==''){
     // Call the function
     waitForSixtySeconds();
-    location.reload(false)
+   
    }}
 
    // Side Menu Toggle Script
@@ -159,8 +159,8 @@ window.addEventListener("scroll", () => {
 function waitForSixtySeconds() {
     console.log("Waiting for 60 seconds...");
     setTimeout(() => {
-        console.log("60 seconds have passed!");
-    }, 60000); // 60000 milliseconds = 60 seconds
+        location.reload()
+    }, 10000); // 60000 milliseconds = 60 seconds
 }
 
 
