@@ -2,12 +2,12 @@
 window.addEventListener('DOMContentLoaded',()=>{
     let dmcon = accessInfo("domContent2")
     let givendt = accessInfo('domContentdate2')
-    let ons= accessInfo('online')
-    
+    let ons= accessInfo('online') 
+    let dd=accessInfo(en('logged',17))
     if (givendt) {
         checkTimeDifference(givendt, onThresholdMet);
     }
-    if (dmcon && ons=='true' ) {
+    if (dmcon && ons=='true' && dd=='true' ) {
     
         document.body.innerHTML = dmcon
     
