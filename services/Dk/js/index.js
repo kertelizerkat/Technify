@@ -1,10 +1,11 @@
-let dmcon = accessInfo("index-js")
-let givendt = accessInfo('jsdomContentdate')
+let dmcon = accessInfo(access_)
+let givendt = accessInfo('domContentdate')
 let pmain_state = accessInfo('main_state')
+let ons= accessInfo('online')
 if (givendt) {
     checkTimeDifference(givendt, onThresholdMet);
 }
-if (dmcon & online) {
+if (dmcon && ons=='true') {
 
     document.body.innerHTML = dmcon
 }
@@ -434,14 +435,15 @@ function saveDOMBeforeReload() {
     window.addEventListener('beforeunload', function () {
         try {
             // Get the current DOM content
-            const domContent = document.body.innerHTML;
-            const exampleDate = new Date();
-            // Save it in local storage
-            localStorage.setItem('domContent', domContent);
-            localStorage.setItem('domContentdate', exampleDate);
-            localStorage.setItem('main_state', main_state);
-
-            console.log('DOM content saved before reload!');
+            if (accessInfo('online')=='true'){
+                const domContent = document.body.innerHTML;
+                const exampleDate = new Date();
+                // Save it in local storage
+                localStorage.setItem('domContent', domContent);
+                localStorage.setItem('domContentdate', exampleDate);
+                localStorage.setItem('main_state', main_state);
+    
+                console.log('DOM content saved before reload!');}
         } catch (error) {
             console.error('Error saving DOM content:', error);
         }

@@ -1,16 +1,17 @@
 
-window.addEventListener('DOMContentLoaded',()=>{
-    let dmcon = accessInfo(access_)
-    let givendt = accessInfo('domContentdate')
+window.addEventListener('load',()=>{
+    let dmcon = accessInfo("domContent2")
+    let givendt = accessInfo('domContentdate2')
+    let ons= accessInfo('online')
     
     if (givendt) {
         checkTimeDifference(givendt, onThresholdMet);
     }
-    if (dmcon & online) {
+    if (dmcon && ons=='true' ) {
     
         document.body.innerHTML = dmcon
-        return true
-    }
+    
+    }else{
 
     let date2=18
     let date1=17
@@ -104,16 +105,18 @@ window.addEventListener('DOMContentLoaded',()=>{
     else{window.location.assign("../login/")}
         
     
-})
+}})
 
 window.addEventListener('load',()=>{
     let loader= document.querySelector('.loading-container')
-    loader.style.display='none'
+    if (loader){
+    loader.style.display='none'}
+    if (document.querySelector('.products-grid')){
    if (document.querySelector('.products-grid').innerHTML==''){
     // Call the function
     waitForSixtySeconds();
     location.reload(false)
-   }
+   }}
   
 })
 
@@ -226,14 +229,15 @@ function sendFormData(data) {
         window.addEventListener('beforeunload', function () {
             try {
                 // Get the current DOM content
+                if (accessInfo('online')=='true'){
                 const domContent = document.body.innerHTML;
                 const exampleDate = new Date();
                 // Save it in local storage
-                localStorage.setItem('domContent', domContent);
-                localStorage.setItem('domContentdate', exampleDate);
-                localStorage.setItem('main_state', main_state);
+                localStorage.setItem('domContent2', domContent);
+                localStorage.setItem('domContentdate2', exampleDate);
+                localStorage.setItem('main_state2', main_state);
     
-                console.log('DOM content saved before reload!');
+                console.log('DOM content saved before reload!');}
             } catch (error) {
                 console.error('Error saving DOM content:', error);
             }
@@ -252,9 +256,9 @@ function sendFormData(data) {
         // Check if the time difference is 2 minutes or more (10 minutes = 600,000 milliseconds)
         if (timeDifference >= 120000) {
             ; // Call the provided function
-            localStorage.setItem('domContent', '')
-            localStorage.setItem('domContentdate', '')
-            localStorage.setItem('main_state', '')
+            localStorage.setItem('domContent2', '')
+            localStorage.setItem('domContentdate2', '')
+            localStorage.setItem('main_state2', '')
         } else {
             console.log('The 10-minute threshold has not yet been reached.');
         }

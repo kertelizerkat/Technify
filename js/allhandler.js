@@ -1,10 +1,11 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
 // line="http://localhost:5700"
-let theme_m='Light'
+let theme_m='Dark'
 localStorage.setItem('theme_+-----', theme_m)
 let access_="domContent"
 let online=false
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch(line+ '/status', {
         method: 'POST',
@@ -17,17 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         if (data.message=='okay'){
            
-                online=true
+          localStorage.setItem('online','true')
         }else{
             online=true
-        // location.reload(false)
+            localStorage.setItem('online','true')
        
         }
-        online=false
+        localStorage.setItem('online','true')
+      
        
     })
     .catch(error => {
         console.log(error)
+        localStorage.setItem('online','false')
         document.querySelector('html').innerHTML=`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -463,7 +466,7 @@ setInterval(function(){
    
     }
     location.reload()
-    online=false
+    online=true
    
 })
 .catch(error => {
