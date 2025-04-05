@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     if (givendt) {
         checkTimeDifference(givendt, onThresholdMet);
     }
-    if (dmcon && ons=='true' && dd=='true' ) {
+    if (dmcon && ons=='true' && dd=='true' && accessInfo(en('password',17)) && accessInfo(en('username',date1)) ) {
     
         document.body.innerHTML = dmcon
     
@@ -264,7 +264,7 @@ function sendFormData(data) {
         window.addEventListener('beforeunload', function () {
             try {
                 // Get the current DOM content
-                if (accessInfo('online')=='true'){
+                if (accessInfo('online')=='true' && accessInfo(en('logged',17))=='true') {
                 const domContent = document.body.innerHTML;
                 const exampleDate = new Date();
                 // Save it in local storage
