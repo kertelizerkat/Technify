@@ -1,5 +1,5 @@
 
-window.addEventListener('DOMContentLoaded',()=>{
+window.addEventListener('load',()=>{
     let dmcon = accessInfo("domContent2")
     let givendt = accessInfo('domContentdate2')
     let ons= accessInfo('online') 
