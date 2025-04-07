@@ -160,8 +160,9 @@ window.addEventListener("scroll", () => {
 function waitForSixtySeconds() {
     console.log("Waiting for 60 seconds...");
     setTimeout(() => {
-        window.location.reload(true)
-    }, 1000); // 60000 milliseconds = 60 seconds
+        // location.reload(true)
+        getproducts2()
+    }, 3000); // 60000 milliseconds = 60 seconds
 }
 
 
@@ -173,6 +174,99 @@ function waitForSixtySeconds() {
 
 
 
+function getproducts2(){
+    // alert('fetching')
+    fetch(line+ '/products', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({message:'Logged'})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (true){
+            if (data.message){
+
+           console.log(data.message)
+        //    alert('data recieved')
+        let cards_data=data.message
+        // console.log(cards_data)
+        // console.log(cards_data)
+        // console.log(cards_data)
+        console.log(cards_data)
+        console.log('hey')
+        if(cards_data){
+        // alert('incorporating data')
+
+        }
+        else{
+        // alert('failed to use data data')
+        
+    }
+        let r_data='';
+        for (r in cards_data){
+            r_data= r_data + `<div class="product-card">
+            <div class="img-container">
+                <img src="../sources/${cards_data[r].image_loc}" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h3>${cards_data[r].type_}</h3>
+                    <p>${cards_data[r].card_item} - R${cards_data[r].price}</p>
+                    <button>Buy Now</button>
+                </div>
+              </div>`
+              {`<div class="product-card">
+        <img src="https://via.placeholder.com/400x200.png?text=Product+1" alt="Product 1" />
+        <div class="product-info">
+          <h3>Product 1</h3>
+          <p>A short, enticing description of Product 1. Standout features and a quality build.</p>
+          <button>Buy Now</button>
+        </div>
+      </div>`}
+        
+        
+        
+       
+        
+        
+        
+    
+    }
+    let cards= document.querySelector(".products-grid")
+    // alert(cards)
+    cards.innerHTML= r_data
+        
+        // cards_data={
+        //   1:{
+        //     card_item: 'NSPanel Lite',
+        //     price: 600.00,
+        //     image_loc: 'placeholder.jpg',
+        //     type:'Featured Product'
+        //   },
+        //   2:{
+        //     card_item: 'NSPanel Pro',
+        //     price: 1200.00,
+        //     image_loc: 'placeholder.jpg',
+        //     type_:'Trending Now'
+        //   }
+        // }
+    
+        }
+         
+        }else{
+        
+       
+        }
+
+       
+    })
+    .catch(error => {
+        // alert('failed to recieve data')
+        // location.reload()
+            
+    });
+}
 function getproducts(){
     // alert('fetching')
     fetch(line+ '/products', {
