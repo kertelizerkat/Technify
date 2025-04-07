@@ -161,7 +161,7 @@ function waitForSixtySeconds() {
     console.log("Waiting for 60 seconds...");
     setTimeout(() => {
         window.location.reload(true)
-    }, 500); // 60000 milliseconds = 60 seconds
+    }, 1000); // 60000 milliseconds = 60 seconds
 }
 
 
