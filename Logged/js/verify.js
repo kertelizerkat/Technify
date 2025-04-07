@@ -114,6 +114,7 @@ window.addEventListener('load',()=>{
     if (document.querySelector('.products-grid')){
    if (document.querySelector('.products-grid').innerHTML==''){
     // Call the function
+    
     waitForSixtySeconds();
    
    }}
@@ -160,7 +161,7 @@ function waitForSixtySeconds() {
     console.log("Waiting for 60 seconds...");
     setTimeout(() => {
         location.reload()
-    }, 10000); // 60000 milliseconds = 60 seconds
+    }, 3000); // 60000 milliseconds = 60 seconds
 }
 
 
