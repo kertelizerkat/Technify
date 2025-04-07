@@ -160,8 +160,8 @@ window.addEventListener("scroll", () => {
 function waitForSixtySeconds() {
     console.log("Waiting for 60 seconds...");
     setTimeout(() => {
-        location.reload()
-    }, 1000); // 60000 milliseconds = 60 seconds
+        window.location.reload(true)
+    }, 2000); // 60000 milliseconds = 60 seconds
 }
 
 
