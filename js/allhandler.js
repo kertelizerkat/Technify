@@ -1,9 +1,9 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
-// line="http://localhost:5700"
-// let theme_m='Dark'
-// localStorage.setItem('theme_+-----', theme_m)
-let access_="domContent"
+line="http://localhost:5700"
+let theme_m='Light'
+localStorage.setItem('theme_+-----', theme_m)
+let access_="domaContent"
 let online=false
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -446,8 +446,14 @@ h5{
 
 
 <script>
-setInterval(function(){
-  fetch('${line}/status', {
+</script>
+    
+    
+</body>
+</html>`
+
+function check(){
+  fetch(line+ '/status', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -458,26 +464,22 @@ setInterval(function(){
 .then(data => {
     if (data.message=='okay'){
        
-            online=true
+      
           
     }else{
-        online=true
     
    
     }
-    location.reload()
-    online=true
+
+    window.location.reload()
    
 })
 .catch(error => {
     console.log('testing')
 });
-},5000)
-</script>
-    
-    
-</body>
-</html>`
+}
+setInterval(check,5000)
+
             
     });
 })

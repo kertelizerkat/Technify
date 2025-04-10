@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /private/
+Disallow: /Logged/
+Disallow: /cost/
+Disallow: /services/
+Disallow: /payment/
+Disallow: /login/
+Disallow: /js/
+Disallow: /verify/
+
+Allow: /welcome/
