@@ -149,6 +149,7 @@ function sendFormData(data,sanitizedEmail) {
                 
             } else {
                 const reg_h= document.querySelector('.reg_h')
+                const c_btn = document.getElementById('btn_s')
                 if (data['reason']=="EXemail"){
                     reg_h.textContent='Invalid Email'
                     reg_h.style.color='red'
@@ -175,7 +176,7 @@ function sendFormData(data,sanitizedEmail) {
 
                 }
                 
-                const c_btn = document.getElementById('btn_s')
+                
                 c_btn.classList.remove('load')
                 c_btn.textContent = 'Failed'
                 c_btn.style.backgroundColor = 'red'

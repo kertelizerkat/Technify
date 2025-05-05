@@ -101,6 +101,7 @@ function validateForm() {
 
               const ps=data['password']
               const p=data['phone']
+           
               const us=data['username']
               const em=data['email']
               storeInfo(en('password',date1),ps)
@@ -119,8 +120,7 @@ function validateForm() {
               // c_btn.textContent = 'Failed'
               // c_btn.style.backgroundColor = 'red'
               // c_btn.setAttribute('type','')
-              
-              ;window.location.assign("../Logged/");
+              window.location.assign("../Logged/index.html");
             }
 
         })

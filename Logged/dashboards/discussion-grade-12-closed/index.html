@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learner Discussion | Grade 12</title>
+  <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+  <style>
+    /* Reset & Basic Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #180202, #460808, #7a1111);
+      color: #e4e6eb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    /* Main container holds sidebar & chat window */
+    .container {
+      display: flex;
+      height: 100%;
+    }
+    
+    /* Sidebar for contacts (visible on larger screens) */
+    .sidebar {
+      background:  linear-gradient(135deg, #250202, #520e0e);
+      width: 25%;
+      max-width: 300px;
+      min-width: 250px;
+      padding: 20px;
+      border-right: 1px solid #3a3b3c;
+      overflow-y: auto;
+    }
+    
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .chat-list-item {
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #460808, #7a1111);
+  color: #e4b0b0;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      
+    }
+    
+    .chat-list-item:hover {
+        background: #911b1b;
+    }
+    
+    /* Chat window area */
+    .chat-window {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    /* Chat header (Group title) */
+    .chat-header {
+      padding: 20px;
+      background: linear-gradient(135deg, #250202, #6a1515);
+    border-bottom: 1px solid #7a1111;
+    color: #e4b0b0;
+    }
+    
+    .chat-header h2 {
+      font-size: 1.5rem;
+    }
+    
+    /* Chat messages with a perfect background image */
+    .chat-body {
+      flex: 1;
+      position: relative;
+      padding: 20px;
+      overflow-y: auto;
+      /* Background image with a dark gradient overlay for clarity */
+      background: linear-gradient(135deg, rgba(28, 2, 2, 0.9), rgba(78, 12, 12, 0.9)),
+        url('../../../sources/anonymous.png');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Message container styling */
+    .message {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Alignment for your own messages */
+    .message-self {
+      align-items: flex-end;
+    }
+    
+    /* Alignment for messages from others */
+    .message-other {
+      align-items: flex-start;
+    }
+    
+    /* Sender name styling */
+    .sender {
+      font-size: 0.85rem;
+      color: #ff6b6b;
+      margin-bottom: 3px;
+      max-width: 50%;
+    }
+    
+    /* Message bubble styling */
+    .bubble {
+      max-width: 60%;
+      padding: 12px 18px;
+      border-radius: 18px;
+      font-size: 1rem;
+      line-height: 1.4;
+      position: relative;
+      z-index: 2;
+    }
+    
+    
+    /* Messages sent by you */
+    .message-self .bubble {
+        background: linear-gradient(135deg, #8c1212, #e03333);
+        color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    
+    /* Messages sent by others */
+    .message-other .bubble {
+        background: linear-gradient(135deg, #470202, #580b0b);
+        color: #e4e6eb;
+      border-bottom-left-radius: 4px;
+    }
+    
+    /* Chat input area */
+    .chat-input {
+      padding: 20px;
+      background: linear-gradient(135deg, #250202, #730f0f);
+  border-top: 1px solid #8c1212;
+    }
+    
+    .input-container {
+      display: flex;
+    }
+    
+    .input-container input[type="text"] {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #470202, #8c1212);
+      color: #e4e6eb;
+      font-size: 1rem;
+    }
+    
+    .input-container input[type="text"]::placeholder {
+        color: #e4b0b0;
+    }
+    
+    .input-container button {
+      margin-left: 10px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+    
+      font-size: 1rem;
+      cursor: pointer;
+
+      background: linear-gradient(135deg, #8c1212, #e03333);
+      color: #fff;
+        transition: background 0.2s ease;
+    }
+    
+    .input-container button:hover {
+        background: #c32424;
+    }
+    
+    /* Custom scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #5c0e0e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #a81919;
+      border-radius: 3px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      /* Hide the sidebar for smaller screens */
+      .sidebar {
+        display: none;
+      }
+      .chat-window {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .chat-header h2 {
+        font-size: 1.3rem;
+      }
+      .input-container input[type="text"] {
+        font-size: 0.9rem;
+      }
+      .bubble {
+        font-size: 0.9rem;
+      }
+      .chat-list-item {
+        padding: 10px;
+      }
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #nav_home{
+        color: #ff6b6b;
+       cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar (Contacts) visible on larger screens -->
+    <aside class="sidebar">
+      <h2>Chats</h2>
+      <div class="chat-list-item">Alice</div>
+      <div class="chat-list-item">Bob</div>
+      <div class="chat-list-item">Charlie</div>
+      <div class="chat-list-item">Diana</div>
+      <div class="chat-list-item">Eve</div>
+    </aside>
+    
+    <!-- Main chat window -->
+    <div class="chat-window">
+      <header class="chat-header">
+        <h2>Gr-12 Closed</h2>
+        <h2 id="nav_home">Home</h2>
+
+      </header>
+      
+      <div class="chat-body" id="chatBody">
+        <!-- Sample Group Chat Messages -->
+        <div class="message message-other">
+          <div class="sender">Creator</div>
+          <div class="bubble">Hello everyone, how are you all?</div>
+        </div>
+        <!-- <div class="message message-self">
+          <div class="sender">You</div>
+          <div class="bubble">I'm doing well, thanks! What about you, Bob?</div>
+        </div>
+        <div class="message message-other">
+          <div class="sender">Bob</div>
+          <div class="bubble">Great! Excited for our meeting later.</div>
+        </div> -->
+      </div>
+      
+      <footer class="chat-input">
+        <div class="input-container">
+          <input type="text" id="chatInput" placeholder="Type your message here..." />
+          <button id="sendButton" type="button">Send</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript to handle sending messages as the current user.
+    const sendButton = document.getElementById('sendButton');
+    const chatInput = document.getElementById('chatInput');
+    const chatBody = document.getElementById('chatBody');
+    const home= document.getElementById('nav_home');
+
+    home.addEventListener('click',()=>{
+        window.location.assign('../../')
+
+    });
+    
+    sendButton.addEventListener('click', function () {
+      const messageText = chatInput.value.trim();
+      if (messageText !== "") {
+        // Create a new message element for a self-sent message.
+        const messageElem = document.createElement('div');
+        messageElem.classList.add('message', 'message-self');
+        messageElem.innerHTML = `<div class="sender">You</div><div class="bubble">${messageText}</div>`;
+        chatBody.appendChild(messageElem);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        chatInput.value = "";
+      }
+    });
+    
+    // Allow message sending on "Enter" key press.
+    chatInput.addEventListener('keypress', function (e) {
+      if (e.key === "Enter") {
+        sendButton.click();
+      }
+    });
+  </script>
+</body>
+</html>

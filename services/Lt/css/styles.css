@@ -131,6 +131,7 @@ header nav a:hover {
   text-decoration: underline;
 }
 
+
 section {
   width: 100vw;
   height: auto;
@@ -139,6 +140,16 @@ section {
   justify-content: center;
   overflow-x: hidden;
 }
+/* 
+.pversion{
+  height: 40px;
+  width:50px;
+   background-color: transparent;
+   position: absolute;
+   
+   top:5px;
+   left:200px
+} */
 .container {
   width: 500px;
   height: 340px;

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learner Profile</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <script src="js/mod.js"></script>
+  <script src="../../js/allhandler.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">Makgetse S.S</div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a  href="../index.html">Dashboard</a></li>
+          <li><a style="color:#007ACC;text-decoration:none" href="#">Profile</a></li>
+          <li ><a href="../../services/index.html">BTS</a></li>
+          <li ><a href="../users/index.html">Users</a></li>
+          <li style="margin-right: 20px;"><a style="color:rgba(0,255,0,1)" onclick="logout()" href="../../index.html">Log Out</a></li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+    <main>
+      <section class="card us">
+        <h2>Personal <span class="username">Information</span></h2>
+        <p></p>
+      </section>
+      <div class="cards">
+        <div class="profile-container them">
+          <h2 class="user-username">Username: <span id="username"></span></h2>
+          <p class="user-email">Email: <span id="email"></span> <span class="verified"></span></p>
+          <p class="user-phone">phone: <span id="phone"></span></p>
+          <p class="user-password">Password: <span id="password">•••••••••</span></p>
+          <p class="user-verified">Status:  <span id="verified-status" style="color: yellow;"> checking</span></p>
+          <!-- <button class="edit-profile">Edit Profile</button> -->
+        </div>
+        
+      </section>
+   
+    </div>
+    </main>
+    
+    
+    <footer>
+      <p>&copy; <span id="current-year"></span> Makgetse Learners Dashboard. All rights reserved.</p>
+    </footer>
+  </div>
+ <script src="js/verify.js"></script>
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../../js/onchecker.js"></script>
+</body>
+</html>

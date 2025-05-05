@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - TechNify</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <script src="../../js/allhandler.js"></script>
+  <script src="js/mod.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">TechNify <span id="ss">K.M</span></div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a href="../index.html">Dashboard</a></li>
+          <li><a href="../profile/index.html">Profile</a></li>
+
+          <li><a style="color:#007ACC;text-decoration:none" href="#">Users</a></li>
+          <li><a href="#">Posts</a></li>
+          <li style="margin-right: 20px;"><a href="../../login/index.html" style="color:rgba(0,255,0,1)" onclick="logout()">Log Out</a>
+          </li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+    <main>
+      <div class="products-grid"><div class="loading-dots"><div></div><div></div><div></div></div></div>
+      
+
+
+  </main>
+
+
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> Makgetse Learners Dashboard. All rights reserved.</p>
+  </footer>
+  </div>
+
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select all .product-card elements inside .products-grid
+      const productCards = document.querySelectorAll(".products-grid .product-card");
+
+      // Loop through each card and assign an increasing animation delay
+      productCards.forEach((card, index) => {
+        // (index + 1) * 0.1 --> first child gets 0.1s, second gets 0.2s, etc.
+        const delay = (index + 1) * 0.1;
+        card.style.animationDelay = delay + "s";
+      });
+    });
+  </script>
+  <script src="../../js/onchecker.js"></script>
+</body>
+
+</html>
