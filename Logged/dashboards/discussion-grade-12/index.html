@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon">
+  <script src="js/mod.js"></script>
+  <script src="../../../js/allhandler.js"></script>
+  <title>Learner Discussion | Grade 12</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar (Contacts) visible on larger screens -->
+    <aside class="sidebar">
+      <h2>Chats</h2>
+      <div class="chat-list-item">Alice</div>
+      <div class="chat-list-item">Bob</div>
+      <div class="chat-list-item">Charlie</div>
+      <div class="chat-list-item">Diana</div>
+      <div class="chat-list-item">Eve</div>
+    </aside>
+    
+    <!-- Main chat window -->
+    <div class="chat-window">
+      <header class="chat-header">
+        <h2>Gr-12 Open</h2>
+        <h2 id="nav_home">Home</h2>
+
+      </header>
+      
+      <div class="chat-body" id="chatBody">
+        <div class="loading-dots"><div></div><div></div><div></div></div>
+      </div>
+      
+      <footer class="chat-input">
+        <div class="input-container">
+          <input type="text" id="chatInput" placeholder="Type your message here..." />
+          <button id="sendButton" type="button">Send</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <script src="js/script.js"></script>
+  <script>
+    // JavaScript to handle sending messages as the current user.
+    const sendButton = document.getElementById('sendButton');
+    const chatInput = document.getElementById('chatInput');
+    const chatBody = document.getElementById('chatBody');
+    const home= document.getElementById('nav_home');
+
+    home.addEventListener('click',()=>{
+        window.location.assign('../../')
+
+    });
+    
+    sendButton.addEventListener('click', function () {
+      const messageText = chatInput.value.trim();
+      if (messageText !== "") {
+        // Create a new message element for a self-sent message.
+        sendmes(messageText);
+        
+      }
+    });
+    
+    // Allow message sending on "Enter" key press.
+    chatInput.addEventListener('keypress', function (e) {
+      if (e.key === "Enter") {
+        sendButton.click();
+      }
+    });
+  </script>
+  
+</body>
+</html>

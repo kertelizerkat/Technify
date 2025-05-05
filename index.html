@@ -1,669 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="Author" content="Katlego Mathe">
-  <meta name="Description" content="Login Interface">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="css/index.css">
-  <title>TechNify</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <script src="js/allhandler.js"></script>
-  <script src="js/mod.js"></script>
-  <!-- the style tag and all other empty tags are used dynamically in javaScrcipt, Do not remove them!,  -->
-  <style>
-    body {
-      height: 100vh;
-      width: 100vw;
-      background-color: black;
-      overflow: hidden;
-    }
-
-    .loading {
-      height: 100vh;
-      overflow: hidden;
-
-    }
-
-    .loader {
-      height: 100vh;
-      width: 100vw;
-      position: absolute;
-      z-index: 10000000000000000000;
-      background-color: black;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNify | Welcome</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body{
+            height:110vh;
+            width:100vw;
+            background-color:black;
+            overflow: hidden;
+        }
+        .loading{
+ height:110vh;
+ overflow: hidden;
+    
+}
+.loader{
+    height:100vh;
+    width:100vw;
+    position: absolute;
+    z-index: 10000000000000000000;
+    background-color: black;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
 
 
+}
+.headl{
+    font-size: 2rem;
+    color: aqua;
+}
 
-    }
-
-    .headl {
-      font-size: 2rem;
-      color: aqua;
-    }
-
-    .hide {
-      visibility: hidden;
-      min-height: 0px;
-      min-width: 0px;
-      max-width: 0px;
-      max-height: 0px;
-      opacity: 0;
-      overflow: hidden;
-    }
-
-    .bload {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      overflow: hidden;
-      height: 100vh
-    }
-
-
+.hide{
+    visibility: hidden;
+    min-height: 0px;
+    min-width: 0px;
+    max-width: 0px;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+}
+.bload{
+top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   overflow:hidden;
+   height:100vh
+    
+}
+    
+    
     @keyframes spin {
-      from {
-        transform: rotate(0);
-      }
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
 
-      to {
-        transform: rotate(359deg);
-      }
+@keyframes spin3D {
+  from {
+    transform: rotate3d(.5,.5,.5, 360deg);
+  }
+  to{
+    transform: rotate3d(0deg);
+  }
+}
+
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: .25;
+    transform: scale(.75);
+  }
+}
+
+/* GRID STYLING */
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* SPINNING CIRCLE */
+
+
+
+
+/* ALTERNATING ORBITS */
+
+.circle-border {
+  width: 150px;
+  height: 150px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
+  animation: spin .8s linear 0s infinite;
+}
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+  border-radius: 50%;
+}
+
+/* X-ROTATING BOXES */
+
+.configure-border-1 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fb5b53;
+  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-border-2 {
+  width: 115px;
+  height: 115px;
+  padding: 3px;
+  left: -115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(63,249,220);
+  transform: rotate(45deg);
+  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-core {
+  width: 100%;
+  height: 100%;
+  background-color: #1d2630;
+}
+
+/* PULSE BUBBLES */
+
+.pulse-container {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pulse-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #3ff9dc;
+}
+
+.pulse-bubble-1 {
+    animation: pulse .4s ease 0s infinite alternate;
+}
+.pulse-bubble-2 {
+    animation: pulse .4s ease .2s infinite alternate;
+}
+.pulse-bubble-3 {
+    animation: pulse .4s ease .4s infinite alternate;
+}
+
+/* SOLAR SYSTEM */
+
+.solar-system {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fafbfC;
+	border-radius: 50%;
+} 
+
+.earth-orbit {
+	width: 165px;
+	height: 165px;
+  animation:spin 12s linear 0s infinite;
+  -webkit-animation: spin 12s linear 0s infinite;
+}
+
+.venus-orbit {
+	width: 120px;
+	height: 120px;
+  animation: spin 7.4s linear 0s infinite;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+}
+
+.mercury-orbit {
+	width: 90px;
+	height: 90px;
+  animation:spin 3s linear 0s infinite;
+  -webkit-animation: spin 3s linear 0s infinite;
+}
+
+.planet {
+	position: absolute;
+	top: -5px;
+  width: 10px;
+  height: 10px;
+	border-radius: 50%;
+  background-color: #3ff9dc;
+}
+
+.sun {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	background-color: #ffab91;
+}
+
+.leo {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.blue-orbit {
+	width: 165px;
+	height: 165px;
+  border: 1px solid #91daffa5;
+  animation: spin3D 3s linear .2s infinite;
+  -webkit-animation: spin3D 3s linear .2s infinite;
+  
+}
+
+.green-orbit {
+	width: 120px;
+	height: 120px;
+  border: 1px solid #91ffbfa5;
+  animation:spin3D 2s linear 0s infinite;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+
+.red-orbit {
+	width: 90px;
+	height: 90px;
+  border: 1px solid #ffca91a5;
+  animation: spin3D 1s linear 0s infinite;
+  -webkit-animation: spin3D 1s linear 0s infinite;
+}
+
+.white-orbit {
+	width: 60px;
+	height: 60px;
+  border: 2px solid #ffffff;
+  animation: spin3D 10s linear 0s infinite;
+  -webkit-animation: spin3D 10s linear 0s infinite;
+}
+
+.w1 {
+  transform: rotate3D(1, 1, 1, 90deg);
+}
+
+.w2 {
+  transform: rotate3D(1, 2, .5, 90deg);
+}
+
+.w3 {
+  transform: rotate3D(.5, 1, 2, 90deg);
+}
+
+.three-quarter-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fb5b53;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin .5s linear 0s infinite;
+}
+    </style>
+    <script>
+        window.addEventListener('load',()=>{
+         document.querySelector('style').innerHTML=`/* Global Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #000;
+      color: whitesmoke;
+      overflow: hidden;
+      min-height: 100vh;
     }
-
-    @keyframes spin3D {
-      from {
-        transform: rotate3d(.5, .5, .5, 360deg);
-      }
-
-      to {
-        transform: rotate3d(0deg);
-      }
-    }
-
-    @keyframes configure-clockwise {
-      0% {
-        transform: rotate(0);
-      }
-
-      25% {
-        transform: rotate(90deg);
-      }
-
-      50% {
-        transform: rotate(180deg);
-      }
-
-      75% {
-        transform: rotate(270deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes configure-xclockwise {
-      0% {
-        transform: rotate(45deg);
-      }
-
-      25% {
-        transform: rotate(-45deg);
-      }
-
-      50% {
-        transform: rotate(-135deg);
-      }
-
-      75% {
-        transform: rotate(-225deg);
-      }
-
-      100% {
-        transform: rotate(-315deg);
-      }
-    }
-
-    @keyframes pulse {
-      from {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      to {
-        opacity: .25;
-        transform: scale(.75);
-      }
-    }
-
-    /* GRID STYLING */
-
-    * {
-      box-sizing: border-box;
-    }
-
-
-
-    .spinner-box {
-      width: 300px;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
-    }
-
-    /* SPINNING CIRCLE */
-
-
-
-
-    /* ALTERNATING ORBITS */
-
-    .circle-border {
-      width: 150px;
-      height: 150px;
-      padding: 3px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background: rgb(63, 249, 220);
-      background: linear-gradient(0deg, rgba(63, 249, 220, 0.1) 33%, rgba(63, 249, 220, 1) 100%);
-      animation: spin .8s linear 0s infinite;
-    }
-
-    .circle-core {
-      width: 100%;
-      height: 100%;
-      background-color: #1d2630;
-      border-radius: 50%;
-    }
-
-    /* X-ROTATING BOXES */
-
-    .configure-border-1 {
-      width: 115px;
-      height: 115px;
-      padding: 3px;
+    
+    /* Header Syles */
+    .site-header {
       position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #fb5b53;
-      animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
-    }
-
-    .configure-border-2 {
-      width: 115px;
-      height: 115px;
-      padding: 3px;
-      left: -115px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgb(63, 249, 220);
-      transform: rotate(45deg);
-      animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
-    }
-
-    .configure-core {
-      width: 100%;
-      height: 100%;
-      background-color: #1d2630;
-    }
-
-    /* PULSE BUBBLES */
-
-    .pulse-container {
-      width: 120px;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 100;
+      /* border: 1px solid red; */
     }
+    .site-header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color:#00bcd4;
 
-    .pulse-bubble {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #3ff9dc;
+      margin: 20px;
     }
-
-    .pulse-bubble-1 {
-      animation: pulse .4s ease 0s infinite alternate;
-    }
-
-    .pulse-bubble-2 {
-      animation: pulse .4s ease .2s infinite alternate;
-    }
-
-    .pulse-bubble-3 {
-      animation: pulse .4s ease .4s infinite alternate;
-    }
-
-    /* SOLAR SYSTEM */
-
-    .solar-system {
-      width: 250px;
-      height: 250px;
+    .site-header .nav-menu ul {
+      list-style: none;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0;
+      padding: 0;
+      padding-right: 20px;
+      /* border: 1px solid red; */
     }
-
-    .orbit {
+    .site-header .nav-menu ul li {
+      margin-left: 10px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      font-size: large;
+      font-family: sans-serif;
+    }
+    .site-header .nav-menu ul li a:hover {
+        color: #00bcd4;
+      // animation: fadeIn 1.5s ease-out;
+    }
+    
+    /* Hero Section */
+    .hero-section {
       position: relative;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid #fafbfC;
-      border-radius: 50%;
+      text-align: center;
+      overflow: hidden;
     }
-
-    .earth-orbit {
-      width: 165px;
-      height: 165px;
-      -webkit-animation: spin 12s linear 0s infinite;
-      animation: spin 12s linear 0s infinite;
-    }
-
-    .venus-orbit {
-      width: 120px;
-      height: 120px;
-      -webkit-animation: spin 7.4s linear 0s infinite;
-      animation: spin 7.4s linear 0s infinite;
-    }
-
-    .mercury-orbit {
-      width: 90px;
-      height: 90px;
-      -webkit-animation: spin 3s linear 0s infinite;
-      animation: spin 3s linear 0s infinite
-    }
-
-    .planet {
+    
+    /* Background Video */
+    .hero-video {
       position: absolute;
-      top: -5px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #3ff9dc;
-    }
-
-    .sun {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background-color: #ffab91;
-    }
-
-    .leo {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+      }
+    
+    /* Dark Overlay for Contrast */
+    .overlay {
       position: absolute;
-      display: flex;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 44;
+    }
+    
+    /* Hero Content */
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
+      z-index: 44;
+    }
+    
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: slideDown 1s ease-out;
+      color: #fff;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      animation: slideDown 1.5s ease-out;
+    }
+    
+    /* CTA Buttons */
+    .cta-buttons {
+      display: inline-flex;
+      gap: 20px;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      border-radius: 50%;
     }
-
-    .blue-orbit {
-      width: 165px;
-      height: 165px;
-      border: 1px solid #91daffa5;
-      animation: spin3D 3s linear .2s infinite;
-      -webkit-animation: spin3D 3s linear .2s infinite;
+    
+    .cta-button {
+      background: #007bff;
+      border: 2px solid #007bff;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s, color 0.3s;
+      animation: fadeIn 2s ease;
     }
-
-    .green-orbit {
-      width: 120px;
-      height: 120px;
-      border: 1px solid #91ffbfa5;
-      animation: spin3D 2s linear 0s infinite;
-      -webkit-animation: spin3D 2s linear 0s infinite;
+    
+    .cta-button:hover {
+      background: transparent;
+      color: #007bff;
+      transform: scale(1.1);
     }
-
-    .red-orbit {
-      width: 90px;
-      height: 90px;
-      border: 1px solid #ffca91a5;
-      animation: spin3D 1s linear 0s infinite;
-      -webkit-animation: spin3D 1s linear 0s infinite;
+    
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
-    .white-orbit {
-      width: 60px;
-      height: 60px;
-      border: 2px solid #ffffff;
-      animation: spin 12s linear 0s infinite;
-      -webkit-animation: spin3D 10s linear 0s infinite;
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
+      @media only screen and (max-width:572px){
+      .hero-content h1{
+      font-size: larger}
+      
+      .hero-content p{
+      font-size: small}
 
-    .w1 {
-      transform: rotate3D(1, 1, 1, 90deg);
-    }
+       .site-header .logo {
+       font-size:large;
+       }
+       #ss{
+       display:none}
 
-    .w2 {
-      transform: rotate3D(1, 2, .5, 90deg);
-    }
+      }
+       @media only screen and (min-width:386px){
+       #ss{
+       display:unset}
+       }
+        
 
-    .w3 {
-      transform: rotate3D(.5, 1, 2, 90deg);
-    }
-
-    .three-quarter-spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid #fb5b53;
-      border-top: 3px solid transparent;
-      border-radius: 50%;
-      animation: spin .5s linear 0s infinite;
-    }
-  </style>
-  <script>
-
-  </script>
+       @media only screen and (min-width:500px){
+        .site-header .nav-menu ul li a{
+        font-size:x-large;}
+       }
+      `
+        })
+    </script>
 </head>
-
 <body>
+    <div class="loader" id="loader">
+        <div class="headl">TechNify</div>
 
-  <div class="loader" id="loader">
-    <div class="headl">TechNify</div>
+        <div class="spinner-box">
+            <div class="blue-orbit leo">
+            </div>
 
-    <div class="spinner-box">
-      <div class="blue-orbit leo">
-      </div>
+            <div class="green-orbit leo">
+            </div>
 
-      <div class="green-orbit leo">
-      </div>
+            <div class="red-orbit leo">
+            </div>
 
-      <div class="red-orbit leo">
-      </div>
-
-      <div class="white-orbit w1 leo">
-      </div>
-      <div class="white-orbit w2 leo">
-      </div>
-      <div class="white-orbit w3 leo">
-      </div>
+            <div class="white-orbit w1 leo">
+            </div>
+            <div class="white-orbit w2 leo">
+            </div>
+            <div class="white-orbit w3 leo">
+            </div>
+        </div>
     </div>
-  </div>
-
-
-
-  <!-- <script src="loader.js"></script> -->
-
-
-
-
-
-
-  <!-- <script src="loader.js"></script> -->
-
-
-
-  <header>
-
-    <header id="h1" class="h1">
-      <div class="status">
-        <p>
-          <span class="status-head">Free Shipping</span>
-          <span id="status-info"> This Week Order Over - R300</span>
-        </p>
-      </div>
-      <div class="cultural-identity">
-        <div class="currency">
-          <select clas="lang" id="dropdown-menu " name="options" class="opl">
-            <option value="ZAR">
-              ZAR R
-            </option>
-            <option class="op11" value="option2">USD $</option>
-            <option value="option3" class="op11">EUR £</option>
-          </select>
-        </div>
-        <div class="language">
-          <select clas="lang" class="opl" id="dropdown-menu " name="options">
-            <option value="en-US">
-              ENGLISH
-            </option>
-            <option value="option2" class="op11">AFRIKAANS</option>
-            <option value="option3" class="op11">FRANÇAIS</option>
-          </select>
-        </div>
-      </div>
+    <header class="site-header">
+      <div class="logo">TechNify <span id="ss">K.M</span></div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="login/index.html">Login</a></li>
+          <li><a href="services2/index.html">Services</a></li>
+          <li><a href="about/index.html">About</a></li>
+          
+        </ul>
+      </nav>
     </header>
-    <section id="h2" class="h2">
-      <div class="com-name">
-        TechNify
-      </div>
-      <div class="search-bar">
-        <div class="searchBox">
-
-          <input maxlength="27" writingsuggestions="true" class="searchInput" type="text" name=""
-            placeholder="Search Product">
-          <button class="searchButton" href="#">
-            <i class="material-icons">search</i>
-          </button>
+  
+    <!-- Hero Section with Background Video -->
+    <section class="hero-section">
+      <!-- Background Video -->
+      <video class="hero-video" loop muted autoplay playsinline>
+        <source src="sources/v2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <!-- Overlay for Contrast -->
+      <div class="overlay"></div>
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1 id="hed">TechNified Predictions</h1>
+        <p id="par" >TechNify Your Soccer predictions</p>
+        <div class="cta-buttons">
+          <button class="cta-button">Create Account</button>
+          <!-- <button class="cta-button">Explore More</button> -->
         </div>
-      </div>
       </div>
     </section>
-  </header>
-  <div class="tpcolor">
+  
 
-  </div>
-
-  <section class="s1_1">
-    <div class="space"></div>
-    <nav>
-      <ul>
-        <a href="#" id="main" class="main_navs">
-          <li class='main'>Home</li>
-        </a>
-        <a href="services/Lt/" class="main_navs">
-          <li id="none">BTS</li>
-        </a>
-        <a href="#" class="main_navs">
-          <li id="none">Hot specials</li>
-        </a>
-
-        <a href="#" class="main_navs">
-          <li id="none">Blog</li>
-        </a>
-
-        <a href="#" class="main_navs">
-          <li id="none">Contact</li>
-        </a>
-
-
-
-      </ul>
-    </nav>
-  </section>
-  <!-- <div id="notification" class="notification">
-        <p>Try our sports predicter <a href="services/Lt/">BTS</a></p>
-      </div> -->
-
-  <section class="s2">
-
-    <div class="overlay joj"></div>
-
-    <div class="tr-item">
-
-      <div class="images">
-
-
-
-      </div>
-
-
-
-      <div class="m1" data="Tech inovation"></div>
-      <div class="tent"></div>
-      <nav class="navigation-h-imgs">
-        <div class="space"></div>
-        <div class="navs">
-          <div class="button prev"></div>
-          <div class="button next">Play</div>
-        </div>
-      </nav>
-
-    </div>
-    <!-- <video class="item1 vid" autoplay=True loop  muted >
-        <source src="sources/SONOFF_NSPanel_Pro_V3.0.0_is_now_live!(1440p).webm">
-    </video> -->
-
-
-  </section>
-
-  <section class="s3">
-    <div class="move-right"> <img class="left-nav" src="sources/output.gif" alt=""></div>
-    <div class="line_"></div>
-
-    <div class="containers" id="scrollable">
-    </div>
-
-  </section>
-
-
-
-
-  <section class="s5">
-    <div class="container5">
-      <div class="slider">
-        <div class="slides">
-          <input type="radio" name="radio-btn" id="radio1">
-          <input type="radio" name="radio-btn" id="radio2">
-          <input type="radio" name="radio-btn" id="radio3">
-          <input type="radio" name="radio-btn" id="radio4">
-
-          <div class="slide first">
-            <img src="sources/NSPanel-PRO.jpg" alt="Image 1">
-          </div>
-          <div class="slide">
-            <img src="sources/s1.jpg" alt="Image 2">
-          </div>
-          <div class="slide">
-            <img src="sources/s3.jpg" alt="Image 3">
-          </div>
-          <div class="slide">
-            <img src="sources/s5.jpeg" alt="Image 4">
-          </div>
-
-          <div class="navigation-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-            <div class="auto-btn4"></div>
-          </div>
-        </div>
-
-        <div class="navigation-manual">
-          <label for="radio1" class="manual-btn"></label>
-          <label for="radio2" class="manual-btn"></label>
-          <label for="radio3" class="manual-btn"></label>
-          <label for="radio4" class="manual-btn"></label>
-        </div>
-      </div>
-
-      <script src="js/slider.js"></script>
-      <div class="info_nsp">
-        <ul>
-          <li class="inf_txt_nsp"><span class='nsp_h'>Centralized Control: </span>It lets you control various smart home
-            devices like lights, switches, and appliances from one convenient panel.</li>
-          <li class="inf_txt_nsp"><span class='nsp_h'>Remote Access: </span>Can be controlled remotely using the eWeLink
-            app.</li>
-          <li class="inf_txt_nsp"><span class='nsp_h'>Temperature Monitoring: </span>Built-in temperature sensor to
-            monitor and adjust room temperature.</li>
-          <li class="inf_txt_nsp"><span class='nsp_h'>Voice Control: </span>Supports voice commands via Amazon Alexa,
-            Google Assistant, and Siri.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="inf3_small">
-    <ul>
-      <li class="inf_txt_nsp"><span class='nsp_h'>Centralized Control: </span>It enables you control various smart home
-        devices like lights, switches, and appliances from one convenient panel.</li>
-      <li class="inf_txt_nsp"><span class='nsp_h'>Remote Access: </span>Can be controlled remotely using the eWeLink
-        app.</li>
-      <li class="inf_txt_nsp"><span class='nsp_h'>Temperature Monitoring: </span>Built-in temperature sensor to monitor
-        and adjust room temperature.</li>
-      <li class="inf_txt_nsp"><span class='nsp_h'>Voice Control: </span>Supports voice commands via Amazon Alexa, Google
-        Assistant, and Siri.</li>
-    </ul>
-  </div>
-  <section class="s4">
-    <div class="s4_con">
-      <div class="category_con">
-        <div class="cathead">Categories</div>
-      </div>
-      <div class="more_con">
-        <div class="field" id="ARV">
-          <div class="arhead">New Arrivals</div>
-          <div class="containers_s4" id="NA">
-            <div class="container_s4"></div>
-            <div class="container_s4"></div>
-
-          </div>
-        </div>
-        <div class="field" id="Trending">
-          <div class="arhead">Trending</div>
-          <div class="containers_s4" id="TR">
-            <div class="container_s4"></div>
-            <div class="container_s4"></div>
-
-          </div>
-        </div>
-
-        <div class="field" id="TP">
-          <div class="arhead">Top Rated</div>
-          <div class="containers_s4" id="TPR">
-            <div class="container_s4"></div>
-            <div class="container_s4"></div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <script>
-    window.addEventListener('load', () => {
-      document.querySelector('#loader').style.display = 'none'
-      let head_st = ` <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet">`
-      let hd_cont = document.querySelector('head')
-      hd_cont.innerHTML = hd_cont.innerHTML + head_st
-
-    })
-  </script>
-  <script src="js/theme.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/cthead.js"></script>
-
+    <script>
+        window.addEventListener('load',()=>{
+         document.querySelector('#loader').style.display='none'
+         let tbn= document.querySelector('.cta-button')
+         tbn.addEventListener('click',()=>{
+          window.location.assign('register/index.html')
+         })
+        })
+    </script>
+    
 </body>
-<div id="msg">
-  <div class="s">Device Screen Size Not Supported</div>
-</div>
-
 </html>

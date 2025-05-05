@@ -1,6 +1,6 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
-// line="http://localhost:5700"
+line="http://localhost:5700"
 let theme_m='Light'
 localStorage.setItem('theme_+-----', theme_m)
 let access_="domaContent"
@@ -414,7 +414,7 @@ h5{
 </head>
 <body>
     <div class="loader" id="loader">
-        <div class="headl">TechNify</div>
+        <div class="headl">TechNify </div>
         
         <div class="spinner-box">
             <div class="blue-orbit leo">
@@ -437,7 +437,7 @@ h5{
           <h1>We Are Offline</h1>
           <p>We're temporarily disconnected, but we'll be back shortly. Stay tuned!</p>
           <footer>
-              <h5>Copyright 2025 &copy; TechNify</h5>
+              <h5>Copyright 2025 &copy; TechNify . All rights reserved</h5>
             </footer>
         </div>
     </div>
@@ -451,6 +451,7 @@ h5{
     
 </body>
 </html>`
+window.addEventListener("resize", checkScreenWidth);
 
 function check(){
   fetch(line+ '/status', {
@@ -470,8 +471,13 @@ function check(){
     
    
     }
+    if (window.innerWidth < 320) {
 
-    window.location.reload()
+    }else{
+      window.location.reload()
+    }
+
+    
    
 })
 .catch(error => {
@@ -484,10 +490,12 @@ setInterval(check,5000)
     });
 })
 if (!(localStorage.getItem('theme_+-----'))){
+    
     let pagbody= document.querySelector('html')
     let pagbodyC=pagbody.innerHTML
     let pagbody2= document.querySelector('body')
     let pageCode= pagbody.innerHTML
+  
     // let theme='none';
     const storageKey = 'theme_+-----';
     let userInput = localStorage.getItem(storageKey);
@@ -587,7 +595,7 @@ if (!(localStorage.getItem('theme_+-----'))){
     <body>
     <script src="loader.js"></script>
         <div class="head">
-            Choose your <span class="tk">TechNify</span> Theme
+            Choose your <span class="tk">Laerner</span> Theme
         </div>
         <div class="container">
               <div onclick='dark()' class="dark">Dark</div>

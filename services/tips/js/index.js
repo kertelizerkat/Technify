@@ -29,7 +29,7 @@ if (pmain_state) {
 let label = document.querySelector("label")
 document.addEventListener('DOMContentLoaded', function () {
 
-
+    
 
 
     let date2 = 18
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-
+runPythonScript()
 
 let theme = accessInfo('theme_+-----')
 if (theme) {
@@ -151,8 +151,8 @@ qry.addEventListener('keypress', function (event) {
 );
 function runPythonScript() {
 
-    value = qry.value;
-    if (value.length > 0 || main_state == "premium") {
+    // value = qry.value;
+    if (false) {
         // qry.setAttribute("placeholder","e.g. " + qry.value)
         // qry.value="";
         let color = btn.style.color;
@@ -289,6 +289,41 @@ function runPythonScript() {
 
 
     }
+    
+    fetch(line +'/predict', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({data:'user1'})
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("<span id='red'>Something went wrong, Please try again!</span>");
+
+            }
+           
+            return response.json();
+        })
+        .then(data => {
+            console.log("data from server:", data.prediction)
+       
+
+      
+
+        })
+        .catch(error => {
+            console.log("something wrong with the response", error)
+            if (String(error) == "SyntaxError: Unexpected end of JSON input") {
+                error = "Content being updated in the server, please try again later!"
+            }
+     
+        });
+
+
+
+
+
 }
 function accessInfo(key) {
     const value = localStorage.getItem(key);

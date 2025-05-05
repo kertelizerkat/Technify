@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNify | About</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      /* border: 1px solid red; */
+    }
+    .site-header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      margin: 20px;
+    }
+    .site-header .nav-menu ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      padding-right: 20px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li {
+      margin-left: 10px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      font-size: large;
+      font-family: sans-serif;
+    }
+    .site-header .nav-menu ul li a:hover , .site-header .logo:hover {
+      color: #00bcd4;
+      /* animation: fadeIn 1.5s ease-out */
+    }
+    #main{
+        animation:unset
+    }
+
+
+    section {
+      margin-bottom: 40px;
+    h2{
+    animation: slideDown 1.5s ease-out;
+}
+    p ,ul{
+        animation: slideDown 0.7s ease-out;  
+    }
+    }
+    h2 {
+      color: #00bcd4;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 10px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00bcd4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: transparent;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+      @media only screen and (max-width:572px){
+      .hero-content h1{
+      font-size: larger}
+      
+      .hero-content p{
+      font-size: small}
+
+       .site-header .logo {
+       font-size:large;
+       }
+       #ss{
+       display:none}
+
+      }
+       @media only screen and (min-width:386px){
+       #ss{
+       display:unset}
+       }
+        
+
+       @media only screen and (min-width:500px){
+        .site-header .nav-menu ul li a{
+        font-size:x-large;}
+       }
+
+
+    #main{
+      color:#00bcd4
+    }
+    .header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .header h1 {
+      margin: 0;
+      color: #00bcd4;
+    }
+    .header p {
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+    @media (max-width: 355px) {
+      .header h1{
+        font-size:large;
+      }
+      .header p{
+        font-size:0.8em
+      }}
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+    <header class="site-header">
+        <div class="logo">TechNify</div>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a href="../services2/index.html">Services</a></li>
+            <li><a id="main" href="../about/index.html">About</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="header">
+        <h1>TechNify: Soccer Tips & Predictions</h1>
+        <p>Where passion meets precision on the pitch</p>
+      </div>
+
+  <div class="container">
+    <!-- Inspiration Section -->
+    <section id="inspiration">
+      <h2>Our Passion for the Beautiful Game</h2>
+      <p>
+        TechNify was born from the relentless passion of soccer enthusiasts who live and breathe the game. Inspired by countless nights of thrilling matches and vibrant stadiums, we recognized that expert tips and accurate predictions were the missing links to mastering the art of soccer.
+      </p>
+      <p>
+        With every analysis and prediction, we strive to empower fans, bettors, and players alike with deep insights and actionable strategies. Our expertise blends statistical precision with the raw emotion of the pitch, turning uncertainty into art.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        For match insights, expert advice, or partnership inquiries, feel free to get in touch. Your feedback drives our commitment to refine our predictions and share the love of soccer with enthusiasts around the globe.
+      </p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@TechNify.com">info@TechNify.com</a></li>
+        <li><strong>Support Email:</strong> <a href="mailto:support@TechNify.com">support@TechNify.com</a></li>
+        <li><strong>Phone:</strong> +27 11 234 5678</li>
+        <li><strong>Alternate Phone:</strong> +27 11 876 5432</li>
+        <li><strong>Address:</strong> 123 Football Avenue, City of Tshwane, Gauteng, South Africa</li>
+      </ul>
+    </section>
+
+    <!-- Future Vision Section -->
+    <section id="vision">
+      <h2>Our Vision for the Future</h2>
+      <p>
+        At TechNify, we are on a mission to revolutionize soccer analysis. We envision a future where every fan gains access to reliable tips, game-changing predictions, and engaging commentary that bring the thrill of the game to life.
+      </p>
+      <p>
+        As we integrate advanced analytics with the spirit of soccer, our platform continues to evolve—ensuring that every match becomes an opportunity to transform passion into precision. Join us as we redefine what it means to experience the beautiful game.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <p>Copyright &copy; 2025 TechNify. All rights reserved.</p>
+  </footer>
+  <script>
+    let logo = document.querySelector('.logo')
+    logo.addEventListener('click', () => {
+      window.location.assign('../index.html')
+    })
+  </script>
+</body>
+</html>

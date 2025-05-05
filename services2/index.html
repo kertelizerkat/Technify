@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - TechNify Soccer Tips &amp; Predictions</title>
+  <style>
+    h2{
+        animation: slideDown 1.5s ease-out;
+    }
+    p ,ul{
+        animation: slideDown 0.7s ease-out;  
+    }
+    body {
+      background-color: #121212; /* Dark background */
+      color: #e0e0e0;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+   
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+      /* margin-top: 80px; */
+    }
+    .section h2 {
+      color: #00bcd4;
+      font-size: 2em;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 10px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      /* border: 1px solid red; */
+    }
+    
+    .site-header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      margin: 20px;
+    }
+    .site-header .nav-menu ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      padding-right: 20px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li {
+      margin-left: 10px;
+      /* border: 1px solid red; */
+    }
+    .site-header .nav-menu ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+      font-weight: 500;
+      font-size: large;
+      font-family: sans-serif;
+    }
+    .site-header .nav-menu ul li a:hover, .site-header .logo:hover {
+      color: #00bcd4;
+      /* animation: fadeIn 1.5s ease-out */
+    }
+    #main{
+        animation:unset
+    }
+
+    footer {
+      background-color: transparent;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      position: relative;
+    }
+
+     /* Keyframe Animations */
+     @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+      @media only screen and (max-width:572px){
+      .hero-content h1{
+      font-size: larger}
+      
+      .hero-content p{
+      font-size: small}
+
+       .site-header .logo {
+       font-size:large;
+       }
+       #ss{
+       display:none}
+
+      }
+       @media only screen and (min-width:386px){
+       #ss{
+       display:unset}
+       }
+        
+
+       @media only screen and (min-width:500px){
+        .site-header .nav-menu ul li a{
+        font-size:x-large;}
+       }
+    @media (max-width: 600px) {
+ 
+      .section h2 {
+        font-size: 1.5em;
+      }
+    }
+    #main{
+      color:#00bcd4
+    }
+    .header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .header h1 {
+      margin: 0;
+      color: #00bcd4;
+    }
+    .header p {
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+    @media (max-width: 355px) {
+      .header h1{
+        font-size:large;
+      }
+      .header p{
+        font-size:0.8em
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+    <header class="site-header">
+        <div class="logo">TechNify</div>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="../login/index.html">Login</a></li>
+            <li><a id="main" href="#">Services</a></li>
+            <li><a href="../about/index.html">About</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="header">
+        <h1>TechNify: Soccer Tips &amp; Predictions</h1>
+        <p>Where passion meets precision on the pitch</p>
+      </div>
+  
+  <div class="container">
+    <!-- Overview Section -->
+    <section class="section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        Welcome to TechNify Services – your premier hub for expert soccer tips, dynamic match predictions, and in-depth game analysis. Our platform is designed for soccer enthusiasts, bettors, and players, offering a comprehensive suite of tools to elevate your game-day experience.
+      </p>
+    </section>
+    
+    <!-- Feature Details Section -->
+    <section class="section" id="features">
+      <h2>Our Features</h2>
+      <p>
+        At TechNify, we believe that insightful predictions can revolutionize how you experience the beautiful game. Here’s what we offer:
+      </p>
+      <ul>
+        <li>
+          <strong>Detailed Match Analytics:</strong> Dive deep into tactical insights, player performance metrics, and statistical breakdowns for every game.
+        </li>
+        <li>
+          <strong>Expert Tips:</strong> Receive advice and predictions from seasoned soccer pundits and data experts.
+        </li>
+        <li>
+          <strong>Real-Time Alerts:</strong> Stay updated with instant notifications on live match developments and score changes.
+        </li>
+        <li>
+          <strong>Custom Predictions:</strong> Tailor your insights with personalized predictions based on your preferred leagues and teams.
+        </li>
+        <li>
+          <strong>Vibrant Community:</strong> Connect with fellow soccer aficionados, share analyses, and debate strategies in a lively forum.
+        </li>
+      </ul>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="section" id="mission">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to transform the way soccer is experienced by providing accurate, data-driven predictions and inspiring tips that ignite passion and confidence. We break down complex match dynamics into clear, actionable insights—empowering every fan, bettor, and player to engage with the game on a deeper level.
+      </p>
+    </section>
+    
+    <!-- Technology Section -->
+    <section class="section" id="technology">
+      <h2>Our Technology</h2>
+      <p>
+        Leveraging advanced analytics and real-time data, TechNify harnesses cutting-edge algorithms to deliver fast, reliable match predictions and comprehensive game insights. Our platform seamlessly integrates live game data with expert analysis, ensuring you stay a step ahead every time the whistle blows.
+      </p>
+    </section>
+    
+    <!-- Community Section -->
+    <section class="section" id="community">
+      <h2>Building a Community</h2>
+      <p>
+        TechNify is more than just a prediction platform—it’s a thriving community for soccer lovers. We cultivate an environment where fans, bettors, and experts converge to discuss strategies, celebrate victories, and learn from every match. Together, we share the thrill of the game and build a legacy of passion and insight.
+      </p>
+    </section>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 TechNify. All rights reserved.</p>
+  </footer>
+  <script>
+    let logo = document.querySelector('.logo')
+    logo.addEventListener('click', () => {
+      window.location.assign('../index.html')
+    })
+  </script>
+</body>
+</html>
