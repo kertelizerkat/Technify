@@ -73,7 +73,7 @@ window.addEventListener('load',()=>{
           </div>
         </div>
          <div class="btn-wrapper">
-          <button class='blose'>Lose</button>
+          <button class='blose'>win</button>
           <div class="progress">
             <span class="percentage">${cards_data[r].lose}%</span>
             <div class="progress-bar losep" style="width: ${cards_data[r].lose}%;"></div>
@@ -231,7 +231,7 @@ function getproducts2(){
           </div>
         </div>
          <div class="btn-wrapper">
-          <button class='blose'>Lose</button>
+          <button class='blose'>win</button>
           <div class="progress">
             <span class="percentage">${cards_data[r].lose}%</span>
             <div class="progress-bar losep" style="width: ${cards_data[r].lose}%;"></div>
