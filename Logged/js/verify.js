@@ -38,8 +38,8 @@ window.addEventListener('load',()=>{
         // console.log(cards_data)
         // console.log(cards_data)
         // console.log(cards_data)
-        console.log(cards_data)
-        console.log('hey')
+        // console.log(cards_data)
+        // console.log('hey')
         if(cards_data){
         // alert('incorporating data')
 
@@ -55,6 +55,8 @@ window.addEventListener('load',()=>{
       <div class="content">
         <h2>${cards_data[r].type_}</h2>
         <div class="match">${cards_data[r].match}</div>
+        <div class="time_">${cards_data[r].time}</div>
+
       </div>
       <div class="footer">
         <div class="btn-wrapper">
@@ -189,14 +191,14 @@ function getproducts2(){
         if (true){
             if (data.message){
 
-           console.log(data.message)
+          //  console.log(data.message)
         //    alert('data recieved')
         let cards_data=data.message
         // console.log(cards_data)
         // console.log(cards_data)
         // console.log(cards_data)
         console.log(cards_data)
-        console.log('hey')
+        // console.log('hey')
         if(cards_data){
         // alert('incorporating data')
 
@@ -213,6 +215,7 @@ function getproducts2(){
       <div class="content">
         <h2>${cards_data[r].type_}</h2>
         <div class="match">${cards_data[r].match}</div>
+        <div class="time_">${cards_data[r].time}</div>
       </div>
       <div class="footer">
         <div class="btn-wrapper">
@@ -293,7 +296,7 @@ function getproducts(){
 
 function sendFormData(data) {
     // Send data to Flask application using fetch
-    console.log(data)
+    // console.log(data)
     const http = line + "/login";
     fetch(http, {
         method: "POST",

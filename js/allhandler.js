@@ -1,8 +1,8 @@
 
 let line="https://sculpin-charming-directly.ngrok-free.app"
 // line="http://localhost:5700"
-let theme_m='Light'
-localStorage.setItem('theme_+-----', theme_m)
+let theme_m=''
+// localStorage.setItem('theme_+-----', theme_m)
 let access_="domaContent"
 let online=false
 
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.log(error)
         localStorage.setItem('online','false')
+        if (state__p=='leave'){}else{
         document.querySelector('html').innerHTML=`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -450,8 +451,8 @@ h5{
     
     
 </body>
-</html>`
-window.addEventListener("resize", checkScreenWidth);
+</html>`}
+
 
 function check(){
   fetch(line+ '/status', {
@@ -471,7 +472,7 @@ function check(){
     
    
     }
-    if (window.innerWidth < 320) {
+    if (false) {
 
     }else{
       window.location.reload()
@@ -489,6 +490,9 @@ setInterval(check,5000)
             
     });
 })
+
+
+
 if (!(localStorage.getItem('theme_+-----'))){
     
     let pagbody= document.querySelector('html')

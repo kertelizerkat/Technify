@@ -5,225 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechNify | Dashboard</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
+
   <script src="js/mod.js"></script>
   
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <script src="../js/allhandler.js"></script>
  
-  <style>
-    /* Ensure the page takes up full viewport height */
-
-
-.loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #121212; /* Match page background */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.loader {
-  border: 8px solid #ccc; /* Light grey border */
-  border-top: 8px solid #3498db; /* Blue border for animation */
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-p {
-  margin: 0;
-  font-size: 18px;
-  text-align: center;
-  color: #e0e0e0;
-}
-/* Container holding all prediction cards */
-.c1 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 10px;
-}
-
-/* Each prediction card */
-.c2 {
-  position: relative;
-  width: 250px;
-  min-height: 200px;
-  max-height: 250px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Dark overlay for readability */
-.c2 .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-/* Top content: heading and match info */
-.c2 .content h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.c2 .content .match {
-  font-size: 1.2rem;
-  margin-top: 8px;
-  text-align: center;
-  
-  align-self: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-/* Footer with of buttons aligned horizontally */
-.c2 .footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-/* Each button with its percentage and progress line */
-.btn-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-
-.btn-wrapper button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  background: #00bcd4;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-  margin:1px
-}
-
-.progress {
-  width: 100%;
-  margin-top: 5px;
-}
-
-.progress .percentage {
-  font-size: 0.8rem;
-  display: block;
-  text-align: center;
-  margin-bottom: 3px;
-}
-
-.progress-bar {
-  height: 5px;
-  background-color: #00bcd4;
-  border-radius: 2px;
-}
-
-/* Responsive adjustments */
-@media (min-width: 769px){
-  .c2 {
-    min-width: 200px;
-    max-height: 200px;
-  }
-  .c2 .overlay {
-    padding: 15px;
-  }
-
-  .btn-wrapper button {
-    font-size: 0.5rem;
-    padding: 4px 10px;
-  }
-
-}
-@media (max-width: 768px) {
-  .c2 {
-    max-width: 40vw;
-    max-height: 200px;
-  }
-
-  .c2 .overlay {
-    padding: 15px;
-  }
-
-  .btn-wrapper button {
-    font-size: 0.5rem;
-    padding: 4px 10px;
-  }
-}
-@media (max-width: 441px) {
-  .c2 {
-    width: 150px;
-    max-height: 100px;
-  }
-  .c2 .content .match{
-    font-size: 0.7rem;
-  }
-
-  
-}
-@media (max-width: 339px) {
-  .c2 {
-    width: 140px;
-    max-height: 100px;
-  }
-  .c2 .content .match{
-    font-size: 0.7rem;
-  }
-
-  
-}
-.winp,.btn-wrapper .bwin{
-  background-color: rgba(0,255,0,0.8)
-}
-.losep, .btn-wrapper .blose{
-  background-color: rgba(0,255,0,0.8)
-}
-.drawp,.btn-wrapper .bdraw{
-  background-color: rgba(255,255,0,1);
-  color: green;
-  font-weight: bold;
-}
-.t1_{
-  color: smokewhite;
-}
-.t2_{
-  color: wheat
-}
-
+<style>
+ 
   </style>
 </head>
 
@@ -240,9 +29,9 @@ p {
       </div>
       <nav>
         <ul class="closed">
-          <li><a style="color:#007ACC;text-decoration:none" href="#">Dashboard</a></li>
+          <li><a  href="#" id="Dashboard" class="active_">Dashboard</a></li>
           <li><a href="profile/index.html">Profile</a></li>
-          <li ><a href="../services/index.html">BTS</a></li>
+          <li ><a href="#" id="BTS" class="unactive_">BTS</a></li>
           <li ><a href="users/index.html">Users</a></li>
           <li style="margin-right: 20px;" ><a  onclick="logout()" href="#" style="color:rgba(0,255,0,1)">Log Out</a></li>
         </ul>
@@ -252,7 +41,7 @@ p {
     <div class="smoother">
       <div class="line"></div>
     </div>
-
+   
     <main>
       <section class="card us" id="user">
         <h2>Welcome, <span class="username"><div class="loading-dots"><div></div><div></div><div></div></div></span></h2>
@@ -263,8 +52,24 @@ p {
 
 
       <!-- Main container holding all prediction cards -->
-<div  class="products-grid c1"><div class="loading-dots"><div></div><div></div><div></div></div></div>
+      <div  class="container22">
+        <div class="header">
+          <div id="today" class="active" onclick="switchContent('today')">System Predictions</div>
+          <div id="yesterday" onclick="switchContent('yesterday')">USER Predictions</div>
+      
+          <div id="predicter" onclick="switchContent('predicter')">Predicter</div>
+        </div>
+        <div class="content2" id="contentArea">
+          <div  class="products-grid c1"><div class="loading-dots"><div></div><div></div><div></div></div></div>
+      </div></div>
+
+      
+  
+
+
+
     </main>
+   
     
 
 
@@ -273,11 +78,60 @@ p {
     </footer>
   </div>
   <script src="js/verify.js"></script>
+  <script src="js/main.js"></script>
  
   <script>
     // Dynamic year update in footer
     document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
   <script src="../js/onchecker.js"></script>
+
+
+  <script>
+    document.querySelector('head').innerHTML= document.querySelector('head').innerHTML + `  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />`
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+

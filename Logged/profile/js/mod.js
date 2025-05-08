@@ -1,5 +1,6 @@
 let date2=18
 let date1=17
+let state__p=''
 
 function storeInfo(key, value) {
     localStorage.setItem(key, value);

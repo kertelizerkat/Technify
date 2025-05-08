@@ -1,6 +1,6 @@
 let date2=18
 let date1=17
-
+let state__p='leave'
 function storeInfo(key, value) {
     localStorage.setItem(key, value);
     // console.log(`Data stored: ${key} = ${value}`);
