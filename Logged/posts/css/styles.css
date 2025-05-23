@@ -18,9 +18,10 @@ html {
   body {
      /* Dark background */
      background-image:url('../../../sources/ball2.png');
-    color: #333;
-    background-blend-mode: lighten;
+      background-blend-mode: lighten;
     background-color: rgba(255,255,255,.7);
+    color: #333;
+   
   font-family: 'Arial', sans-serif;
   width: 100vw;
   overflow-x: hidden;

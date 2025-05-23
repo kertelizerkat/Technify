@@ -15,18 +15,3 @@ menu_img.addEventListener("click", () => {
 
 })
 
-
-const header = document.querySelector("header");
-let val=0;
-let w= window.scrollY
-window.addEventListener("scroll", () => {
-  if (window.scrollY > w) {
-    val=val+2;
-    header.style.backgroundColor = "rgba(0,0,0,0."+ String(val)+ ")";
-    w= window.scrollY
-  } else {
-    val=val-2;
-    header.style.backgroundColor = "rgba(0,0,0,0."+ String(val)+ ")";
-    w= window.scrollY
-  }
-});

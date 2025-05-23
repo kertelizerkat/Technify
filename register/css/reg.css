@@ -11,7 +11,11 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: #000;
+    background-image: url('../../sources/ball.png');
+     background-color: rgba(0,0,0,0.8);
+   background-repeat: no-repeat;
+      background-size:cover;
+      background-blend-mode: darken;
     flex-direction: column;
     padding-top: 20px;
     padding-bottom: 20px;

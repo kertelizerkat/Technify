@@ -10,7 +10,16 @@
   
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <script src="../js/allhandler.js"></script>
- 
+
+   <script src="js/taiwan.js"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <!-- Chart.js for charts -->
+  <script src="js/chart_npm.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/chart.js"></script>
+  -->
 <style>
  
   </style>
@@ -19,7 +28,7 @@
 <body>
   <div class="loading-container">
     <div class="loader"></div>
-    <p>Verifying Login details, please wait...</p>
+    <p>Verifying Login details, please wait...</p> 
   </div>
   <div class="container">
     <header>
@@ -31,9 +40,9 @@
         <ul class="closed">
           <li><a  href="#" id="Dashboard" class="active_">Dashboard</a></li>
           <li><a href="profile/index.html">Profile</a></li>
-          <li ><a href="#" id="BTS" class="unactive_">BTS</a></li>
+          <li ><a href="posts/index.html" id="BTS" class="unactive_">Posts</a></li>
           <li ><a href="users/index.html">Users</a></li>
-          <li style="margin-right: 20px;" ><a  onclick="logout()" href="#" style="color:rgba(0,255,0,1)">Log Out</a></li>
+          <li style="margin-right: 20px;" ><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
         </ul>
         <div class="menu">Menu</div>
       </nav>
@@ -42,9 +51,9 @@
       <div class="line"></div>
     </div>
    
-    <main>
+    <main id="mainc-">
       <section class="card us" id="user">
-        <h2>Welcome, <span class="username"><div class="loading-dots"><div></div><div></div><div></div></div></span></h2>
+        <h2 style='font-size:large;font-weight:bold'>Welcome, <span class="username" style="font-size:large;font-weight:bold"><div class="loading-dots"><div></div><div></div><div></div></div></span></h2>
         <p></p>
       </section>
    
@@ -52,16 +61,83 @@
 
 
       <!-- Main container holding all prediction cards -->
-      <div  class="container22">
+      <div  class="container22 ">
         <div class="header">
           <div id="today" class="active" onclick="switchContent('today')">System Predictions</div>
-          <div id="yesterday" onclick="switchContent('yesterday')">USER Predictions</div>
+          <div id="analysis" onclick="switchContent('analysis')">Analysis</div>
       
           <div id="predicter" onclick="switchContent('predicter')">Predicter</div>
         </div>
         <div class="content2" id="contentArea">
           <div  class="products-grid c1"><div class="loading-dots"><div></div><div></div><div></div></div></div>
       </div></div>
+
+
+      <div  id="behave" class="min-h-screen p-4 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 ">
+  <!-- Dark Mode Toggle Button -->
+  <div class="flex justify-end mb-4">
+    <button id="toggle-dark-mode" type="button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition hide">
+     -- 
+    </button>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold mb-6 text-center"></h1>
+    
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Total Matches</h2>
+        <p id="total-matches" class="text-2xl">0</p>
+      </div>
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Accuracy</h2>
+        <p id="accuracy" class="text-2xl">0%</p>
+      </div>
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Average Confidence</h2>
+        <p id="avg-confidence" class="text-2xl">0%</p>
+      </div>
+    </div>
+    
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <!-- Pie Chart for Outcome Breakdown -->
+      <div class="relative w-full h-64 md:h-80 lg:h-96">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <!-- Line Chart for Win vs Loss (Prediction Percentage over Matches) -->
+      <div class="relative w-full h-64 md:h-80 lg:h-96">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Matches Table -->
+    <h2 class="text-2xl font-bold mb-4">Previous Predictions</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left border-collapse">
+        <thead class="bg-gray-200 dark:bg-gray-700">
+          <tr>
+            <th class="px-4 py-2 border">Match</th>
+            <th class="px-4 py-2 border">Prediction</th>
+            <th class="px-4 py-2 border">Actual</th>
+            <th class="px-4 py-2 border">Correct</th>
+            <th class="px-4 py-2 border">Conf (%)</th>
+            <th class="px-4 py-2 border">Score</th>
+          </tr>
+        </thead>
+        <tbody id="match-table" class="divide-y dark:divide-gray-600"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    
+
+   updatecontent_2_3()
+  </script>
+</div>
 
       
   
@@ -88,7 +164,9 @@
 
 
   <script>
-    document.querySelector('head').innerHTML= document.querySelector('head').innerHTML + `  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    document.querySelector('head').innerHTML= document.querySelector('head').innerHTML + `
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"

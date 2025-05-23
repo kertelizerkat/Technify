@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data['message']=='varified') {
                     messageElement.textContent = 'Verification successful!';
                     messageElement.style.color = 'green';
-                    window.location.assign("../login/")
+                    window.location.assign("../login/index.html")
                     // console.error('Error:', 'success');
                 } 
                     if (data['message']== 'incorrect'){
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.message=='verified'){
-                window.location.assign("../login/")
+                window.location.assign("../login/index.html")
             }
            
         })

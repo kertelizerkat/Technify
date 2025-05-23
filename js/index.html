@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNify | Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/mod.js"></script>
+  
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <script src="../js/allhandler.js"></script>
+   <script src="js/taiwan.js"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <!-- Chart.js for charts -->
+  <script src="js/chart_npm.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/chart.js"></script>
+  -->
+<style>
+ 
+  </style>
+</head>
+
+<body>
+  <div class="loading-container">
+    <div class="loader"></div>
+    <p>Verifying Login details, please wait...</p> 
+  </div>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo_img"></div>
+        <div class="logo_name">TechNify</div>
+      </div>
+      <nav>
+        <ul class="closed">
+          <li><a  href="#" id="Dashboard" class="active_">Dashboard</a></li>
+          <li><a href="profile/index.html">Profile</a></li>
+          <li ><a href="posts/index.html" id="BTS" class="unactive_">Posts</a></li>
+          <li ><a href="users/index.html">Users</a></li>
+          <li style="margin-right: 20px;" ><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
+        </ul>
+        <div class="menu">Menu</div>
+      </nav>
+    </header>
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+   
+    <main id="mainc-">
+      <section class="card us" id="user">
+        <h2>Welcome, <span class="username"><div class="loading-dots"><div></div><div></div><div></div></div></span></h2>
+        <p></p>
+      </section>
+   
+     
+
+
+      <!-- Main container holding all prediction cards -->
+      <div  class="container22 ">
+        <div class="header">
+          <div id="today" class="active" onclick="switchContent('today')">System Predictions</div>
+          <div id="analysis" onclick="switchContent('analysis')">Analysis</div>
+      
+          <div id="predicter" onclick="switchContent('predicter')">Predicter</div>
+        </div>
+        <div class="content2" id="contentArea">
+          <div  class="products-grid c1"><div class="loading-dots"><div></div><div></div><div></div></div></div>
+      </div></div>
+
+
+      <div class="min-h-screen p-4 bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+  <!-- Dark Mode Toggle Button -->
+  <div class="flex justify-end mb-4">
+    <button id="toggle-dark-mode" type="button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition">
+      Toggle Dark Mode
+    </button>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold mb-6 text-center">Match Predictions Dashboard</h1>
+    
+    <!-- Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Total Matches</h2>
+        <p id="total-matches" class="text-2xl">0</p>
+      </div>
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Accuracy</h2>
+        <p id="accuracy" class="text-2xl">0%</p>
+      </div>
+      <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+        <h2 class="text-xl font-semibold">Average Confidence</h2>
+        <p id="avg-confidence" class="text-2xl">0%</p>
+      </div>
+    </div>
+    
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <!-- Pie Chart for Outcome Breakdown -->
+      <div class="relative w-full h-64 md:h-80 lg:h-96">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <!-- Line Chart for Win vs Loss (Prediction Percentage over Matches) -->
+      <div class="relative w-full h-64 md:h-80 lg:h-96">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Matches Table -->
+    <h2 class="text-2xl font-bold mb-4">Matches</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left border-collapse">
+        <thead class="bg-gray-200 dark:bg-gray-700">
+          <tr>
+            <th class="px-4 py-2 border">Match</th>
+            <th class="px-4 py-2 border">Prediction</th>
+            <th class="px-4 py-2 border">Actual</th>
+            <th class="px-4 py-2 border">Correct</th>
+            <th class="px-4 py-2 border">Conf (%)</th>
+            <th class="px-4 py-2 border">Score (%)</th>
+          </tr>
+        </thead>
+        <tbody id="match-table" class="divide-y dark:divide-gray-600"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    
+
+    function getproducts3(){
+    // alert('fetching')
+    fetch(line+ '/products', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({message:'analysis'})
+    })
+    .then(response => response.json())
+    .then(data2 => {
+        let data= data2.message
+        console.log(data)
+        const toggleButton = document.getElementById("toggle-dark-mode");
+    toggleButton.addEventListener("click", function () {
+
+      document.documentElement.classList.toggle("dark");
+    });
+    
+    // --- Helper function to animate numbers ---
+    function animateNumber(id, start, end, duration, suffix = '') {
+      const element = document.getElementById(id);
+      let startTime = null;
+      function updateNumber(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = progress * (end - start) + start;
+        element.textContent = (suffix ? Math.floor(value) : value.toFixed(2)) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        }
+      }
+      requestAnimationFrame(updateNumber);
+    }
+    
+    // --- Aggregating Data for Summary and Table ---
+    const allMatches = [];
+    for (const category in data) {
+      if (data.hasOwnProperty(category)) {
+        const catData = data[category];
+        for (const key in catData) {
+          if (catData.hasOwnProperty(key)) {
+            allMatches.push(catData[key]);
+          }
+        }
+      }
+    }
+    
+    // --- Summary Calculations ---
+    const totalMatches = allMatches.length;
+    const correctCount = allMatches.filter(match => match["correct_prediction "]).length;
+    const avgConfidence = allMatches.reduce((sum, match) => sum + match.prediction_p, 0) / totalMatches;
+
+    // Animate summary counters over 2000ms.
+    animateNumber("total-matches", 0, totalMatches, 6000);
+    animateNumber("accuracy", 0, (correctCount / totalMatches) * 100, 6000, '%');
+    animateNumber("avg-confidence", 0, avgConfidence, 6000, '%');
+    
+    // --- Pie Chart Data Calculations ---
+    // Draws:
+    //   - "drawW" holds draws predicted correctly.
+    //   - "drawL" holds draws lost.
+    const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction "]).length : 0;
+    const drawsLost = data.drawL ? Object.values(data.drawL).length : 0;
+    
+    // Wins:
+    //   - "win" holds wins predicted correctly.
+    //   - "loss" holds win predictions lost.
+    // For "loss", subdivide into:
+    //      winLostByDraw: where actual result equals "draw" (case-insensitive)
+    //      winLost: remainder.
+    const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction "]).length : 0;
+    const losses = data.loss ? Object.values(data.loss) : [];
+    const winLostByDraw = losses.filter(match => match["actual results"].toLowerCase() === "draw").length;
+    const winLost = losses.length - winLostByDraw;
+    
+    const finalPieData = [drawsCorrect, drawsLost, winCorrect, winLost, winLostByDraw];
+    
+    // --- Create Pie Chart with initial zero data ---
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    const pieChart = new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Draws Correct', 'Draws Lost', 'Win Correct', 'Win Lost', 'Win Lost by Draw'],
+        datasets: [{
+          data: [0, 0, 0, 0, 0],
+          backgroundColor: ['#60A5FA', '#FBBF24', '#10B981', '#EF4444', '#8B5CF6']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+    
+    // Animate pie chart values over 40 frames (~2000ms total)
+    let pieFrame = 0;
+    const totalPieFrames = 40;
+    const pieInterval = setInterval(() => {
+      pieFrame++;
+      const newData = finalPieData.map(val => Math.floor(val * (pieFrame / totalPieFrames)));
+      pieChart.data.datasets[0].data = newData;
+      pieChart.update();
+      if (pieFrame >= totalPieFrames) clearInterval(pieInterval);
+    }, 50);
+    
+    // --- Line Chart Animation ---
+    // Extract the win and loss datasets.
+    const winMatches = data.win ? Object.values(data.win) : [];
+    const lossMatches = data.loss ? Object.values(data.loss) : [];
+    const finalWinData = winMatches.map((match, i) => ({ x: i + 1, y: match.prediction_p }));
+    const finalLossData = lossMatches.map((match, i) => ({ x: i + 1, y: match.prediction_p }));
+    
+    // Create line chart with empty datasets.
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    const lineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Win',
+            data: [],
+            borderColor: '#10B981',
+            fill: false,
+            tension: 0.1,
+            pointRadius: 0
+          },
+          {
+            label: 'Loss',
+            data: [],
+            borderColor: '#EF4444',
+            fill: false,
+            tension: 0.1,
+            pointRadius: 0
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            title: { display: true, text: 'Match Number' },
+            ticks: { stepSize: 1 }
+          },
+          y: {
+            title: { display: true, text: 'Prediction Percentage (%)' }
+          }
+        }
+      }
+    });
+    
+    // Animate the line chart by adding data points one at a time.
+    let currentIndex = 0;
+    const maxPoints = Math.max(finalWinData.length, finalLossData.length);
+    const lineInterval = setInterval(() => {
+      if (currentIndex < finalWinData.length) {
+        lineChart.data.datasets[0].data.push(finalWinData[currentIndex]);
+      }
+      if (currentIndex < finalLossData.length) {
+        lineChart.data.datasets[1].data.push(finalLossData[currentIndex]);
+      }
+      lineChart.update();
+      currentIndex++;
+      if (currentIndex >= maxPoints) clearInterval(lineInterval);
+    }, 200); // Adjust delay (in ms) per data point as needed.
+    
+    // --- Populate the Matches Table ---
+    const tbody = document.getElementById('match-table');
+    allMatches.forEach(match => {
+      tbody.innerHTML += `
+        <tr class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
+          <td class="px-4 py-2 border">${match.match}</td>
+          <td class="px-4 py-2 border">${match.prediction}</td>
+          <td class="px-4 py-2 border">${match["actual results"]}</td>
+          <td class="px-4 py-2 border">${match["correct_prediction "] ? '✅' : '❌'}</td>
+          <td class="px-4 py-2 border">${match.prediction_p}%</td>
+          <td class="px-4 py-2 border">${parseFloat(match.score_p).toFixed(1)}%</td>
+        </tr>
+      `;
+    });
+
+    }).catch(error => {
+
+        console.log('failed to recieve data:' + error)
+            
+    });
+}
+   getproducts3()
+  </script>
+</div>
+
+      
+  
+
+
+
+    </main>
+   
+    
+
+
+    <footer>
+      <p>&copy; <span id="current-year"></span> Technify Dashboard. All rights reserved.</p>
+    </footer>
+  </div>
+  <script src="js/verify.js"></script>
+  <script src="js/main.js"></script>
+ 
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/onchecker.js"></script>
+
+
+  <script>
+    document.querySelector('head').innerHTML= document.querySelector('head').innerHTML + `
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />`
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+

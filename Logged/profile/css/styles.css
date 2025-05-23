@@ -2,7 +2,9 @@
 
 
 html {
-  background-color: #121212; /* Darker background for dark theme */
+  background-image:url('../../../sources/ball2.png');
+      background-blend-mode: lighten;
+    background-color: rgba(255,255,255,.7);/* Darker background for dark theme */
   overflow-x: hidden;
   color: #e0e0e0; /* Light text for visibility */
 }
@@ -14,7 +16,8 @@ html {
 
   /* Dark Theme Styling */
   body {
-    background-color: #121212; /* Dark background */
+   
+
     color: #e0e0e0; /* Light text color */
     font-family: Arial, sans-serif;
    
@@ -29,15 +32,22 @@ html {
     align-items: center;
     position: fixed;
     top: 0;
+    background-color: rgba(255,255,255,1); 
     
-    background-color: transparent; /* Darker header background */
+    /* Darker header background */
     padding: 0 20px;
     z-index: 11;
     box-sizing: border-box;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease; /* Added shadow for depth */
+    transition: background-color 0.3s ease;
   }
   
+  
+header {
+  /* background-color: #ffffff; */
+  border-bottom: 2px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
   header nav ul {
     display: flex;
     gap: 20px;
@@ -163,7 +173,7 @@ html {
 
 
 
-  
+
 
 
 
@@ -184,6 +194,7 @@ html {
     max-width: 50%;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
   }
 
   .them:hover {
@@ -202,6 +213,7 @@ html {
     background-color: transparent;
     color: #888;
     padding: 10px;
+    background-color: transparent;
     /* border-top: 1px solid #333; */
   }
 
@@ -232,11 +244,14 @@ html {
       justify-content: center;
       align-items: center;/* Stacking content vertically */
     }
-    .card {
+    .them {
       max-width: 70vw;
+      min-width: 70vw;
       padding: 15px;
+      margin: 0 auto;
 
     }
+    
     
   }
   @media (max-width: 768px) {
@@ -246,11 +261,12 @@ html {
 
     .cards{
       display:flex;
-      width:70vw;
- ;
+      width:100vw;
       margin:0 auto;
       align-items:center;
       justify-content: center;
+      align-self: center;
+      justify-self: center;
 
 
 
@@ -266,19 +282,22 @@ html {
       margin-bottom: 20px;
     }
     .card {
-      min-width: 80vw;
+      min-width: 80%;
+      max-width: 80%;
       padding: 20px;
       
     }
     .us{
-      width:80vw;}
+      width:100%;}
   }
   @media (min-width: 768px)  {
     body {
       font-size: 16px;
     }
     .us{
-      width:80vw;
+      border: 1px solid #ddd;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+      
       height: 100px;
       align-self: center;
 
@@ -295,7 +314,10 @@ html {
 
     }
     .them{
-      width:40%;
+      width:50%;
+    }
+    .us{
+      width:100%
     }
 
     main {
@@ -305,7 +327,7 @@ html {
       /* Center items */
     }
     .card {
-      max-width: 45%; /* Adjust card size */
+      max-width: 50%; /* Adjust card size */
     }
   }
 
@@ -314,14 +336,14 @@ html {
       font-size: 20px;
     }
    
- 
+  
     main {
       flex-wrap: wrap;
       gap: 30px;
       justify-content: flex-start; /* Align items to the left */
     }
     .card {
-      max-width: 30%;
+      max-width: 500px;
     }
   }
 
@@ -329,7 +351,7 @@ html {
   .logo_name {
     font-size: xx-large;
     font-weight: 900;
-    color:  #FFFFFF;
+    color:  #0056b3;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     animation-name: logo_name_animation;
     animation-delay: 6s;
@@ -347,13 +369,13 @@ html {
 
   /* Global Styles */
   .smoother {
-    padding-top: 56px;
+    padding-top: 62px;
     padding-left: 20px;
     z-index: 1000000;
   }
   .line {
     width: 120px;
-    height: 10px;
+    height: 10px; 
     background-color: #007ACC;
     animation-name: slide;
     animation-duration: 6s;
@@ -372,16 +394,25 @@ html {
 
 .us{
   color: #007ACC;
-  border: 1px solid transparent;
+  border: transparent;
   background-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
   text-transform: capitalize;
-  margin-bottom: 20px;
+  align-self: center;
+  justify-self: center;
+  margin-left:auto;
+  font-size: larger;
+  margin-right:auto;
+  width: 100vw;
+
+  
+ 
+  
+  /* margin-bottom: 20px; */
 }
 .username{
-  color: #FFFFFF;
-  
+  color: #666;
   background-color: transparent;
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -390,7 +421,7 @@ html {
 
 
 .profile-container {
-  background-color: #1e1e1e;
+  /* background-color: #1e1e1e; */
   color: #e0e0e0;
   border: 1px solid #333;
   border-radius: 10px;
@@ -435,4 +466,34 @@ html {
 
 .edit-profile:hover {
   background-color: #1e88e5;
+}
+.them{
+  background-color: #1E1E1E;
+  border: 2px solid #007ACC;
+
+}
+
+@media (max-width: 480px) {
+  .us{
+    width:100vw; 
+      font-size: large;
+     }
+    .cards{
+      /* border: 1px solid red; */
+      padding: 10px;
+
+    }
+
+}
+@media (max-width: 426px) {
+  .us{
+    width:100vw; 
+      font-size: small;
+      border: 1px solid #ddd;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+     }
+}
+.us{
+  border: 1px solid #ddd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
 }

@@ -33,77 +33,12 @@ window.addEventListener('load',()=>{
         data = { data: `${(en(de(email,date1),date2))}(@)${en(de(pasw,date1),date2)}(@)` }
        
         sendFormData(data)
-        getproducts()
-        let cards_data=JSON.parse(accessInfo('ddata'))
-        // console.log(cards_data)
-        // console.log(cards_data)
-        // console.log(cards_data)
-        // console.log(cards_data)
-        // console.log('hey')
-        if(cards_data){
-        // alert('incorporating data')
-
-        }
-        else{
-        // alert('failed to use data data')
-        
-    }
-        let r_data='';
-        for (r in cards_data){
-            r_data= r_data + `<div class="c2" style="background-image: url('../sources/${cards_data[r].image_loc}');">
-    <div class="overlay">
-      <div class="content">
-        <h2>${cards_data[r].type_}</h2>
-        <div class="match">${cards_data[r].match}</div>
-        <div class="time_">${cards_data[r].time}</div>
-
-      </div>
-      <div class="footer">
-        <div class="btn-wrapper">
-          <button class='bwin'>Win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].win}%</span>
-            <div class="progress-bar winp" style="width: ${cards_data[r].win}%;"></div>
-          </div>
-        </div>
-       
-        <div class="btn-wrapper">
-          <button class='bdraw'>Draw</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].draw}%</span>
-            <div class="progress-bar drawp" style="width: ${cards_data[r].draw}%;"></div>
-          </div>
-        </div>
-         <div class="btn-wrapper">
-          <button class='blose'>win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].lose}%</span>
-            <div class="progress-bar losep" style="width: ${cards_data[r].lose}%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>`
-             
-        
-        
-        
-       
-        
-        
-        
+   
     
     }
-    let cards= document.querySelector(".products-grid")
-    // alert(cards)
-    // cards.innerHTML= r_data
+   
         
-      
-    
-        
-
-        
-    }
+ 
     
     }
     else{window.location.assign("../login/index.html")}
@@ -119,7 +54,7 @@ window.addEventListener('load',()=>{
    if (document.querySelector('.products-grid').innerHTML=='<div class="loading-dots"><div></div><div></div><div></div></div>'){
     // Call the function
     
-    waitForSixtySeconds();
+    updatecontent()
    
    }}
 
@@ -128,14 +63,21 @@ let menu_img = document.querySelector(".menu");
 let menu = document.querySelector(".closed");
 
 menu_img.addEventListener("click", () => {
-    if (menu_img.textContent == "Menu") {
-        menu_img.textContent = "Close";
-    } else {
-        menu_img.textContent = "Menu";
-    }
-    menu_img.classList.toggle("pink");
+   
 
-    menu.classList.toggle("open");
+    if (menu_img.textContent == "Menu") {
+      menu_img.textContent = "Close";
+      
+      
+ 
+  } else {
+      menu_img.textContent = "Menu";
+  }
+  menu_img.classList.toggle("pink");
+
+  menu.classList.toggle("open");
+
+ 
 
 
 })
@@ -161,13 +103,7 @@ let val=0;
 })
 
 
-function waitForSixtySeconds() {
-    console.log("Waiting for 60 seconds...");
-    setTimeout(() => {
-        // location.reload(true)
-        getproducts2()
-    }, 3000); // 60000 milliseconds = 60 seconds
-}
+
 
 
 
@@ -177,114 +113,12 @@ function waitForSixtySeconds() {
 
 
 
-function getproducts2(){
-    // alert('fetching')
-    fetch(line+ '/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({message:'Logged'})
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (true){
-            if (data.message){
-
-          //  console.log(data.message)
-        //    alert('data recieved')
-        let cards_data=data.message
-        // console.log(cards_data)
-        // console.log(cards_data)
-        // console.log(cards_data)
-        console.log(cards_data)
-        // console.log('hey')
-        if(cards_data){
-        // alert('incorporating data')
-
-        }
-        else{
-        // alert('failed to use data data')
-        
-    }
-
-        let r_data='';
-        for (r in cards_data){
-            r_data= r_data + `<div class="c2" style="background-image: url('../sources/${cards_data[r].image_loc}');">
-    <div class="overlay">
-      <div class="content">
-        <h2>${cards_data[r].type_}</h2>
-        <div class="match">${cards_data[r].match}</div>
-        <div class="time_">${cards_data[r].time}</div>
-      </div>
-      <div class="footer">
-        <div class="btn-wrapper">
-          <button class='bwin'>Win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].win}%</span>
-            <div class="progress-bar winp" style="width: ${cards_data[r].win}%;"></div>
-          </div>
-        </div>
-       
-        <div class="btn-wrapper">
-          <button class='bdraw'>Draw</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].draw}%</span>
-            <div class="progress-bar drawp" style="width: ${cards_data[r].draw}%;"></div>
-          </div>
-        </div>
-         <div class="btn-wrapper">
-          <button class='blose'>win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].lose}%</span>
-            <div class="progress-bar losep" style="width: ${cards_data[r].lose}%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>`
 
 
-            
-        
-        
-        
-       
-        
-        
-        
-    
-    }
-    let cards= document.querySelector(".products-grid")
 
-    cards.innerHTML= r_data
-    // let users= document.querySelectorAll('.users_')
-//   users.forEach(element => {
-//     element.addEventListener('click',()=>{
-//       var id= element.getAttribute('id').split('-')[1]
-//       window.location.assign(`dashboards/About--${cards_data[id].price}`)
-      
 
-//     })
-    
-//   });
-        
-    
-        }
-         
-        }else{
-        
-       
-        }
 
-       
-    })
-    .catch(error => {
 
-        console.log('failed to recieve data')
-            
-    });
-}
 function getproducts(){
     // alert('fetching')
     
@@ -317,7 +151,11 @@ function sendFormData(data) {
         })
         .then(data => {
             console.log("Data from server:", data);
+            
             reg_h=document.querySelector('.reg_h')
+            if (data.message=='<span id="red">You did not login!</span>'){
+                logout()
+            }
             if (data['message']=='Login failed!'){
               if (data['reason']=='incorrect details'){
             window.location.assign("../login/index.html")
