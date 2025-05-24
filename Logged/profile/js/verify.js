@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                 status.style.textDecoration='underline'
             })
             status.addEventListener('click',()=>{
-                window.location.assign('../../verify')
+                window.location.assign('../../verify/index.html')
             })
     
 

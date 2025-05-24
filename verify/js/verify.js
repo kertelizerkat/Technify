@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             })
             .catch(error => {
-                messageElement.textContent = 'Verification failed, Makgetse server closed';
+                messageElement.textContent = 'Verification failed';
                 messageElement.style.color = 'red';
 
             });
