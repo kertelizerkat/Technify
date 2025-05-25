@@ -5,7 +5,8 @@ html {
   background-image:url('../../../sources/ball2.png');
       background-blend-mode: lighten;
     background-color: rgba(255,255,255,.7);
-  background-repeat: no-repeat;/* Darker background for dark theme */
+  background-repeat: no-repeat;
+      background-size: cover;/* Darker background for dark theme */
   overflow-x: hidden;
   color: #e0e0e0; /* Light text for visibility */
 }
