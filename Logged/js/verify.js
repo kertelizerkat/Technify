@@ -26,7 +26,7 @@ window.addEventListener('load',()=>{
         if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged" || pstate=="Dboard")){window.location.assign('../login')}else{
 
            
-
+// de(accessInfo(en('username',date1)),date1)
         let usht= document.querySelector('.username');
         usht.innerHTML=de(usern,date1);
         storeInfo(en('state',date2), 'logged')
@@ -47,14 +47,17 @@ window.addEventListener('load',()=>{
 }})
 
 window.addEventListener('load',()=>{
-    let loader= document.querySelector('.loading-container')
-    if (loader){
-    loader.style.display='none'}
+    
+        
+        updatecontent_2_3()
+        
+
     if (document.querySelector('.products-grid')){
    if (document.querySelector('.products-grid').innerHTML=='<div class="loading-dots"><div></div><div></div><div></div></div>'){
     // Call the function
-    
     updatecontent()
+    
+    
    
    }}
 
@@ -131,6 +134,11 @@ function getproducts(){
 function sendFormData(data) {
     // Send data to Flask application using fetch
     // console.log(data)
+    let tt= document.getElementById('state_loader')
+       tt.textContent='Validating User info, please wait...'
+    let username_lod= document.getElementById('username_loader')
+    let vdt= document.getElementById('vdata')
+    vdt.classList.remove('hide_bx')
     const http = line + "/login";
     fetch(http, {
         method: "POST",
@@ -150,7 +158,7 @@ function sendFormData(data) {
 
         })
         .then(data => {
-            console.log("Data from server:", data);
+            // console.log("Data from server:", data);
             
             reg_h=document.querySelector('.reg_h')
             if (data.message=='<span id="red">You did not login!</span>'){
@@ -162,13 +170,12 @@ function sendFormData(data) {
               }
             }else{
                   
-
-        
-              // c_btn.textContent = 'Failed'
-              // c_btn.style.backgroundColor = 'red'
-              // c_btn.setAttribute('type','')
-              
+               username_lod.textContent=`Hi ${de(accessInfo(en('username',date1)),date1)}`
+               tt.textContent='Verified'
+            //    tt.classList.add('checked')
+               vdt.classList.add('checked')
                resp= 'verified'
+
             } 
 
         })

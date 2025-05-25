@@ -53,6 +53,9 @@
     tod.addEventListener('click',()=>{
       statec= 'today'
       storeInfo('statec',statec)
+      let cont2= document.getElementById('contentArea')
+       cont2.classList.add('today_')
+
     
       updatecontent()
       
@@ -69,6 +72,7 @@
     predicter.addEventListener('click',()=>{
       statec='predicter'
       storeInfo('statec',statec)
+       
     
     })
     let statec_=accessInfo('statec')
@@ -383,13 +387,13 @@
       storeInfo('stmode','on')
     }
 
-          // getproducts3(color1,darkBod,darkBod2,darkBack,darkBack2)
+          
 
 
 
   
 
-          // alert('done')
+
           }else{
             let cont1= document.getElementById('contentArea');
             cont1.setAttribute('style','')
@@ -433,7 +437,7 @@
     qry.value='premium'
    }
   
-  
+
   
 
 if (qry.value ) {

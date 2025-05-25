@@ -26,9 +26,36 @@
 </head>
 
 <body>
-  <div class="loading-container">
-    <div class="loader"></div>
-    <p>Verifying Login details, please wait...</p> 
+ 
+   <div  class="loading-container  ">
+      <div class="title">
+        <span class="letter">T</span>
+        <span class="letter">e</span>
+        <span class="letter">c</span>
+        <span class="letter">h</span>
+        <span class="letter">N</span>
+        <span class="letter">i</span>
+        <span class="letter">f</span>
+        <span class="letter">y</span>
+      </div>
+      <div class="loader"></div>
+       <div id="username_loader" class="subtitle"></div>
+      <div id="state_loader" class="subtitle"></div>
+     
+      <div class="checkbox-container">
+        <div id="vdata" class="check-box  hide_bx">Validation</div>
+        <div id="fdata__" class="check-box  hide_bx">Fetching Data</div>
+        <div id="ldata" class="check-box  hide_bx">Loading Data</div>
+      </div>
+      <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 25%; animation-delay: 0.8s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1.6s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 2.4s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 3.2s;"></div>
+        <div class="particle" style="left: 95%; animation-delay: 4s;"></div>
+      </div>
+  
   </div>
   <div class="container">
     <header>
@@ -83,7 +110,7 @@
 
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
-    <h1 class="text-4xl font-bold mb-6 text-center"></h1>
+    <h1 class="text-4xl font-bold mb-6 text-center">Detailed Data</h1>
     
     <!-- Summary Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
@@ -131,12 +158,7 @@
       </table>
     </div>
   </div>
-  
-  <script>
-    
 
-   updatecontent_2_3()
-  </script>
 </div>
 
       

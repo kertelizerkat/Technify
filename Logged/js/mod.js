@@ -202,7 +202,7 @@ function getproducts2(){
         // console.log(cards_data)
         // console.log(cards_data)
         // console.log(cards_data)
-        console.log(cards_data)
+        // console.log(cards_data)
         // console.log('hey')
         if(cards_data){
         // alert('incorporating data')
@@ -264,7 +264,7 @@ function getproducts2(){
     }
     let cards= document.querySelector(".products-grid")
     
-    cards.innerHTML=`<div id='tday_dt' style='display:none'>${r_data}</div><div onclick='show()' id='idt_show'>show Matches</div>`
+    cards.innerHTML=`<div id='tday_dt' style='display:none'>${r_data}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
     storeInfo('late','done')
     // let users= document.querySelectorAll('.users_')
 //   users.forEach(element => {
@@ -507,7 +507,7 @@ function generateStringNumbers(n) {
 
 
   function updatecontent(){
-      console.log(statec)
+      // console.log(statec)
      
       if ( statec=='today'){
         if( document.querySelector('.products-grid').innerHTML==`<div class="loading-dots"><div></div><div></div><div></div></div>`){
@@ -523,7 +523,7 @@ function generateStringNumbers(n) {
           if (count_==1){
               do_=true
               storeInfo('late',null)
-              console.log('Requesting')
+              // console.log('Requesting')
 
             }
           
@@ -543,12 +543,12 @@ function generateStringNumbers(n) {
             do_=true
             storeInfo('late',null)
             count_=0
-            console.log('Retrying..')
+            // console.log('Retrying..')
 
                  
             }else{
               if(st=='busy'){
-                console.log('Busy..')
+                // console.log('Busy..')
                 do_=false
               }else{
                 do_=true
@@ -568,7 +568,7 @@ function generateStringNumbers(n) {
             clearInterval(state__int)
           }
           
-        },4000)
+        },6000)
 
         
 
@@ -587,6 +587,10 @@ function generateStringNumbers(n) {
  function getproducts_2_3(){
     // alert('fetching')
     storeInfo('late2','busy')
+    let ptagstate= document.getElementById('state_loader')
+        ptagstate.textContent='Fetching TechNify Data...'
+    let fdata__= document.getElementById('fdata__')
+       fdata__.classList.remove('hide_bx')
     fetch(line+ '/products', {
         method: 'POST',
         headers: {
@@ -594,11 +598,28 @@ function generateStringNumbers(n) {
         },
         body: JSON.stringify({message:'analysis'})
     })
-    .then(response => response.json())
+    .then(response => {
+       let ldata= document.getElementById('ldata')
+       ldata.classList.remove('hide_bx')
+      let ptagstate2= document.getElementById('state_loader')
+        ptagstate2.textContent='Loading Data...'
+        let fdata__2= document.getElementById('fdata__')
+       fdata__2.classList.add('checked')
+
+      
+      return response.json()})
     .then(data3 => {
-        let data= data3.message
+        let data= data3.message;
+       
+      
+        
+   
+     
+
+        
+
         storeInfo('late2','done')
-        console.log(data)
+        // console.log(data)
         const toggleButton = document.getElementById("toggle-dark-mode");
         toggleButton.addEventListener("click", function () {
 
@@ -628,6 +649,7 @@ function generateStringNumbers(n) {
     }
     
     // --- Aggregating Data for Summary and Table ---
+
     const allMatches = [];
     for (const category in data) {
       if (data.hasOwnProperty(category)) {
@@ -644,12 +666,22 @@ function generateStringNumbers(n) {
     const totalMatches = Math.floor(allMatches.length);
     const correctCount = allMatches.filter(match => match["correct_prediction "]).length;
     const avgConfidence = allMatches.reduce((sum, match) => sum + match.prediction_p, 0) / totalMatches;
+    //remove the loader
+ 
+    
+    let ptagstate3= document.getElementById('state_loader')
+        ptagstate3.textContent='Are you TechNifyied?'
+  let ldata2= document.getElementById('ldata')
+    ldata2.classList.add('checked')
+  let loader= document.querySelector('.loading-container')
 
+    loader.style.display='none'
+    
     // Animate summary counters over 2000ms.
     animateNumber("total-matches", 0, totalMatches, 6000);
     animateNumber("accuracy", 0, (correctCount / totalMatches) * 100, 10000, '%');
     animateNumber("avg-confidence", 0, avgConfidence, 10000, '%');
-    
+  
     // --- Pie Chart Data Calculations ---
     // Draws:
     //   - "drawW" holds draws predicted correctly.
@@ -763,7 +795,7 @@ function generateStringNumbers(n) {
     
     // --- Populate the Matches Table ---
     const tbody = document.getElementById('match-table');
-    allMatches.forEach(match => {
+    allMatches.reverse().forEach(match => {
       tbody.innerHTML += `
         <tr class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
           <td class="px-4 py-2 border">${match.match}</td>
@@ -775,6 +807,9 @@ function generateStringNumbers(n) {
         </tr>
       `;
     });
+
+
+     
 
     
 
@@ -802,7 +837,7 @@ function generateStringNumbers(n) {
           if (count_==1){
               do_=true
               storeInfo('late2',null)
-              console.log('Requesting')
+              // console.log('Requesting')
 
             }
           
@@ -814,6 +849,8 @@ function generateStringNumbers(n) {
 
             }else{
               do_=false
+              //mo
+             
               clearInterval(state__int2)
             }
 
@@ -822,12 +859,12 @@ function generateStringNumbers(n) {
             do_=true
             storeInfo('late2',null)
             count_=0
-            console.log('Retrying..')
+            // console.log('Retrying..')
 
                  
             }else{
               if(st=='busy'){
-                console.log('Busy..')
+                // console.log('Busy..')
                 do_=false
               }else{
                 do_=true
@@ -844,7 +881,7 @@ function generateStringNumbers(n) {
           }
       
           
-        },3000)
+        },5000)
 
         
 
@@ -856,7 +893,7 @@ function generateStringNumbers(n) {
   }
 
   function updatecontent3(){
-      console.log(statec)
+      // console.log(statec)
       if ( statec=='today'){
         if( document.querySelector('.products-grid').innerHTML==`<div class="loading-dots"><div></div><div></div><div></div></div>`){
         setTimeout(() => {
@@ -907,5 +944,5 @@ function generateStringNumbers(n) {
         let bt= document.getElementById('idt_hide')
         bt.remove()
 
-        gg.innerHTML= `<div id='tday_dt' style='display:none'>${gg.innerHTML}</div><div onclick='show()' id='idt_show'>show Matches</div>`
+        gg.innerHTML= `<div id='tday_dt' style='display:none'>${gg.innerHTML}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
    }
