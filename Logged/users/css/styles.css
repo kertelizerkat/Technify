@@ -19,6 +19,7 @@ html {
      /* Dark background */
      background-image:url('../../../sources/ball2.png');
     background-repeat: no-repeat;
+        background-size: cover;
     color: #333;
     background-blend-mode: lighten;
     background-color: rgba(255,255,255,.7);
