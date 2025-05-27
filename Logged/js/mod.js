@@ -1,6 +1,187 @@
 let date2=18
 let date1=17
 let state__p='leave'
+// storeInfo('lastStoredTime','')
+ // --- Helper function to animate numbers ---
+  function animateNumber(id, start, end, duration, suffix = '') {
+    const element = document.getElementById(id);
+    let startTime = null;
+    function updateNumber(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = progress * (end - start) + start;
+      if (id=='total-matches'){
+          element.textContent = Math.floor((suffix ? Math.floor(value) : value.toFixed(2)) + suffix);
+      }else{
+            element.textContent = (suffix ? Math.floor(value) : value.toFixed(2)) + suffix;
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      }
+    }
+    requestAnimationFrame(updateNumber);
+  }
+  function storeCurrentTime() {
+      const now = Date.now(); // Get the current timestamp in milliseconds
+      localStorage.setItem("lastStoredTime", now);
+      console.log('Current time stored')
+  }
+function checkTimeElapsed() {
+    const lastStoredTime = localStorage.getItem("lastStoredTime");
+    
+    if (lastStoredTime) {
+        const elapsedMinutes = (Date.now() - parseInt(lastStoredTime)) / (1000 * 60);
+        
+        if (elapsedMinutes >= 90) {
+             // Run the specific function
+             console.log('90 minutes has passed')
+             updatecontent_2_3();
+          // Store the new current time
+        }else{
+            console.log('90 minutes has not passed')
+            storeInfo('late2','done')
+
+
+            
+         
+      const summary = JSON.parse(localStorage.getItem("matchSummary"));
+     let allMatches= summary.allMatches
+        
+
+     // start
+        
+       const totalMatches = Math.floor(allMatches.length);
+    const correctCount = summary.correctCount;
+    const avgConfidence = summary.avgConfidence;
+    //remove the loader
+ 
+    
+    let ptagstate3= document.getElementById('state_loader')
+        ptagstate3.textContent='Are you TechNifyied?'
+    let ldata2= document.getElementById('ldata')
+      ldata2.classList.add('checked')
+    let loader= document.querySelector('.loading-container')
+
+      loader.style.display='none'
+    
+    // Animate summary counters over 2000ms.
+    animateNumber("total-matches", 0, totalMatches, 6000);
+    animateNumber("accuracy", 0, (correctCount / totalMatches) * 100, 10000, '%');
+    animateNumber("avg-confidence", 0, avgConfidence, 10000, '%');
+
+    const finalPieData = summary.finalPieData
+    
+    // --- Create Pie Chart with initial zero data ---
+    const pieCtx = document.getElementById('pieChart').getContext('2d');
+    const pieChart = new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Draws Correct', 'Draws Lost', 'Win Correct', 'Win Lost', 'Win Lost by Draw'],
+        datasets: [{
+          data: [0, 0, 0, 0, 0],
+          backgroundColor: ['#60A5FA', '#FBBF24', '#10B981', '#EF4444', '#8B5CF6']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+    
+    // Animate pie chart values over 40 frames (~2000ms total)
+    let pieFrame = 0;
+    const totalPieFrames = 40;
+    const pieInterval = setInterval(() => {
+      pieFrame++;
+      const newData = finalPieData.map(val => Math.floor(val * (pieFrame / totalPieFrames)));
+      pieChart.data.datasets[0].data = newData;
+      pieChart.update();
+      if (pieFrame >= totalPieFrames) clearInterval(pieInterval);
+    }, 50);
+    //  const summaryData = { finalPieData, allMatches, avgConfidence,correctCount, totalMatches,winMatches,lossMatches,finalWinData,finalLossData};
+    // --- Line Chart Animation ---
+    // Extract the win and loss datasets.
+    const winMatches = summary.winMatches;
+    const lossMatches = summary.lossMatches;
+    const finalWinData =summary.finalWinData;
+    const finalLossData = summary.finalLossData;
+    
+    // Create line chart with empty datasets.
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    const lineChart = new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Win',
+            data: [],
+            borderColor: '#10B981',
+            fill: false,
+            tension: 0.1,
+            pointRadius: 0
+          },
+          {
+            label: 'Loss',
+            data: [],
+            borderColor: '#EF4444',
+            fill: false,
+            tension: 0.1,
+            pointRadius: 0
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            title: { display: true, text: 'Match Number' },
+            ticks: { stepSize: 1 }
+          },
+          y: {
+            title: { display: true, text: 'Prediction Percentage (%)' }
+          }
+        }
+      }
+    });
+    
+    // Animate the line chart by adding data points one at a time.
+    let currentIndex = 0;
+    const maxPoints = Math.max(finalWinData.length, finalLossData.length);
+    const lineInterval = setInterval(() => {
+      if (currentIndex < finalWinData.length) {
+        lineChart.data.datasets[0].data.push(finalWinData[currentIndex]);
+      }
+      if (currentIndex < finalLossData.length) {
+        lineChart.data.datasets[1].data.push(finalLossData[currentIndex]);
+      }
+      lineChart.update();
+      currentIndex++;
+      if (currentIndex >= maxPoints) clearInterval(lineInterval);
+    }, 200); // Adjust delay (in ms) per data point as needed.
+    
+    // --- Populate the Matches Table ---
+    const tbody = document.getElementById('match-table');
+    tbody.innerHTML=summary.tbdinner
+   
+    
+
+     //end
+          
+
+          
+              
+        }
+    }else{
+      console.log('Time was not stored')
+      updatecontent_2_3();
+
+    }
+}
 
 function renderMatchCard(category, key, matchData) {
       let container = document.getElementById("c_1");
@@ -610,43 +791,12 @@ function generateStringNumbers(n) {
       return response.json()})
     .then(data3 => {
         let data= data3.message;
-       
-      
-        
-   
-     
 
         
 
         storeInfo('late2','done')
-        // console.log(data)
-        const toggleButton = document.getElementById("toggle-dark-mode");
-        toggleButton.addEventListener("click", function () {
-
-          document.documentElement.classList.toggle("dark");
-        });
-    
-    // --- Helper function to animate numbers ---
-    function animateNumber(id, start, end, duration, suffix = '') {
-      const element = document.getElementById(id);
-      let startTime = null;
-      function updateNumber(timestamp) {
-        if (!startTime) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const value = progress * (end - start) + start;
-        if (id=='total-matches'){
-            element.textContent = Math.floor((suffix ? Math.floor(value) : value.toFixed(2)) + suffix);
-        }else{
-             element.textContent = (suffix ? Math.floor(value) : value.toFixed(2)) + suffix;
-        }
        
-        if (progress < 1) {
-          requestAnimationFrame(updateNumber);
-        }
-      }
-      requestAnimationFrame(updateNumber);
-    }
+
     
     // --- Aggregating Data for Summary and Table ---
 
@@ -662,10 +812,13 @@ function generateStringNumbers(n) {
       }
     }
     
+   
     // --- Summary Calculations ---
     const totalMatches = Math.floor(allMatches.length);
     const correctCount = allMatches.filter(match => match["correct_prediction "]).length;
     const avgConfidence = allMatches.reduce((sum, match) => sum + match.prediction_p, 0) / totalMatches;
+
+    
     //remove the loader
  
     
@@ -688,19 +841,16 @@ function generateStringNumbers(n) {
     //   - "drawL" holds draws lost.
     const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction "]).length : 0;
     const drawsLost = data.drawL ? Object.values(data.drawL).length : 0;
-    
-    // Wins:
-    //   - "win" holds wins predicted correctly.
-    //   - "loss" holds win predictions lost.
-    // For "loss", subdivide into:
-    //      winLostByDraw: where actual result equals "draw" (case-insensitive)
-    //      winLost: remainder.
+
     const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction "]).length : 0;
     const losses = data.loss ? Object.values(data.loss) : [];
     const winLostByDraw = losses.filter(match => match["actual results"].toLowerCase() === "draw").length;
     const winLost = losses.length - winLostByDraw;
     
     const finalPieData = [drawsCorrect, drawsLost, winCorrect, winLost, winLostByDraw];
+
+    
+
     
     // --- Create Pie Chart with initial zero data ---
     const pieCtx = document.getElementById('pieChart').getContext('2d');
@@ -807,6 +957,10 @@ function generateStringNumbers(n) {
         </tr>
       `;
     });
+    let tbdinner=tbody.innerHTML
+    const summaryData = { finalPieData, allMatches, avgConfidence,correctCount, totalMatches,winMatches,lossMatches,finalWinData,finalLossData,tbdinner};
+    localStorage.setItem("matchSummary", JSON.stringify(summaryData));
+    storeCurrentTime()
 
 
      
@@ -946,3 +1100,6 @@ function generateStringNumbers(n) {
 
         gg.innerHTML= `<div id='tday_dt' style='display:none'>${gg.innerHTML}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
    }
+
+
+  

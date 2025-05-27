@@ -27,7 +27,7 @@
 
 <body>
  
-   <div  class="loading-container  ">
+   <div  class="loading-container">
       <div class="title">
         <span class="letter">T</span>
         <span class="letter">e</span>
@@ -58,24 +58,58 @@
   
   </div>
   <div class="container">
-    <header>
-      <div class="logo">
-        <div class="logo_img"></div>
-        <div class="logo_name">TechNify</div>
+    <header class='flex'>
+      <div class="logo flex items-center gap-3 animate-fade-in-down">
+        <div class="logo_img w-12 h-12 rounded-full bg-cover bg-center">
+          <img style="border-radius: 50%;" src="../sources/ball.png" alt="">
+        </div>
+        <div class="logo_name" style="text-transform: uppercase;"></div>
       </div>
       <nav>
-        <ul class="closed">
+        <ul class="">
           <li><a  href="#" id="Dashboard" class="active_">Dashboard</a></li>
           <li><a href="profile/index.html">Profile</a></li>
           <li ><a href="posts/index.html" id="BTS" class="unactive_">Posts</a></li>
           <li ><a href="users/index.html">Users</a></li>
           <li style="margin-right: 20px;" ><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
         </ul>
-        <div class="menu">Menu</div>
-      </nav>
+         <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></div>
+        </button>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-white/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"></div>
+
+      <div  id="side-menu"
+    class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6">
+    <div class="flex justify-between items-center">
+       
+      <h2 class="text-2xl font-extrabold text-gray-900"><img style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../sources/ball.png"> TechNify</h2>
+      <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900">×</button>
+    </div>
+    <a href="#" class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+        📊 <span>Dashboard</span>
+    </a>
+    <a href="profile/index.html" class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+      👤 <span>Profile</span>
+    </a>
+    <a href="posts/index.html" class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+      📝 <span>Posts</span>
+    </a>
+    <a href="users/index.html" class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+      👥 <span>Users</span>
+    </a>
+    <a href="#" onclick="logout()" class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+      🚪 <span>Log Out</span>
+    </a>
+  </nav>
+        </div>
+
     </header>
-    <div class="smoother">
-      <div class="line"></div>
+    <div class="smoother ">
+      <div class="line "></div>
     </div>
    
     <main id="mainc-">
@@ -195,6 +229,9 @@
     rel="stylesheet"
   />`
   </script>
+
+
+
 </body>
 </html>
 

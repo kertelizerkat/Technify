@@ -30,9 +30,33 @@ window.addEventListener('load',()=>{
         let usht= document.querySelector('.username');
         usht.innerHTML=de(usern,date1);
         storeInfo(en('state',date2), 'logged')
-        data = { data: `${(en(de(email,date1),date2))}(@)${en(de(pasw,date1),date2)}(@)` }
+        data = { data: `${(en(de(email,date1),date2))}(@)${en(de(pasw,date1),date2)}(@)`
+        
+    
+    
+    }
+      let tt= document.getElementById('state_loader')
        
+    let username_lod= document.getElementById('username_loader')
+    let vdt= document.getElementById('vdata')
+       vdt.classList.remove('hide_bx')
+  
+
+     try{
+     username_lod.textContent=`Hi ${de(accessInfo(en('username',date1)),date1)}`;
+    tt.textContent='Verified';
+    document.querySelector('.logo_name').textContent= de(accessInfo(en('username',date1)),date1);
+//    tt.classList.add('checked')
+    vdt.classList.add('checked');
+    resp= 'verified';
+    updatecontent()
+
+}catch{
         sendFormData(data)
+    }
+
+
+       
    
     
     }
@@ -49,41 +73,46 @@ window.addEventListener('load',()=>{
 window.addEventListener('load',()=>{
     
         
-        updatecontent_2_3()
-        
+    checkTimeElapsed()
 
-    if (document.querySelector('.products-grid')){
-   if (document.querySelector('.products-grid').innerHTML=='<div class="loading-dots"><div></div><div></div><div></div></div>'){
-    // Call the function
-    updatecontent()
-    
-    
-   
-   }}
+const btn00 = document.getElementById('menu-btn');
+    const closeBtn00 = document.getElementById('close-btn');
+    const menu00 = document.getElementById('side-menu');
+    const overlay00 = document.getElementById('overlay');
+    const bar100 = document.getElementById('bar1');
+    const bar200 = document.getElementById('bar2');
+    const bar300 = document.getElementById('bar3');
 
-   // Side Menu Toggle Script
-let menu_img = document.querySelector(".menu");
-let menu = document.querySelector(".closed");
+    const openMenu00 = () => {
+      menu00.classList.remove('translate-x-full');
+      menu00.classList.add('translate-x-0');
+      overlay00.classList.remove('opacity-0', 'pointer-events-none');
+      bar100.classList.add('opacity-0');
+      bar200.classList.add('opacity-0');
+      bar300.classList.add('opacity-0');
+    };
 
-menu_img.addEventListener("click", () => {
-   
+    const closeMenu00 = () => {
+      menu00.classList.add('translate-x-full');
+      menu00.classList.remove('translate-x-0');
+      overlay00.classList.add('opacity-0', 'pointer-events-none');
+     bar100.classList.remove('opacity-0');
+      bar200.classList.remove('opacity-0');
+      bar300.classList.remove('opacity-0');
+    };
 
-    if (menu_img.textContent == "Menu") {
-      menu_img.textContent = "Close";
-      
-      
- 
-  } else {
-      menu_img.textContent = "Menu";
-  }
-  menu_img.classList.toggle("pink");
+    btn00.addEventListener('click', openMenu00);
+    overlay00.addEventListener('click', closeMenu00);
+    closeBtn00.addEventListener('click', closeMenu00);
 
-  menu.classList.toggle("open");
+    const toggleButton = document.getElementById("toggle-dark-mode");
+      toggleButton.addEventListener("click", function () {
 
- 
+        document.documentElement.classList.toggle("dark");
+      });
 
-
-})
+    //   toggleButton.click()
+  
  
 
 const header = document.querySelector("header");
@@ -172,9 +201,11 @@ function sendFormData(data) {
                   
                username_lod.textContent=`Hi ${de(accessInfo(en('username',date1)),date1)}`
                tt.textContent='Verified'
+               document.querySelector('.logo_name').textContent= de(accessInfo(en('username',date1)),date1)
             //    tt.classList.add('checked')
                vdt.classList.add('checked')
                resp= 'verified'
+               updatecontent()
 
             } 
 
@@ -213,7 +244,7 @@ function sendFormData(data) {
     }
     
     // Call the function to start listening for reloads
-    saveDOMBeforeReload();
+    // saveDOMBeforeReload();
     function checkTimeDifference(dateGiven, callbackFunction) {
         const currentTime = dateGiven; // Get the current date and time
         const givenTime = new Date(dateGiven); // Convert the given date to a Date object

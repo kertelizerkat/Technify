@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         
         if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged")){window.location.assign('../logged')};
         pstate=accessInfo(en('state',date2))
-         pasw=de(accessInfo(en('password',date1)),date1)
+         
          phone=de(accessInfo(en('phone',date1)),date1)
          usern=de(accessInfo(en('username',date1)),date1)
          email= de(accessInfo(en('email',date1)),date1)
@@ -21,10 +21,12 @@ window.addEventListener('DOMContentLoaded',()=>{
         let emailA= document.getElementById('email');
         let phonen= document.getElementById('phone');
         let password= document.getElementById('password');
+        let lgname=document.querySelector('.logo_name')
         emailA.textContent=email
         phonen.textContent=phone
         username.textContent=usern
-        password.textContent=pasw
+   
+        lgname.textContent=usern
     const emailC=email
     if (emailC){
         // alert(emailC)
@@ -47,13 +49,16 @@ window.addEventListener('DOMContentLoaded',()=>{
         if (data.message=='verified'){
         let status= document.getElementById("verified-status")
         status.textContent='Verified'
-        status.style.color='rgb(0,255,0)'
+        status.style.color='#007ACC'
+        // status.style.paddingLeft='20px'
+        status.style.fontWeight='600'
     
         }
         if(data.message=='Nverified'){
             let status= document.getElementById("verified-status")
             status.textContent='Not Verified'
             status.style.color='rgb(255,0,0)'
+            status.style.fontWeight='600'
             status.style.cursor='pointer'
             status.style.textDecoration='underline'
             status.addEventListener('mouseover',()=>{
