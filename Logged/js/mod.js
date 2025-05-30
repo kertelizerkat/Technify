@@ -513,7 +513,7 @@ function getproducts2(){
             </div>
           </div>
           <div class="flex flex-col gap-1">
-            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Lose</button>
+            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Win</button>
             <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
               <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
               <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
