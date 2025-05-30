@@ -1215,7 +1215,7 @@ footer p{
     font-family:  sans-serif;
     /* font-weight: ; */
     
-  }
+  } 
   .container33 .form {
     height: 100%;
     width: 100%;
@@ -2259,3 +2259,188 @@ footer p{
      border:2px solid #0056b3;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+
+
+/* styles to td info */
+._move_ {
+ 
+
+  background: linear-gradient(230deg, white, rgba(0,0,0,0.3), white);
+  background-size: 400% 400%;
+  transition: background 0.5s ease; /* Smooth fallback transition */
+   animation: moveGradient 10s ease infinite;
+}
+
+
+
+
+
+._move_:hover {
+    background: linear-gradient(230deg, white, rgba(0,0,0,0.3), white);
+   
+     transition: background 0.2s ease;
+ 
+}
+
+/* Keyframes to animate the gradient movement */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+ .search-container {
+      position: relative;
+      width: 320px;
+      transition: width 0.35s ease-in-out;
+      border-radius: 50px;
+      z-index: 2;
+    }
+    .search-container:focus-within {
+      width: 400px;
+    }
+
+    /* Animated Gradient Border */
+    .search-container::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #6a11cb, #2575fc, #00d2ff, #6a11cb);
+      background-size: 300% 300%;
+      filter: blur(6px);
+      opacity: 0.8;
+      z-index: -1;
+      animation: gradientShift 8s ease infinite;
+    }
+    .search-container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #ffffff;
+      border-radius: 50px;
+      z-index: -1;
+    }
+
+    /* Search Input Styles */
+    .search-input {
+      width: 100%;
+      padding: 15px 60px 15px 25px;
+      font-size: 1.2rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      border-radius: 50px;
+      color: #333;
+    }
+    .search-input::placeholder {
+      color: #a0a0a0;
+      transition: color 0.3s ease;
+    }
+    .search-input:focus::placeholder {
+      color: #888;
+    }
+
+    /* Search Icon Styles */
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: #888;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .search-container:focus-within .search-icon {
+      color: #2575fc;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Suggestions List Styles */
+    .suggestions-list {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      opacity: 0;
+          text-align: left;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .suggestions-list.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .suggestions-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+          text-align: left;
+    }
+    .suggestions-list li {
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .suggestions-list li:last-child {
+      border-bottom: none;
+    }
+    .suggestions-list li:hover {
+      background: #f7f7f7;
+    }
+
+    /* Keyframe for Animated Gradient */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Responsive adjustments for small screens */
+    @media (max-width: 480px) {
+      .search-container {
+        width: 280px;
+      }
+      .search-container:focus-within {
+        width: 340px;
+      }
+      .search-input {
+        font-size: 1rem;
+        padding: 12px 50px 12px 20px;
+      }
+      .search-icon {
+        font-size: 1.3rem;
+        right: 15px;
+      }
+      .suggestions-list li {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+      }
+    }

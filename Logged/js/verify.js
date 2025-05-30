@@ -23,7 +23,7 @@ window.addEventListener('load',()=>{
     const logged= accessInfo(en('logged',date1))
 
     if (pasw && phone && usern && email && logged=='true'){
-        if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged" || pstate=="Dboard")){window.location.assign('../login')}else{
+        if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=="logged" )){window.location.assign('../login')}else{
 
            
 // de(accessInfo(en('username',date1)),date1)
@@ -49,7 +49,8 @@ window.addEventListener('load',()=>{
 //    tt.classList.add('checked')
     vdt.classList.add('checked');
     resp= 'verified';
-    updatecontent()
+    steps_to_remove_loader=1
+ 
 
 }catch{
         sendFormData(data)
@@ -65,7 +66,16 @@ window.addEventListener('load',()=>{
  
     
     }
-    else{window.location.assign("../login/index.html")}
+    else{
+        storeInfo('lastStoredTime','')
+        storeInfo('matchSummary','')
+        storeInfo(en('logged',date1),'')
+        storeInfo(en('username',date1),'')
+        storeInfo(en('state',date2),'')
+        storeInfo(en('email',date1),'')
+        storeInfo(en('password',date1),'')
+        
+        window.location.assign("../login/index.html")}
         
     
 }})
@@ -151,10 +161,6 @@ let val=0;
 
 
 
-function getproducts(){
-    // alert('fetching')
-    
-}
 // let con=document.querySelector(".loading-container");
 
 
@@ -196,6 +202,7 @@ function sendFormData(data) {
             if (data['message']=='Login failed!'){
               if (data['reason']=='incorrect details'){
             window.location.assign("../login/index.html")
+              
               }
             }else{
                   
@@ -205,12 +212,17 @@ function sendFormData(data) {
             //    tt.classList.add('checked')
                vdt.classList.add('checked')
                resp= 'verified'
-               updatecontent()
+               steps_to_remove_loader=1
+               
 
             } 
 
         })
         .catch(error => {
+            steps_to_remove_loader=0
+            storeInfo('lastStoredTime','')
+            storeInfo('matchSummary','')
+
             window.location.assign("../login/index.html")
       
             // c_btn.setAttribute('type','')

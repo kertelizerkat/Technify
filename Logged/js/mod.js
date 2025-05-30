@@ -1,6 +1,7 @@
 let date2=18
 let date1=17
-let state__p='leave'
+let steps_to_remove_loader=0
+let state__p=''
 // storeInfo('lastStoredTime','')
  // --- Helper function to animate numbers ---
   function animateNumber(id, start, end, duration, suffix = '') {
@@ -55,6 +56,15 @@ function checkTimeElapsed() {
        const totalMatches = Math.floor(allMatches.length);
     const correctCount = summary.correctCount;
     const avgConfidence = summary.avgConfidence;
+
+    if (avgConfidence && correctCount && totalMatches && allMatches){
+
+    }else{
+      storeInfo('matchSummary','')
+      storeInfo('lastStoredTime','')
+      window.location.reload()
+
+    }
     //remove the loader
  
     
@@ -72,6 +82,14 @@ function checkTimeElapsed() {
     animateNumber("avg-confidence", 0, avgConfidence, 10000, '%');
 
     const finalPieData = summary.finalPieData
+    if (finalPieData){
+
+    }else{
+      storeInfo('matchSummary','')
+      storeInfo('lastStoredTime','')
+      window.location.reload()
+
+    }
     
     // --- Create Pie Chart with initial zero data ---
     const pieCtx = document.getElementById('pieChart').getContext('2d');
@@ -107,6 +125,14 @@ function checkTimeElapsed() {
     const lossMatches = summary.lossMatches;
     const finalWinData =summary.finalWinData;
     const finalLossData = summary.finalLossData;
+    if (finalWinData && finalLossData ){
+
+    }else{
+      storeInfo('matchSummary','')
+      storeInfo('lastStoredTime','')
+      window.location.reload()
+
+    }
     
     // Create line chart with empty datasets.
     const lineCtx = document.getElementById('lineChart').getContext('2d');
@@ -167,10 +193,20 @@ function checkTimeElapsed() {
     // --- Populate the Matches Table ---
     const tbody = document.getElementById('match-table');
     tbody.innerHTML=summary.tbdinner
-   
+
+    
+    if (summary.tbdinner ){
+
+    }else{
+      storeInfo('matchSummary','')
+      storeInfo('lastStoredTime','')
+      window.location.reload()
+
+    }
     
 
      //end
+     updatecontent()
           
 
           
@@ -178,6 +214,7 @@ function checkTimeElapsed() {
         }
     }else{
       console.log('Time was not stored')
+      
       updatecontent_2_3();
 
     }
@@ -298,13 +335,15 @@ function storeInfo(key, value) {
     storeInfo(en('username',date1),'')
     storeInfo(en('email',date1),'')
     storeInfo(en('logged',date1),'')
+    // storeInfo('lastStoredTime','')
+    //   storeInfo('matchSummary','')
     storeInfo('domContent2',''),
     storeInfo('domContentdate2',''),
     storeInfo('main_state2',''),
 
 
     
-      window.location.assign("../index.html")
+      window.location.assign("../login/index.html")
     }
 
 
@@ -355,6 +394,56 @@ function de(encryptedText, key) {
   return decryptedText;
 }
 
+function getTextContentsByClass(className) {
+  // Select all elements with the provided class name
+  const elements = document.querySelectorAll(`.${className}`);
+  
+  // Map over the NodeList and extract the trimmed textContent of each element
+  const textContents = Array.from(elements, element => element.textContent.trim());
+  
+  return textContents;
+}
+
+function getTextContentIdMapping(className) {
+  // Get all elements with the given class name
+  const elements = document.querySelectorAll(`.${className}`);
+  
+  // Create an object to store the mapping
+  const mapping = {};
+
+  // Iterate through each element
+  elements.forEach(element => {
+    // Use the trimmed text content as the key
+    const key = element.textContent.trim();
+    // Use the id attribute as the value
+    mapping[key] = element.id;
+  });
+
+  return mapping;
+}
+
+
+function scrollAndHighlight(targetId) {
+  // Get the target element
+  const targetElement = document.getElementById(targetId);
+  
+  if (!targetElement) return; // Exit if element doesn't exist
+
+  // Scroll to the target element smoothly
+  targetElement.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+
+  // Apply temporary highlighting effect
+  targetElement.style.transition = "background-color 0.5s ease-in-out";
+  targetElement.style.backgroundColor = "#ffeb3b"; // Yellow highlight
+
+  // Remove highlight after a few seconds
+  setTimeout(() => {
+    targetElement.style.backgroundColor = "";
+  }, 2000); // Highlight disappears after 2 seconds
+}
 function getproducts2(){
     storeInfo('late','busy')
     // alert('fetching')
@@ -370,10 +459,9 @@ function getproducts2(){
         if (true){
             if (data.message){
 
-
               
 
-          //  console.log(data.message)
+           console.log(data.message)
         //    alert('data recieved')
         let cards_data=data.message
         if (cards_data=='<span id="red">You did not login!</span>'){
@@ -385,52 +473,57 @@ function getproducts2(){
         // console.log(cards_data)
         // console.log(cards_data)
         // console.log('hey')
-        if(cards_data){
-        // alert('incorporating data')
-
-        }
-        else{
-        // alert('failed to use data data')
-        
-    }
+    
 
         let r_data='';
         for (r in cards_data){
-            r_data= r_data + `<div class="c2" style="background-image: url('../sources/${cards_data[r].image_loc}');">
-    <div class="overlay">
-      <div class="content">
-        <h2>${cards_data[r].type_}</h2>
-        <div class="match">${cards_data[r].match}</div>
-        <div class="time_ prediction_ " style="font-size:small">Prediction: ${cards_data[r].prediction_}</div>
-        <div class="time_">${cards_data[r].time}</div>
-        
-      </div>
-      <div class="footer">
-        <div class="btn-wrapper">
-          <button class='bwin'>Win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].win}%</span>
-            <div class="progress-bar winp" style="width: ${cards_data[r].win}%;"></div>
+            r_data= r_data + `  <div class="relative _move_ rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+      <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
+        <div class="mb-3">
+          <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
+          <div class="flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap mb-2">
+            <!-- Match Status Component Placeholder -->
+            <div class="text-sm font-semibold">
+              <div class="flex flex-col items-end text-right">
+               ${cards_data[r].time}
+              </div>
+            </div>
+          </div>
+          <div id='match_${r}' class="text-center matchids text-lg font-extrabold text-gray-800 animate-zoom-in mb-2">
+            ${cards_data[r].match}
+          </div>
+          <div class="text-center text-sm font-medium text-gray-700 bg-lime-100 px-3 py-1 rounded-full w-fit mx-auto max-w-full truncate">
+            Prediction: ${cards_data[r].prediction_}
           </div>
         </div>
-       
-        <div class="btn-wrapper">
-          <button class='bdraw'>Draw</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].draw}%</span>
-            <div class="progress-bar drawp" style="width: ${cards_data[r].draw}%;"></div>
+
+        <div class="grid grid-cols-3 gap-2">
+          <div class="flex flex-col gap-1">
+            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-green-600 text-white hover:bg-green-700">Win</button>
+            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <span class="absolute left-1 top-[-1.5rem] text-[10px] text-green-700 font-medium">${cards_data[r].win}%</span>
+              <div class="h-full bg-green-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].win}%;"></div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-yellow-400 text-gray-800 hover:bg-yellow-500">Draw</button>
+            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <span class="absolute left-1 top-[-1.5rem] text-[10px] text-yellow-700 font-medium">${cards_data[r].draw}%</span>
+              <div class="h-full bg-yellow-300 transition-all duration-700 ease-out" style="width: ${cards_data[r].draw}%;"></div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-1">
+            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Lose</button>
+            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
+              <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
+            </div>
           </div>
         </div>
-         <div class="btn-wrapper">
-          <button class='blose'>win</button>
-          <div class="progress">
-            <span class="percentage">${cards_data[r].lose}%</span>
-            <div class="progress-bar losep" style="width: ${cards_data[r].lose}%;"></div>
-          </div>
-        </div>
+
       </div>
     </div>
-  </div>`
+`
 
 
             
@@ -447,16 +540,75 @@ function getproducts2(){
     
     cards.innerHTML=`<div id='tday_dt' style='display:none'>${r_data}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
     storeInfo('late','done')
-    // let users= document.querySelectorAll('.users_')
-//   users.forEach(element => {
-//     element.addEventListener('click',()=>{
-//       var id= element.getAttribute('id').split('-')[1]
-//       window.location.assign(`dashboards/About--${cards_data[id].price}`)
+
+    const suggestionList = getTextContentsByClass('matchids')
+    let suggestionObject=  getTextContentIdMapping('matchids')
+    // let seeIfClosed=document.getElementById('tday_dt')
+
+    // Get references to the search input and suggestion container
+    let inputField = document.querySelector('.search-input');
+       document.getElementById('conttt').setAttribute('style','')
+   
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Filter suggestions from the list based on the query (case-insensitive)
+    function filterSuggestions(query) {
+      query = query.toLowerCase();
+      const filtered = suggestionList.filter(item => item.toLowerCase().includes(query));
+      return filtered.slice(0, 3); // only return top 3 results
+    }
+
+    // Update the suggestions list in the DOM
+    inputField.addEventListener('input', function(e) {
+      const query = e.target.value;
+      const results = filterSuggestions(query);
+      
+      // Clear any existing suggestions
+      suggestionsContainer.innerHTML = '';
+      
+      // If the query isn't empty and there are suggestions, display them
+      if(query.trim() !== '' && results.length > 0){
+        const ul = document.createElement('ul');
+        results.forEach(suggestion => {
+          const li = document.createElement('li');
+          li.textContent = suggestion;
+          li.addEventListener('click', function() {
+            inputField.value = suggestion;
+            if (document.getElementById('idt_show')){
+            show()}
+           
+             scrollAndHighlight(suggestionObject[suggestion.trim()])
+           
+            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.classList.remove('visible');
+          });
+          ul.appendChild(li);
+        });
+        suggestionsContainer.appendChild(ul);
+        suggestionsContainer.classList.add('visible');
+      } else {
+        suggestionsContainer.classList.remove('visible');
+      }
+    });
+
+    // Optional: Hide suggestions when the input loses focus
+    inputField.addEventListener('blur', function() {
+      // Delay hiding so that click events on suggestions can be captured
+      setTimeout(() => {
+        suggestionsContainer.classList.remove('visible');
+      }, 150);
+    });
+
+
+
+     
+
+    
+
+
       
 
-//     })
-    
-//   });
+
         
     
         }
@@ -691,7 +843,7 @@ function generateStringNumbers(n) {
       // console.log(statec)
      
       if ( statec=='today'){
-        if( document.querySelector('.products-grid').innerHTML==`<div class="loading-dots"><div></div><div></div><div></div></div>`){
+        if( document.querySelector('.products-grid')){
       
         
         // location.reload(false)
@@ -737,13 +889,15 @@ function generateStringNumbers(n) {
             }
           }
           if(document.querySelector('.products-grid')){
-              if(document.querySelector('.products-grid').innerHTML==`<div class="loading-dots"><div></div><div></div><div></div></div>`){
+              if(true){
               if (do_){
-              getproducts2()}
+                if (true){
+                  console.log('requested content')
+              getproducts2()
+            }
+            }
             
             
-            }else{
-              clearInterval(state__int)
             }
           }else{
             clearInterval(state__int)
@@ -961,6 +1115,9 @@ function generateStringNumbers(n) {
     const summaryData = { finalPieData, allMatches, avgConfidence,correctCount, totalMatches,winMatches,lossMatches,finalWinData,finalLossData,tbdinner};
     localStorage.setItem("matchSummary", JSON.stringify(summaryData));
     storeCurrentTime()
+    steps_to_remove_loader=2
+    updatecontent()
+  
 
 
      
@@ -968,6 +1125,9 @@ function generateStringNumbers(n) {
     
 
     }).catch(error => {
+      steps_to_remove_loader=1
+      storeInfo('lastStoredTime','')
+      storeInfo('matchSummary','')
         storeInfo('late2','failed')
         console.log('failed to recieve data:' + error)
             
@@ -1003,7 +1163,7 @@ function generateStringNumbers(n) {
 
             }else{
               do_=false
-              //mo
+              
              
               clearInterval(state__int2)
             }
@@ -1028,7 +1188,12 @@ function generateStringNumbers(n) {
           if(true){
              
               if (do_){
-              getproducts_2_3()}
+                if (steps_to_remove_loader==1){
+                        getproducts_2_3()
+                }else{
+                  console.log('validation has not taken place..')
+                }
+              }
             
             
            

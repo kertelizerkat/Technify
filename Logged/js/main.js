@@ -1,9 +1,11 @@
 
     // Object to store HTML content for each tab
     let mcont=document.querySelector('.container22')
+    
 
     let rliadt=[]
     storeInfo('mode','black')
+
     
 
     let tod= document.getElementById('today')
@@ -79,7 +81,20 @@
    
    
     let contentMap = {
-      today: `<div  class="products-grid c1"><div class="loading-dots"><div></div><div></div><div></div></div></div>`,
+      today: `  <div class="SOM">
+          <div id="conttt"   title="Search Live , Upcoming or Ended Games " class="search-container">
+            <input type="text" class="search-input" placeholder="TechNify Search..." />
+            <div class="search-icon">&#128269;</div>
+          </div>
+          <div class="suggestions-list" id="suggestions"></div>
+          <div class="products-grid c1 ">
+            <div class="loading-dots">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>`,
       analysis: `
       <div class='lineg'>
           <div class='light-mode' id='gfl'>

@@ -231,7 +231,10 @@ header {
     border-bottom-color:transparent ;
     border-radius: 8px;
     width: 100%;
+    /* margin-left: 30px;; */
+  
     overflow: hidden;
+
   }
   .info-content{
     display: flex;
@@ -341,7 +344,7 @@ header {
        justify-content: center;
        align-items: center;
 
-        width:100%;
+        width:95%;
         margin: 2rem auto;
        
         background: #ffffff;
@@ -504,14 +507,7 @@ header {
           display: none;
           /* optional adjustment on smaller screens */
         }
-         .profile-info {
-        /* display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width:100%; */
-     
-      
-      }
+    
       }
 
 
@@ -641,9 +637,7 @@ header {
         }
 
         /* Override grid to a single column if needed */
-        .info-content {
-          /* grid-template-columns: 1fr; */
-        }
+    
       }
 
 

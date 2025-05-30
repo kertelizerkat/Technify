@@ -77,7 +77,7 @@ function storeInfo(key, value) {
     storeInfo(en('email',date1),'')
     storeInfo(en('logged',date1),'')
     
-      // window.location.assign("../login/")
+      window.location.assign("../login/index.html")
     }
 
 
