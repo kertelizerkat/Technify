@@ -591,6 +591,32 @@ function getproducts2(){
       }
     });
 
+    inputField.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { // Detect Enter key press
+    e.preventDefault(); // Prevent default form submission (if applicable)
+
+    // Get the first suggestion element
+    const firstSuggestion = suggestionsContainer.querySelector('ul li');
+    
+    // If a suggestion exists, scroll and highlight it
+    if (firstSuggestion) {
+      const selectedText = firstSuggestion.textContent.trim();
+      inputField.value = selectedText; // Autofill input with first suggestion
+      
+      if (document.getElementById('idt_show')) {
+        show(); // Show additional content if required
+      }
+
+      scrollAndHighlight(suggestionObject[selectedText]); // Scroll and highlight the element
+      
+      // Clear suggestions
+      suggestionsContainer.innerHTML = '';
+      suggestionsContainer.classList.remove('visible');
+    }
+  }
+});
+
+
     // Optional: Hide suggestions when the input loses focus
     inputField.addEventListener('blur', function() {
       // Delay hiding so that click events on suggestions can be captured
