@@ -490,6 +490,7 @@ html {
       gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       max-width: 90vw;
+      min-width: 90vw;
       margin: 0 auto;
     }
     
@@ -896,8 +897,18 @@ footer p{
     padding-top:20px;
     
   }
+
   
   /* Each prediction card */
+
+  .tab_holder_1{
+    display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      margin-left:auto;
+      margin-right:auto;
+  }
+
   .container22 .c2 {
     position: relative;
     width: 250px;
@@ -2263,25 +2274,35 @@ footer p{
 
 
 /* styles to td info */
+._move_2 {
+ 
+
+  background: linear-gradient(230deg,#ccc, rgba(0,0,0,0.3), #ccc);
+  background-size: 400% 400%;
+  transition: background 0.5s ease; /* Smooth fallback transition */
+   animation: moveGradient 3s ease infinite;
+}
+._move_1 {
+ 
+
+  background: linear-gradient(230deg, #ccc, rgba(255,0,0,0.3), #ccc);
+  background-size: 400% 400%;
+  transition: background 0.5s ease; /* Smooth fallback transition */
+   animation: moveGradient 3s ease infinite;
+}
 ._move_ {
  
 
-  background: linear-gradient(230deg, white, rgba(0,0,0,0.3), white);
+  background: linear-gradient(230deg, #ccc, rgba(0, 123, 255, 0.3), #ccc);
   background-size: 400% 400%;
   transition: background 0.5s ease; /* Smooth fallback transition */
-   animation: moveGradient 10s ease infinite;
+   animation: moveGradient 3s ease infinite;
 }
 
 
 
 
 
-._move_:hover {
-    background: linear-gradient(230deg, white, rgba(0,0,0,0.3), white);
-   
-     transition: background 0.2s ease;
- 
-}
 
 /* Keyframes to animate the gradient movement */
 @keyframes moveGradient {
@@ -2300,6 +2321,8 @@ footer p{
  .search-container {
       position: relative;
       width: 320px;
+      margin-left:auto;
+      margin-right:auto;
       transition: width 0.35s ease-in-out;
       border-radius: 50px;
       z-index: 2;
@@ -2372,6 +2395,8 @@ footer p{
 
     /* Suggestions List Styles */
     .suggestions-list {
+          margin-left:auto;
+      margin-right:auto;
       width: 100%;
       max-width: 400px;
       margin-top: 20px;
@@ -2443,4 +2468,203 @@ footer p{
         padding: 10px 15px;
         font-size: 0.95rem;
       }
+    }
+
+
+
+
+/* gjd,bgkdfhgbj */
+
+
+ @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+
+    .live-score-container {
+      background: #111;
+      padding: 20px 40px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Styling for the "LIVE" label */
+    .live-label {
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 2px;
+      background: linear-gradient(90deg, black, black);
+      color: white;
+      border-radius: 6px;
+      margin-right: 20px;
+      text-transform: uppercase;
+      animation: glowPulse 1.5s ease-in-out infinite;
+    }
+    
+    /* Styling for the score text */
+    .live-score {
+      font-size: 1rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, black, white, black);
+      background-size: 200% 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease infinite;
+    }
+
+    /* Keyframes for glowing pulse on the LIVE badge */
+    @keyframes glowPulse {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 65, 108, 0.8), 0 0 20px rgba(255, 75, 43, 0.8);
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 65, 108, 1), 0 0 30px rgba(255, 75, 43, 1);
+      }
+    }
+
+    /* Keyframes for shifting gradient on the score text */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+#country_img{
+  display:inline;
+}
+
+
+
+
+  /* kljfejgo */
+
+  
+    /* Container */
+    .c1 .tab-container {
+      width: 100%;
+      /* max-width: 900px; */
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
+    }
+    
+    /* Tab Headers */
+    .c1 .tab-header {
+      display: flex;
+      border-bottom: 1px solid #eee;
+    }
+    
+     .c1 .tab-header div {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+    
+    /* Hover Effect for All Tabs */
+    .c1 .tab-header div:hover {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    /* Unique Styles for Each Tab When Active */
+    /* Live Tab: A pulsating glow when active */
+     .c1 .live-tab.active {
+      background: linear-gradient(45deg, #c20e1d, #a0a0a0f3);
+      color: #fff;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Upcoming Tab: A smooth slide-in effect */
+    .c1  .upcoming-tab.active {
+      background: linear-gradient(45deg, #007bff, #a0a0a0f3);
+      color: #fff;
+      animation: slideIn 0.5s forwards;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    
+    /* Ended Tab: A gentle fade-in with refined elegance */
+     .c1 .ended-tab.active {
+      background: linear-gradient(45deg, #8e9eab, #eef2f3);
+      color: #333;
+      animation: fadeIn 0.8s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+    
+    /* Tab Content Container */
+     .c1 .tab-content {
+      /* padding: 4px; */
+      min-height: 300px;
+      position: relative;
+      margin-left:auto;
+      margin-right:auto;
+      overflow: hidden;
+       box-sizing: border-box;
+    }
+    
+    /* Content Panels (displaying only the active one) */
+     .c1 .tab-content > div {
+      display: none;
+      animation: contentFade 0.5s ease-in-out;
+       box-sizing: border-box;
+    }
+    
+     .c1 .tab-content > div.active {
+      display: block;
+       box-sizing: border-box;
+    }
+    
+    @keyframes contentFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Optionally add a stylish divider at the bottom of each tab header */
+     .c1 .tab-header div::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+       box-sizing: border-box;
+      width: 0;
+      height: 3px;
+      background: transparent;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    
+    .c1  .tab-header div.active::after {
+      width: 100%;
+       box-sizing: border-box;
+      left: 0;
+      background: rgba(255,255,255,0.9);
     }

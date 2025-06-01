@@ -473,57 +473,187 @@ function getproducts2(){
         // console.log(cards_data)
         // console.log(cards_data)
         // console.log('hey')
+
+
+
+
     
 
         let r_data='';
+        let r_data_ended='';
+        let r_data_live='';
+        let r_data_upcoming='';
         for (r in cards_data){
-            r_data= r_data + `  <div class="relative _move_ rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
-      <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
-        <div class="mb-3">
-          <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
-          <div class="flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap mb-2">
-            <!-- Match Status Component Placeholder -->
+            if (cards_data[r].state=='live'){
+                        r_data_live= r_data_live + `  <div style='min-width:300px;min-height:250px; gap: 20px; margin-left:auto;
+      margin-right:auto;'  class="relative _move_1 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+        <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
+          <div class="mb-3">
+            <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
+            <div class="flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap mb-2">
+              <!-- Match Status Component Placeholder -->
+              <div class="text-sm font-semibold">
+                <div style='gap:10px; ' class="flex   text-right">
+                  ${cards_data[r].where}
+                </div>
+              </div>
+            </div>
+            <div id='match_${r}' data='live' class="text-center matchids text-lg font-extrabold text-gray-800 animate-zoom-in mb-2">
+              ${cards_data[r].match}
+            </div>
+            <div class="text-center text-sm font-medium text-gray-700 bg-lime-100 px-3 py-1 rounded-full w-fit mx-auto max-w-full truncate">
+              Prediction: ${cards_data[r].prediction_}
+            </div>
             <div class="text-sm font-semibold">
-              <div class="flex flex-col items-end text-right">
-               ${cards_data[r].time}
+                <div class="flex flex-col items-center text-center">
+                ${cards_data[r].time}
+                </div>
+              </div>
+          </div>
+
+
+          <div class="grid grid-cols-3 gap-2">
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-green-600 text-white hover:bg-green-700">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-green-700 font-medium">${cards_data[r].win}%</span>
+                <div class="h-full bg-green-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].win}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-yellow-400 text-gray-800 hover:bg-yellow-500">Draw</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-yellow-700 font-medium">${cards_data[r].draw}%</span>
+                <div class="h-full bg-yellow-300 transition-all duration-700 ease-out" style="width: ${cards_data[r].draw}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
+                <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
               </div>
             </div>
           </div>
-          <div id='match_${r}' class="text-center matchids text-lg font-extrabold text-gray-800 animate-zoom-in mb-2">
-            ${cards_data[r].match}
-          </div>
-          <div class="text-center text-sm font-medium text-gray-700 bg-lime-100 px-3 py-1 rounded-full w-fit mx-auto max-w-full truncate">
-            Prediction: ${cards_data[r].prediction_}
-          </div>
-        </div>
 
-        <div class="grid grid-cols-3 gap-2">
-          <div class="flex flex-col gap-1">
-            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-green-600 text-white hover:bg-green-700">Win</button>
-            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-              <span class="absolute left-1 top-[-1.5rem] text-[10px] text-green-700 font-medium">${cards_data[r].win}%</span>
-              <div class="h-full bg-green-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].win}%;"></div>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-yellow-400 text-gray-800 hover:bg-yellow-500">Draw</button>
-            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-              <span class="absolute left-1 top-[-1.5rem] text-[10px] text-yellow-700 font-medium">${cards_data[r].draw}%</span>
-              <div class="h-full bg-yellow-300 transition-all duration-700 ease-out" style="width: ${cards_data[r].draw}%;"></div>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1">
-            <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Win</button>
-            <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-              <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
-              <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
-            </div>
-          </div>
         </div>
-
       </div>
-    </div>
-`
+                  `
+            }
+            if (cards_data[r].state=='ended'){
+                        r_data_ended= r_data_ended + `  <div class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+        <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
+          <div class="mb-3">
+            <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
+            <div class="flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap mb-2">
+              <!-- Match Status Component Placeholder -->
+              <div class="text-sm font-semibold">
+                <div style='gap:10px; ' class="flex   text-right">
+                  ${cards_data[r].where}
+                </div>
+              </div>
+            </div>
+            <div id='match_${r}' data='ended' class="text-center matchids text-lg font-extrabold text-gray-800 animate-zoom-in mb-2">
+              ${cards_data[r].match}
+            </div>
+            <div class="text-center text-sm font-medium text-gray-700 bg-lime-100 px-3 py-1 rounded-full w-fit mx-auto max-w-full truncate">
+              Prediction: ${cards_data[r].prediction_}
+            </div>
+            <div class="text-sm font-semibold">
+                <div class="flex flex-col items-center text-center">
+                ${cards_data[r].time}
+                </div>
+              </div>
+          </div>
+
+
+          <div class="grid grid-cols-3 gap-2">
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-green-600 text-white hover:bg-green-700">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-green-700 font-medium">${cards_data[r].win}%</span>
+                <div class="h-full bg-green-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].win}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-yellow-400 text-gray-800 hover:bg-yellow-500">Draw</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-yellow-700 font-medium">${cards_data[r].draw}%</span>
+                <div class="h-full bg-yellow-300 transition-all duration-700 ease-out" style="width: ${cards_data[r].draw}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
+                <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+                  `
+            }
+            if (cards_data[r].state=='upcoming'){
+                        r_data_upcoming= r_data_upcoming + `  <div class="relative _move_ rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+        <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
+          <div class="mb-3">
+            <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
+            <div class="flex flex-wrap items-start justify-between gap-2 sm:flex-nowrap mb-2">
+              <!-- Match Status Component Placeholder -->
+              <div class="text-sm font-semibold">
+                <div style='gap:10px; ' class="flex   text-right">
+                  ${cards_data[r].where}
+                </div>
+              </div>
+            </div>
+            <div id='match_${r}' data='upcoming' class="text-center matchids text-lg font-extrabold text-gray-800 animate-zoom-in mb-2">
+              ${cards_data[r].match}
+            </div>
+            <div class="text-center text-sm font-medium text-gray-700 bg-lime-100 px-3 py-1 rounded-full w-fit mx-auto max-w-full truncate">
+              Prediction: ${cards_data[r].prediction_}
+            </div>
+            <div class="text-sm font-semibold">
+                <div class="flex flex-col items-center text-center">
+                ${cards_data[r].time}
+                </div>
+              </div>
+          </div>
+
+
+          <div class="grid grid-cols-3 gap-2">
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-green-600 text-white hover:bg-green-700">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-green-700 font-medium">${cards_data[r].win}%</span>
+                <div class="h-full bg-green-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].win}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-yellow-400 text-gray-800 hover:bg-yellow-500">Draw</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span class="absolute left-1 top-[-1.5rem] text-[10px] text-yellow-700 font-medium">${cards_data[r].draw}%</span>
+                <div class="h-full bg-yellow-300 transition-all duration-700 ease-out" style="width: ${cards_data[r].draw}%;"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <button class="text-xs font-medium uppercase px-2 py-1 rounded-lg shadow-md bg-red-500 text-white hover:bg-red-600">Win</button>
+              <div class="relative w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <span id='red' class="absolute red left-1 top-[-1.5rem] text-[10px] text-red-700 font-medium">${cards_data[r].lose}%</span>
+                <div class="h-full bg-red-400 transition-all duration-700 ease-out" style="width: ${cards_data[r].lose}%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+                  `
+            }
+
+             
+
+           
 
 
             
@@ -536,10 +666,52 @@ function getproducts2(){
         
     
     }
+
+
     let cards= document.querySelector(".products-grid")
+    r_data=`  <div class="tab-container">
+    <!-- Tab Headers -->
+    <div class="tab-header">
+      <div id='live-tab1' class="tab live-tab active">Live</div>
+      <div id='upcoming-tab1' class="tab upcoming-tab">Upcoming</div>
+      <div id='ended-tab1' class="tab ended-tab">Ended</div>
+    </div>
     
-    cards.innerHTML=`<div id='tday_dt' style='display:none'>${r_data}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
+    <!-- Tab Content -->
+  
+      <div class="tab-content">
+        <div  class="content live-content active">
+       
+          <div  class='tab_holder_1'>${r_data_live}</div>
+        </div>
+        <div  class="content upcoming-content">
+        
+          <div class='tab_holder_1'>${r_data_upcoming}</div>
+        </div>
+        <div  class="content ended-content">
+          
+          <div class='tab_holder_1'>${r_data_ended}</div>
+        </div>
+      </div>
+  
+  </div>`
+    
+    cards.innerHTML=r_data
     storeInfo('late','done')
+    const tabs = document.querySelectorAll('.tab-header div');
+    const contents = document.querySelectorAll('.tab-content > div');
+    
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        // Remove active state from all tabs and contents
+        tabs.forEach(item => item.classList.remove('active'));
+        contents.forEach(item => item.classList.remove('active'));
+        
+        // Activate clicked tab and its content panel
+        tab.classList.add('active');
+        contents[index].classList.add('active');
+      });
+    });
 
     const suggestionList = getTextContentsByClass('matchids')
     let suggestionObject=  getTextContentIdMapping('matchids')
@@ -574,8 +746,36 @@ function getproducts2(){
           li.textContent = suggestion;
           li.addEventListener('click', function() {
             inputField.value = suggestion;
-            if (document.getElementById('idt_show')){
-            show()}
+            let tge=document.getElementById(suggestionObject[suggestion.trim()])
+            let livep=document.getElementById('live-tab1')
+            let upp=document.getElementById('upcoming-tab1')
+            let endp=document.getElementById('ended-tab1')
+           
+
+            if(tge){
+              if(tge.getAttribute('data')=='upcoming'){
+
+                   if (upp){
+                    upp.click()
+
+                   }
+              }else{
+                if(tge.getAttribute('data')=='live'){
+                   if (livep){
+                    livep.click()
+
+                   }
+                }else{
+                if(tge.getAttribute('data')=='ended'){
+                   if (endp){
+                    endp.click()
+
+                   }
+                }
+              }
+              }
+            }
+         
            
              scrollAndHighlight(suggestionObject[suggestion.trim()])
            
@@ -603,9 +803,7 @@ function getproducts2(){
       const selectedText = firstSuggestion.textContent.trim();
       inputField.value = selectedText; // Autofill input with first suggestion
       
-      if (document.getElementById('idt_show')) {
-        show(); // Show additional content if required
-      }
+      
 
       scrollAndHighlight(suggestionObject[selectedText]); // Scroll and highlight the element
       
@@ -1272,25 +1470,8 @@ function generateStringNumbers(n) {
   }
 
 
-  function show(){
-    let bt= document.getElementById('idt_show')
-    // bt.style.display='none'
-    let view= document.getElementById('tday_dt')
-    let gg= document.querySelector('.products-grid')
-    gg.innerHTML= view.innerHTML  +`<div onclick='hide_()' class='mide'  id='idt_hide'>Hide Matches</div>`
-    
-    
 
 
-  }
-
-   function hide_(){
-        let gg= document.querySelector('.products-grid')
-        let bt= document.getElementById('idt_hide')
-        bt.remove()
-
-        gg.innerHTML= `<div id='tday_dt' style='display:none'>${gg.innerHTML}</div><div onclick='show()' id='idt_show'>Today Soccer !</div>`
-   }
 
 
   

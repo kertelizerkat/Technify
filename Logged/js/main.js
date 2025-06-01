@@ -10,7 +10,7 @@
 
     let tod= document.getElementById('today')
     let yes= document.getElementById('analysis')
-    
+    let tab_state='live'
     let predicter= document.getElementById('predicter')
     let statec= 'today'
     let on=''
