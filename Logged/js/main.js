@@ -5,12 +5,12 @@
 
     let rliadt=[]
     storeInfo('mode','black')
-
+    let first=true
     
 
     let tod= document.getElementById('today')
     let yes= document.getElementById('analysis')
-    let tab_state='live'
+    
     let predicter= document.getElementById('predicter')
     let statec= 'today'
     let on=''
@@ -53,13 +53,32 @@
       </div>`
     
     tod.addEventListener('click',()=>{
+      stl= statec=='today'
       statec= 'today'
       storeInfo('statec',statec)
       let cont2= document.getElementById('contentArea')
        cont2.classList.add('today_')
-
-    
+       if(first){
+       retrieveSum2()
       updatecontent()
+        first=false
+      }else{
+        if(!stl){
+         let loader999=document.querySelector('.loader88')
+          if (loader999){
+            loader999.setAttribute('style','border:2px solid #fff;border-top-color: transparent;')
+           
+          }
+         retrieveSum2()
+         updatecontent()
+
+
+        }else{
+
+        }
+      }
+     
+      
       
       
 
@@ -197,7 +216,10 @@
         change=true
       }else{
       document.getElementById('contentArea').innerHTML = contentMap[tab]
+      
+
       change=false;}
+      
 
   if (tab=='predicter'){
         

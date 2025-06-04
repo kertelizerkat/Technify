@@ -2642,7 +2642,10 @@ footer p{
      .c1 .tab-content > div.active {
       display: block;
        box-sizing: border-box;
+       
+    
     }
+    
     
     @keyframes contentFade {
       from { opacity: 0; transform: translateY(10px); }
@@ -2667,4 +2670,39 @@ footer p{
        box-sizing: border-box;
       left: 0;
       background: rgba(255,255,255,0.9);
+    }
+
+
+
+.losep_{
+  color: rgb(95, 1, 1);
+}
+.drawp_{
+  color: rgba(255,255,0);
+}
+.winp_{
+  color: rgba(0,225,0);
+}
+
+
+/* jkajsncijsk */
+
+.loader88 {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border: 3px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin88 0.8s linear infinite;
+      margin-left: 0.4em;
+    }
+
+    @keyframes spin88 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
