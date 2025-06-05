@@ -374,29 +374,40 @@ function retrieveSum2() {
       });
 
     });
-    if (rl) {
-      if (!rup) {
+          if (rl) {
+            if (!rup) {
 
-        let lr = document.getElementById('upcoming-tab1')
-        if (lr) {
-          lr.click()
-        }
+              let lr = document.getElementById('upcoming-tab1')
+              if (lr) {
+                lr.click()
+              }
+              if (ren) {
+                message993()
 
-      } else {
-        message992()
-        let lr = document.getElementById('ended-tab1')
-        if (lr) {
-          lr.click()
-        }
-        if (ren) {
-          message993()
+              }
 
-        }
+            } else {
+              message992()
+              let lr = document.getElementById('ended-tab1')
+              if (lr) {
+                lr.click()
+              }
+              if (ren) {
+                message993()
 
-      }
+              }
 
-      message99()
-    }
+            }
+
+            message99()
+          }else{
+            if(rup){
+              message992()
+            }
+            if (ren){
+              message993()
+            }
+          }
 
 
     const suggestionList = summery.suggestionList
@@ -1043,9 +1054,9 @@ function message99() {
     setTimeout(() => {
       if (window.getComputedStyle(message).opacity === '0') {
         console.warn('Message not visible, restarting animation');
-        message.style.animation = 'none';
+        // message.style.animation = 'none';
         message.offsetHeight; // Trigger reflow
-        message.style.animation = 'fadeIn 1.5s ease-in-out forwards, typewriter 3s steps(40) 0.5s 1 normal both';
+        message.style.animation = 'fadeIn9 1.5s ease-in-out forwards, typewriter9 3s steps(40) 0.5s 1 normal both';
       }
     }, 3000);
   } catch (error) {
@@ -1135,9 +1146,9 @@ function message992() {
     setTimeout(() => {
       if (window.getComputedStyle(message).opacity === '0') {
         console.warn('Message not visible, restarting animation');
-        message.style.animation = 'none';
+        // message.style.animation = 'none';
         message.offsetHeight; // Trigger reflow
-        message.style.animation = 'fadeIn 1.5s ease-in-out forwards, typewriter 3s steps(40) 0.5s 1 normal both';
+        message.style.animation = 'fadeIn92 1.5s ease-in-out forwards, typewriter92 3s steps(40) 0.5s 1 normal both';
       }
     }, 3000);
   } catch (error) {
@@ -1227,9 +1238,9 @@ function message993() {
     setTimeout(() => {
       if (window.getComputedStyle(message).opacity === '0') {
         console.warn('Message not visible, restarting animation');
-        message.style.animation = 'none';
+        // message.style.animation = 'none';
         message.offsetHeight; // Trigger reflow
-        message.style.animation = 'fadeIn 1.5s ease-in-out forwards, typewriter 3s steps(40) 0.5s 1 normal both';
+        message.style.animation = 'fadeIn93 1.5s ease-in-out forwards, typewriter93 3s steps(40) 0.5s 1 normal both';
       }
     }, 3000);
   } catch (error) {
@@ -1826,6 +1837,10 @@ function getproducts2() {
               if (lr) {
                 lr.click()
               }
+              if (ren) {
+                message993()
+
+              }
 
             } else {
               message992()
@@ -1841,7 +1856,15 @@ function getproducts2() {
             }
 
             message99()
+          }else{
+            if(rup){
+              message992()
+            }
+            if (ren){
+              message993()
+            }
           }
+          
 
 
           const suggestionList = getTextContentsByClass('matchids')
