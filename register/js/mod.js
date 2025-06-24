@@ -19,12 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  let theme=accessInfo('theme_+-----')
-  if (theme){
-    if (theme=='Light'){
-      changeStylesheet('css/Lreg.css')
-    }
-  }})
+  
+  })
 
 
 function en(text, key) {

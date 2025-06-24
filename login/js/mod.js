@@ -61,7 +61,6 @@ function en(text, key) {
 }
 
 
-let theme=accessInfo('theme_+-----')
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,21 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if the <link> element exists
     if (linkElement) {
       // Change its href attribute to the new stylesheet path
+      if (!linkElement.href=="css/lgin.css"){
       linkElement.href = newHref;
-      console.log(`Stylesheet changed to: ${newHref}`);
+      console.log(`Stylesheet changed to: ${newHref}`);}
     } else {
       console.error('Stylesheet link not found.');
     }
   }
   
   let theme=accessInfo('theme_+-----')
-  if (theme){
-    if (theme=='Light'){
-      changeStylesheet('css/Llgin.css')
-    }else{
-      changeStylesheet('css/lgin.css')
-    }
-  }})
+  })
 
 
 

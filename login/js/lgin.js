@@ -49,8 +49,6 @@ function validateForm() {
 }
 
 
-   
-
   function sendFormData(data) {
     // Send data to Flask application using fetch
     console.log(data)

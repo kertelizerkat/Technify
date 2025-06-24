@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechNify | Registration</title>
   <link rel="stylesheet" href="css/reg.css">
+  <script>
+  
+    if (localStorage.getItem("theme_+-----")=='Light'){
+        const stylesheet =document.querySelector("link");
+            stylesheet.href='css/Lreg.css'
+
+    }
+  </script>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
   <script src="../js/allhandler.js"></script>
   <script src="js/mod.js"></script>
@@ -31,7 +39,7 @@
         </div>
         <div class="input-group">
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" required maxlength="20">
+          <input type="text" id="username" name="username" required maxlength="11" minlength="3">
         </div>
         <div class="input-group">
           <label for="password">Password</label>

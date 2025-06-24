@@ -140,7 +140,7 @@ function sendFormData(data,sanitizedEmail) {
                 
                 setTimeout(()=>{
                     storeInfo(en('email',date2), sanitizedEmail)
-                    window.location.assign("../verify/")
+                    window.location.assign("../verify/index.html")
                 }, 1000);
  // 2000 milliseconds = 2 seconds
             // window.location.assign("../login/index.html")
