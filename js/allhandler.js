@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     
     
     if (!theme){
-      const currentPath = `${location.protocol}//${location.host}`.split('/')
+      const currentPath = window.location.pathname;
         // localStorage.setItem('prev_path',currentPath)
 
        basePath= currentPath.split('/')
@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         for ( i in basePath){
           npath=npath + '/' + basePath[i]
           // console.log(npath)
-          if (basePath[i]=='WEBAPP'){
+          if (basePath[i]=='WEBAPP' || basePath=="tpredictions.online" || basePath=="kertelizerkat.github.io"){
             break
           }
       }
@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     }
 })
 let line="https://sculpin-charming-directly.ngrok-free.app"
-// line="http://localhost:5700"
+line="http://localhost:5700"
 // let theme_m=''
 // localStorage.setItem('theme_+-----', theme_m)
 let access_="domaContent"
@@ -128,8 +128,9 @@ if(!localStorage.getItem('Freeprev_path')){
 
 
 
+
 function getHomePath(){
-  basePath= `${location.protocol}//${location.host}`.split('/')
+  basePath= window.location.pathname.split('/')
        let npath=''
         for ( i in basePath){
           npath=npath + '/' + basePath[i]
