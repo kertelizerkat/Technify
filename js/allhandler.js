@@ -13,14 +13,8 @@ window.addEventListener('DOMContentLoaded',()=>{
         // localStorage.setItem('prev_path',currentPath)
 
        basePath= currentPath.split('/')
-       let npath=''
-        for ( i in basePath){
-          npath=npath + '/' + basePath[i]
-          // console.log(npath)
-          if (basePath[i]=='WEBAPP' || basePath=="tpredictions.online" || basePath=="kertelizerkat.github.io"){
-            break
-          }
-      }
+       let npath='https://tpredictions.online'
+       
       // console.log(npath)
 
       window.location.assign(`${getHomePath()}/theme.html`)
@@ -131,14 +125,8 @@ if(!localStorage.getItem('Freeprev_path')){
 
 function getHomePath(){
   basePath= window.location.pathname.split('/')
-       let npath=''
-        for ( i in basePath){
-          npath=npath + '/' + basePath[i]
-          // console.log(npath)
-          if (basePath[i]=='WEBAPP' || basePath=="tpredictions.online" || basePath=="kertelizerkat.github.io"){
-            break
-          }
-      }
+       let npath='https://tpredictions.online'
+        
     return npath
 }
 
