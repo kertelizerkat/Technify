@@ -135,7 +135,7 @@ function getHomePath(){
         for ( i in basePath){
           npath=npath + '/' + basePath[i]
           // console.log(npath)
-          if (basePath[i]=='WEBAPP'){
+          if (basePath[i]=='WEBAPP' || basePath=="tpredictions.online" || basePath=="kertelizerkat.github.io"){
             break
           }
       }
