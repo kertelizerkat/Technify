@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" >
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNify | Main</title>
+    <script src="js/mod.js"></script>
+    <script src="js/allhandler.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <script src="js/taiwan.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="max-width:100vw;height:100vh;">
+     <div id='mainloader' class="loading-container11">
+        <div class="title11">
+          <span class="letter11">T</span>
+          <span class="letter11">e</span>
+          <span class="letter11">c</span>
+          <span class="letter11">h</span>
+          <span class="letter11">N</span>
+          <span class="letter11">i</span>
+          <span class="letter11">f</span>
+          <span class="letter11">y</span>
+        </div>
+        <div class="loader11"></div>
+        <div id="username_loader11" class="subtitle11"></div>
+        <div id="state_loader11" class="subtitle11"></div>
+
+        <div class="checkbox-container11">
+          <!-- <div id="vdata" class="check-box  hide_bx11">Validation</div> -->
+          <!-- <div id="fdata__" class="check-box  hide_bx11">Fetching Data</div> -->
+          <!-- <div id="ldata" class="check-box  hide_bx11">Loading Data</div> -->
+        </div>
+        <div class="particles11">
+          <div class="particle11" style="left: 10%; animation-delay: 0s;"></div>
+          <div class="particle11" style="left: 25%; animation-delay: 0.8s;"></div>
+          <div class="particle11" style="left: 40%; animation-delay: 1.6s;"></div>
+          <div class="particle11" style="left: 60%; animation-delay: 2.4s;"></div>
+          <div class="particle11" style="left: 80%; animation-delay: 3.2s;"></div>
+          <div class="particle11" style="left: 95%; animation-delay: 4s;"></div>
+        </div>
+
+    </div>
+      
+    <!-- Header -->
+   <header class="flex ">
+      <div class="logo flex items-center gap-3 animate-fade-in-down">
+        <div class="logo_img ">
+          <img id="iconm" style="border-radius: 50%;width:50px;height:50px" src="sources/ball.png" alt="">
+        </div>
+        <div class="logo_name" id='usname'style="text-transform: uppercase;">TechNify</div>
+      </div>
+      <nav>
+        <ul class="">
+          <li><a href="#"class="active_ anc"   id="Dashboard" >Main</a></li>
+      
+          <li><a href="Logged/posts/index.html" class="anc"  id="BTS" >Trends</a></li>
+          <li style="margin-right: 20px;"><a id="ll1" class="anc" style="color:darkslategray" onclick="register()" href="#">SignUp</a></li>
+        </ul>
+        <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></div>
+        </button>
+
+        <!-- Overlay -->
+        <div id="overlay"
+          class="fixed inset-0 bg-white/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        </div>
+
+        <div id="side-menu"
+          class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6">
+          <div class="flex justify-between items-center">
+
+            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="sources/ball.png">
+              TechNify</h2>
+            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900">×</button>
+          </div>
+          <a href="#" id='ot3'
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🏠 <span >Main</span>
+          </a>
+         
+          <a href="Logged/posts/index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            📈 <span>Trends</span>
+          </a>
+          
+          <a href="#" id="ll2" onclick="register()"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🚪 <span id='ot4'>SignUp</span>
+          </a>
+        </div>
+        <script>
+          if (localStorage.getItem("theme_+-----")=='Dark'){
+              const stylesheet =document.getElementById("menu-btn");
+                  stylesheet.innerHTML=` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></div>`
+
+              document.getElementById('overlay').setAttribute('class','fixed inset-0 bg-black/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out')
+              document.getElementById('hmen').setAttribute('class','text-2xl font-extrabold text-white-900')
+              
+              document.getElementById('side-menu').setAttribute('class','fixed top-0 right-0 w-80 h-full bg-black bg-opacity-70 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6')
+
+
+          }
+        </script>
+      </nav>
+
+
+    </header>
+
+  
+    
+
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+    
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80">
+          <source src="sources/v2.mp4" type="video/mp4">
+          <!-- Fallback image if video not supported -->
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate__animated animate__fadeInDown" data-aos="fade-up">
+          <h1 class="hero-title animate__animated animate__fadeInDown" data-aos="fade-up">Revolutionize Your Betting with <span>TechNified Predictions</span></h1>
+          <p class="hero-desc animate__animated animate__fadeInUp" data-aos="fade-up" data-aos-delay="200">Harness advanced algorithms, real-time data, and encryption for the most accurate, secure, and profitable betting experience ever.</p>
+          <a href="#cta" class="cta-btn animate__animated animate__pulse animate__infinite" data-aos="zoom-in" data-aos-delay="400">Get Started Now</a>
+        </div>
+      </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Benefits</h2>
+                <p>Discover how our advanced prediction system transforms football analytics</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Processes live match data to provide up-to-the-minute predictions and insights during games.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Predictions</h3>
+                    <p>Utilizes machine learning algorithms trained on historical data to forecast match outcomes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Statistical Models</h3>
+                    <p>Employs advanced statistical analysis of team performance, player stats, and historical trends.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Data Privacy Focus</h3>
+                    <p>Implements strict data anonymization techniques to protect user information and comply with regulations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Coverage</h3>
+                    <p>Analyzes matches from over 50 leagues worldwide with localized statistical models.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Adaptive Algorithms</h3>
+                    <p>Continuously improves prediction accuracy by learning from previous match outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How The System Works</h2>
+                <p>Our prediction engine follows a sophisticated multi-step process</p>
+            </div>
+            
+            <div class="process">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Data Collection & Processing</h3>
+                        <p>The system aggregates match statistics, team performance metrics, player data, weather conditions, and historical trends from multiple sources. This data is cleaned and normalized for analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Team Capability Analysis</h3>
+                        <p>Our algorithms calculate each team's winning, drawing, and losing capabilities based on historical performance. This includes home/away performance differentials and recent form analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Comparative Advantage Calculation</h3>
+                        <p>The system computes the advantage of one team over another across multiple dimensions: win advantage, draw advantage, and loss advantage using specialized algorithms.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Prediction Threshold Evaluation</h3>
+                        <p>Different strictness levels (WH, WHL, WM, WML, WL, WLL) are applied to determine if a team has sufficient advantage to be considered a predicted winner.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Probability Calculation</h3>
+                        <p>The system calculates win probabilities for each team and the likelihood of a draw, incorporating real-time factors like injuries and weather conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Result Compilation & Presentation</h3>
+                        <p>Final predictions are compiled with supporting analytics and presented through our web interface and API endpoints for easy integration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Limitations -->
+    <section class="limitations" id="limitations">
+        <div class="container">
+            <div class="section-header">
+                <h2>System Limitations</h2>
+                <p>While advanced, our prediction system has inherent constraints</p>
+            </div>
+            
+            <div class="limitations-grid">
+                <div class="limitation-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Unpredictable Events</h3>
+                    <p>The system cannot account for unexpected events like last-minute player injuries, referee decisions, or extraordinary individual performances that can dramatically alter match outcomes.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <h3><i class="fas fa-database"></i> Data Quality Dependencies</h3>
+                    <p>Prediction accuracy is directly tied to the quality and completeness of input data. In leagues with limited statistical history, accuracy may be reduced.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <h3><i class="fas fa-user-friends"></i> Human Element</h3>
+                    <p>Football matches involve human psychology, team morale, and managerial strategies that are difficult to quantify and incorporate into statistical models.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <h3><i class="fas fa-cloud-sun"></i> Environmental Factors</h3>
+                    <p>While weather data is included, sudden changes in conditions (torrential rain, extreme heat) can affect match dynamics in ways that are challenging to predict.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <h3><i class="fas fa-lock"></i> Data Privacy Constraints</h3>
+                    <p>Strict adherence to data privacy regulations (GDPR, etc.) limits the types of player performance data that can be collected and analyzed.</p>
+                </div>
+                
+                <div class="limitation-card">
+                    <h3><i class="fas fa-chart-bar"></i> Statistical Probabilities</h3>
+                    <p>All predictions represent probabilities, not certainties. Even predictions with 90% confidence can occasionally be incorrect due to football's inherent unpredictability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Football Predictions?</h2>
+                <p>Join thousands of analysts, bettors, and football enthusiasts who use our system to gain a competitive edge.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#" class="btn btn-outline">Request Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>FootPredict Pro</h3>
+                    <p>The most advanced football prediction system, combining statistical analysis, and real-time data processing.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                        <li><a href="#limitations"><i class="fas fa-chevron-right"></i> Limitations</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> API Reference</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Research Papers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:TechNify.u.me@gmail.com"><i class="fas fa-envelope"></i> TechNify.u.me@gmail.com</a></li>
+                        <li><a href="tel:+27825516756"><i class="fas fa-phone"></i>+27 82 551 6756</a></li>
+                        <li><a href="#" ><i class="fas fa-map-marker-alt"></i> 📍RSA Gauteng,Pretoria  </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TechNify. All rights reserved. | This is a demonstration interface for a football prediction system.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/index.js">
+        
+    </script>
+
+    <script>
+        // Mobile Navigation Toggle
+       
+      
+        
+        // Header scroll effect
+        
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .process-step, .limitation-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .process-step, .limitation-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Trigger animations on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check in case elements are already in view
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
