@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNify | Users</title>
+  <link rel="stylesheet" href="css/styles.css">
+   <script>
+  
+    if (localStorage.getItem("theme_+-----")=='Light'){
+        const stylesheet =document.querySelector("link");
+            stylesheet.href='css/styles2.css'
+
+    }
+</script>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <script src="../js/mod.js"></script>
+  <script src="../../js/taiwan.js"></script>
+  <script src="../../js/allhandler.js"></script>
+ 
+  
+</head>
+
+<body class="">
+  <div class="container 8">
+    <header class="flex ">
+      <div class="logo flex items-center gap-3 animate-fade-in-down">
+        <div class="logo_img ">
+          <img style="border-radius: 50%;width:50px;height:50px" src="../../favicon2.ico" alt="">
+        </div>
+        <div class="logo_name" id='usname'style="text-transform: uppercase;">TechNify</div>
+        <script >
+            let oo= document.getElementById('usname')
+            oo.textContent=de(accessInfo(en('username',date1)),date1)
+            
+          </script>
+      </div>
+      <nav>
+        <ul class="">
+          <li><a href="../index.html" id="Dashboard" >Dashboard</a></li>
+          <li><a href="../profile/index.html">Profile</a></li>
+         
+          <li><a  class="active_" href="#">Users</a></li>
+           <li><a href="../posts/index.html" id="BTS" >Trends</a></li>
+          <li style="margin-right: 20px;"><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
+        </ul>
+        <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></div>
+        </button>
+         <script>
+    
+          if (localStorage.getItem("theme_+-----")=='Dark'){
+              const stylesheet =document.getElementById("menu-btn");
+                  stylesheet.innerHTML=` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></div>`
+
+          }
+        </script>
+
+        <!-- Overlay -->
+        <div id="overlay"
+          class="fixed inset-0 bg-white/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        </div>
+
+        <div id="side-menu"
+          class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6">
+          <div class="flex justify-between items-center">
+
+            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../../sources/ball.png">
+              TechNify</h2>
+            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900">×</button>
+          </div>
+          <a href="../index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🏠 <span>Dashboard</span>
+          </a>
+          <a href="#"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            👤 <span>Profile</span>
+          </a>
+          
+          <a href="#"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            👥 <span>Users</span>
+          </a>
+          <a href="../posts/index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            📈 <span>Trends</span>
+          </a>
+          <a href="#" onclick="logout()"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🚪 <span>Log Out</span>
+          </a>
+        </div>
+        <script>
+    
+          if (localStorage.getItem("theme_+-----")=='Dark'){
+              const stylesheet =document.getElementById("menu-btn");
+                  stylesheet.innerHTML=` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></div>`
+
+              document.getElementById('overlay').setAttribute('class','fixed inset-0 bg-black/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out')
+              document.getElementById('hmen').setAttribute('class','text-2xl font-extrabold text-white-900')
+              
+              document.getElementById('side-menu').setAttribute('class','fixed top-0 right-0 w-80 h-full bg-black bg-opacity-70 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6')
+
+
+          }
+        </script>
+      </nav>
+
+
+    </header>
+
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+<!-- <div class="products-grid"><div class="loading-dots"><div></div><div></div><div></div></div></div> -->
+
+
+
+   <div class="flex space-x-8 p-6">
+    <div class="flex-1 space-y-8">
+      <!-- Tab Buttons -->
+      <div class="flex space-x-4 justify-center">
+        <button onclick="showTab('suggestions')" class="tab-button px-4 py-2 rounded-lg bg-[#0056b3] hover:bg-[#004080] text-white transition-colors">Suggestions</button>
+        <button onclick="showTab('messages')" class="tab-button px-4 py-2 rounded-lg bg-[#0056b3] hover:bg-[#004080] text-white transition-colors">Messages</button>
+        <button onclick="showTab('posts')" class="tab-button px-4 py-2 rounded-lg bg-[#0056b3] hover:bg-[#004080] text-white transition-colors">Posts</button>
+      </div>
+
+      <!-- Friend Suggestions -->
+      <section id="suggestions" class="space-y-6">
+        <h2 class="text-2xl font-bold">Friend Suggestions</h2>
+        <div id="suds1" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"></div>
+      </section>
+
+      <!-- Messages List -->
+      <section id="messages" class="space-y-6 hidden">
+        <h2 class="text-2xl font-bold">Messages</h2>
+        <div id="mess1" class="space-y-3">
+        
+        </div>
+      </section>
+
+      <!-- Posts Section -->
+      <section id="posts" class="space-y-6 hidden">
+        <h2 class="text-2xl font-bold">Posts</h2>
+        <div class="bg-gray-900 rounded-xl p-4 shadow-md max-w-md mx-auto">
+          <textarea id="postContent" class="w-full bg-gray-800 text-white p-2 rounded-lg resize-none" rows="3" placeholder="What's on your mind?"></textarea>
+          <button onclick="addPost()" class="mt-2 bg-[#0056b3] hover:bg-[#004080] text-white px-4 py-2 rounded-lg transition-colors">Post</button>
+        </div>
+        <div id="postList" class="space-y-4"></div>
+      </section>
+    </div>
+    <div class="w-80 space-y-8 hidden md:block">
+      <!-- Sidebar: User Profile -->
+      <div class="bg-gray-900 rounded-xl p-4 shadow-md">
+        <img src="../../sources/Non-chalant.JPG" class="w-24 h-24 rounded-full mx-auto" alt="You" />
+        <div class="text-center mt-2">
+          <div id="name_" class="font-semibold text-lg">Your Name</div>
+          <script >
+            let oo= document.getElementById('name_')
+            oo.textContent=de(accessInfo(en('username',date1)),date1)
+            
+          </script>
+          <div class="text-sm text-gray-400">It’s not gambling when you play with knowledge.</div>
+        </div>
+        <div class="flex justify-around mt-4">
+          <div class="text-center">
+            <div class="font-bold">680k</div>
+            <div class="text-sm text-gray-400">Posts</div>
+          </div>
+          <div class="text-center">
+            <div class="font-bold">5.1M</div>
+            <div class="text-sm text-gray-400">Followers</div>
+          </div>
+          <div class="text-center">
+            <div class="font-bold">340</div>
+            <div class="text-sm text-gray-400">Following</div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar: Trending Topics -->
+      <div class="bg-gray-900 rounded-xl p-4 shadow-md">
+        <h3 class="text-lg font-bold mb-2">Trending Topics</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-blue-400 hover:underline">#Topic1</a></li>
+          <li><a href="#" class="text-blue-400 hover:underline">#Topic2</a></li>
+          <li><a href="#" class="text-blue-400 hover:underline">#Topic3</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <!-- JavaScript for Tab Functionality -->
+    <script>
+      function showTab(tabId, event) {
+        // Hide all info content blocks
+        document.querySelectorAll('.info-content').forEach(div => div.classList.add('hidden'));
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+        // Show the chosen tab
+        document.getElementById(tabId).classList.remove('hidden');
+        // Set active tab button styling
+        event.target.classList.add('active');
+      }
+    </script>
+
+
+    <footer class="mt-12 text-center text-sm text-gray-500">
+      <p>&copy; <span id="current-year"></span> TechNify . All rights reserved.</p>
+    </footer>
+  </div>
+
+  
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../../js/onchecker.js"></script>
+   <script src="js/script.js"></script>
+  
+</body>
+
+</html>
+
+
+  

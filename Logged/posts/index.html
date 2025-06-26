@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNify | Trends</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+  
+    if (localStorage.getItem("theme_+-----")=='Light'){
+        const stylesheet =document.querySelector("link");
+            stylesheet.href='css/styles2.css'
+
+    }
+</script>
+  <script src="js/mod.js"></script>
+  <script src="../../js/allhandler.js"></script>
+  <script src="js/script.js" defer></script>
+ 
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  
+  <script src="../js/taiwan.js"></script>
+   
+  
+</head>
+
+<body>
+  <div class="container 8">
+    <header class="flex ">
+      <div class="logo flex items-center gap-3 animate-fade-in-down">
+        <div class="logo_img ">
+          <img id="iconm" style="border-radius: 50%;width:50px;height:50px" src="../../favicon.ico" alt="">
+        </div>
+        <div class="logo_name" id='usname'style="text-transform: uppercase;">TechNify</div>
+      </div>
+      <nav >
+        <ul class="invisible" id="naivigation_1">
+          <li><a href="../index.html" id="Dashboard" >Dashboard</a></li>
+          <li><a href="../profile/index.html" id='ott2'>Profile</a></li>
+          <li><a href="../users/index.html" id="ott1">Users</a></li>
+          <li><a href="#" class="active_" id="BTS" >Trends</a></li>
+          <li style="margin-right: 20px;"><a id="ll1" style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
+        </ul>
+        <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></div>
+        </button>
+
+     
+
+        <!-- Overlay -->
+        <div id="overlay"
+          class="fixed inset-0 bg-white/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        </div>
+
+        <div id="side-menu" 
+          class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6 invisible">
+          <div class="flex justify-between items-center">
+
+            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../../sources/ball.png">
+              TechNify</h2>
+            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900">×</button>
+          </div>
+          <a href="../index.html" id='ot3'
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🏠 <span >Dashboard</span>
+          </a>
+          <a href="../profile/index.html" id='ot2' 
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            👤 <span >Profile</span>
+          </a>
+          <a href="#"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            📈 <span>Trends</span>
+          </a>
+          <a href="../users/index.html"  id='ot1'
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            👥 <span>Users</span>
+          </a>
+          <a href="#" id="ll2" onclick="logout()"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            🚪 <span id='ot4'>Log Out</span>
+          </a>
+        </div>
+        <script>
+    
+          if (localStorage.getItem("theme_+-----")=='Dark'){
+              const stylesheet =document.getElementById("menu-btn");
+                  stylesheet.innerHTML=` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></div>`
+
+              document.getElementById('overlay').setAttribute('class','fixed inset-0 bg-black/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out')
+              document.getElementById('hmen').setAttribute('class','text-2xl font-extrabold text-white-900')
+              
+              document.getElementById('side-menu').setAttribute('class','fixed top-0 right-0 w-80 h-full bg-black bg-opacity-70 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6')
+
+
+          }
+        </script>
+      </nav>
+
+
+    </header>
+
+    <div class="smoother">
+      <div class="line"></div>
+    </div>
+
+     <main>
+      <h1 style='background-color: transparent' id="title"> Soccer Trends </h1>
+      <div id="trends-container"></div>
+
+     </main>
+     
+
+    <style>
+      /* Container uses grid on large screens */
+    
+    </style>
+
+    <!-- JavaScript for Tab Functionality -->
+    <script>
+      function showTab(tabId, event) {
+        // Hide all info content blocks
+        document.querySelectorAll('.info-content').forEach(div => div.classList.add('hidden'));
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+        // Show the chosen tab
+        document.getElementById(tabId).classList.remove('hidden');
+        // Set active tab button styling
+        event.target.classList.add('active');
+      }
+    </script>
+
+
+    <footer class="mt-12 text-center text-sm text-gray-500">
+      <p>&copy; <span id="current-year"></span> TechNify . All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="js/verify.js"></script>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../../js/onchecker.js"></script>
+  
+</body>
+
+</html>
