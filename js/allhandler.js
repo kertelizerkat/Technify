@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     
     
     if (!theme){
-      const currentPath = window.location.pathname;
+      const currentPath = `${location.protocol}//${location.host}`.split('/')
         // localStorage.setItem('prev_path',currentPath)
 
        basePath= currentPath.split('/')
@@ -128,9 +128,8 @@ if(!localStorage.getItem('Freeprev_path')){
 
 
 
-
 function getHomePath(){
-  basePath= window.location.pathname.split('/')
+  basePath= `${location.protocol}//${location.host}`.split('/')
        let npath=''
         for ( i in basePath){
           npath=npath + '/' + basePath[i]
