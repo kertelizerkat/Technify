@@ -1814,7 +1814,6 @@ function message993() {
 
 function getproducts2() {
   storeInfo('late', 'busy')
- 
   let loader888=document.querySelector('.loader88')
   if (loader888){
     loader888.setAttribute('style','border:3px solid #007BFF;border-top-color: transparent;')
@@ -1845,9 +1844,6 @@ function getproducts2() {
             logout()
 
           }
-          let liveco=0
-          let upco=0
-          let endco=0
           let r_data = '';
           let r_data_ended = '';
           let r_data_live = '';
@@ -1855,39 +1851,9 @@ function getproducts2() {
           let rl = false
           let rup = false
           let ren = false
-          let all=0
-          let ujp=true
-         
           for (r in cards_data) {
-
-            if(document.getElementById(cards_data[r].id2)){
-
-              let b= document.getElementById(cards_data[r].id1)
-              if (b){
-                b.innerHTML=cards_data[r].time 
-
-
-              }else{
-
-              }
-
-
-              r_data_live=true
-              r_data_upcoming=true
-              r_data_ended=true
-              continue
-            
-            }
-            if(true){
-              ujp=false
-
-        
-
-           
             if (cards_data[r].state == 'live') {
-              liveco++
-             
-              r_data_live = r_data_live + `  <div id="${cards_data[r].id2}"    class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+              r_data_live = r_data_live + `  <div id="${cards_data[r].id2}"  class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
         <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
           <div class="mb-3">
             <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
@@ -1906,7 +1872,7 @@ function getproducts2() {
               Prediction: ${cards_data[r].prediction_}
             </div>
             <div class="text-sm font-semibold">
-                <div id="${cards_data[r].id1}"  class="flex flex-col items-center text-center">
+                <div id="${cards_data[r].id1}" class="flex flex-col items-center text-center">
                 ${cards_data[r].time}
                 </div>
               </div>
@@ -1942,8 +1908,7 @@ function getproducts2() {
                   `
             }
             if (cards_data[r].state == 'ended') {
-              endco++
-              r_data_ended = r_data_ended + `  <div id="${cards_data[r].id2}"  class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+              r_data_ended = r_data_ended + `  <div id="${cards_data[r].id2}" class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
         <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
           <div class="mb-3">
             <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
@@ -1998,8 +1963,7 @@ function getproducts2() {
                   `
             }
             if (cards_data[r].state == 'upcoming') {
-              upco++
-              r_data_upcoming = r_data_upcoming + `  <div id="${cards_data[r].id2}"  class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
+              r_data_upcoming = r_data_upcoming + `  <div id="${cards_data[r].id2}" class="relative _move_2 rounded-2xl shadow-xl bg-cover bg-center min-h-[320px] flex flex-col justify-between p-4 text-gray-900 animate-fade-in" >
         <div class="bg-white/80 w-full h-full p-4 flex flex-col justify-between backdrop-blur-sm rounded-2xl">
           <div class="mb-3">
             <h2 class="text-xl font-bold text-indigo-600 mb-1">${cards_data[r].type_}</h2>
@@ -2018,7 +1982,7 @@ function getproducts2() {
               Prediction: ${cards_data[r].prediction_}
             </div>
             <div class="text-sm font-semibold">
-                <div id="${cards_data[r].id1}"  class="flex flex-col items-center text-center">
+                <div id="${cards_data[r].id1}" class="flex flex-col items-center text-center">
                 ${cards_data[r].time}
                 </div>
               </div>
@@ -2055,7 +2019,7 @@ function getproducts2() {
             }
 
 
-    }
+
 
 
 
@@ -2382,9 +2346,9 @@ function getproducts2() {
           r_data = `  <div class="tab-container">
     <!-- Tab Headers -->
     <div class="tab-header">
-      <div id='live-tab1' class="tab live-tab active">Live : <span class='liveco' style=''>${liveco}</span> </div>
-      <div id='upcoming-tab1' class="tab upcoming-tab">Upcoming : <span class='upco' style=''>${upco}</span> </div>
-      <div id='ended-tab1' class="tab ended-tab">Ended : <span class='endco' style=''>${endco}</span> </div>
+      <div id='live-tab1' class="tab live-tab active">Live</div>
+      <div id='upcoming-tab1' class="tab upcoming-tab">Upcoming</div>
+      <div id='ended-tab1' class="tab ended-tab">Ended</div>
     </div>
     
     <!-- Tab Content -->
@@ -2406,14 +2370,15 @@ function getproducts2() {
   
   </div>`
 
+
+          cards.innerHTML = r_data
+
+
+
           storeInfo('late', 'done')
-
-
-          if (!ujp){
-            cards.innerHTML = r_data
           const tabs = document.querySelectorAll('.tab-header div');
           const contents = document.querySelectorAll('.tab-content > div');
-            
+
           tabs.forEach((tab, index) => {
             tab.addEventListener('click', () => {
               // Remove active state from all tabs and contents
@@ -2460,9 +2425,9 @@ function getproducts2() {
               message993()
             }
           }
+          
 
 
-            
           const suggestionList = getTextContentsByClass('matchids')
           let suggestionObject = getTextContentIdMapping('matchids')
           // let seeIfClosed=document.getElementById('tday_dt')
@@ -2573,17 +2538,8 @@ function getproducts2() {
             }, 150);
           });
 
-          let matchSummary2 = { suggestionList, suggestionObject, r_data_ended, r_data_live, r_data_upcoming, rl, rup, ren ,endco,upco,liveco}
+          let matchSummary2 = { suggestionList, suggestionObject, r_data_ended, r_data_live, r_data_upcoming, rl, rup, ren }
           localStorage.setItem("matchSummary2", JSON.stringify(matchSummary2));
-
-
-
-          }
-          
-
-          
-
-
           let loader88=document.querySelector('.loader88')
           if (loader88){
             loader88.style.display= 'none'
@@ -3553,8 +3509,8 @@ function getproducts2_() {
             }, 150);
           });
 
-          let matchSummary2 = { suggestionList, suggestionObject, r_data_ended, r_data_live, r_data_upcoming, rl, rup, ren ,endco,upco,liveco}
-          localStorage.setItem("matchSummary2", JSON.stringify(matchSummary2));
+          // let matchSummary2 = { suggestionList, suggestionObject, r_data_ended, r_data_live, r_data_upcoming, rl, rup, ren ,endco,upco,liveco}
+          // localStorage.setItem("matchSummary2", JSON.stringify(matchSummary2));
 
 
 
