@@ -716,9 +716,9 @@ function retrieveSum2() {
     let rup = summery.rup
     let ren = summery.ren
 
-    let liveco = summery.liveco
-    let upco = summery.upco
-    let endco = summery.endco
+    // let liveco = summery.liveco
+    // let upco = summery.upco
+    // let endco = summery.endco
 
 
     if (!r_data_live) {
@@ -1033,9 +1033,9 @@ function retrieveSum2() {
     r_data = `  <div class="tab-container">
     <!-- Tab Headers -->
      <div class="tab-header">
-      <div id='live-tab1' class="tab live-tab active">Live : <span class='liveco' style=''>${liveco}</span> </div>
-      <div id='upcoming-tab1' class="tab upcoming-tab">Upcoming : <span class='upco' style=''>${upco}</span> </div>
-      <div id='ended-tab1' class="tab ended-tab">Ended : <span class='endco' style=''>${endco}</span> </div>
+      <div id='live-tab1' class="tab live-tab active">Live : <span class='liveco' style=''></span> </div>
+      <div id='upcoming-tab1' class="tab upcoming-tab">Upcoming : <span class='upco' style=''></span> </div>
+      <div id='ended-tab1' class="tab ended-tab">Ended : <span class='endco' style=''></span> </div>
     </div>
     
     <!-- Tab Content -->
