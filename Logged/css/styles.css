@@ -98,8 +98,7 @@ header {
   position: fixed;
   top: 0;
   background-color: rgba(0,0,0,0.7); /* Darker header background */
-  backdrop-filter: blur(10px);         /* Blur effect */
-  -webkit-backdrop-filter: blur(10px);
+ 
   padding: 0 20px;
   z-index: 100000000;
   box-sizing: border-box;
