@@ -113,9 +113,7 @@ html {
     align-items: center;
     position: fixed;
     top: 0;
-    backdrop-filter: blur(10px);         /* Blur effect */
-  -webkit-backdrop-filter: blur(10px);
-    
+  
     background-color: rgba(0, 0, 0, 0.46); /* Darker header background */
     padding: 0 20px;
     z-index: 100000000;
