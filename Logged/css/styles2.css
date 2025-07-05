@@ -113,6 +113,8 @@ html {
     align-items: center;
     position: fixed;
     top: 0;
+    backdrop-filter: blur(10px);         /* Blur effect */
+  -webkit-backdrop-filter: blur(10px);
     
     background-color: rgba(0, 0, 0, 0.46); /* Darker header background */
     padding: 0 20px;
@@ -2977,12 +2979,14 @@ footer p{
       border-radius: 16px;
       border: 1.5px solid rgba(226,232,240,0.5);
       transition: box-shadow 0.3s, border 0.3s;
+      width:100%;
     }
     .slip-card {
-      min-width: 180px;
+      min-width: 200px;
       max-width: 260px;
       padding: 1.1rem 1rem 0.9rem 1rem;
-      margin: 0 auto;
+      margin: 0 10px;
+      height:auto;
       border-radius: 16px;
       border: 1.5px solid #e2e8f0;
       box-shadow: 0 2px 12px 0 rgba(56, 189, 248, 0.07), 0 1.5px 6px 0 rgba(31,38,135,0.04);
@@ -3091,7 +3095,11 @@ footer p{
     .match-status.lost { background: #fecaca; color: #b91c1c; }
     .match-status.live { background: #bae6fd; color: #1e40af; animation: pulse 1.2s infinite alternate; }
     @media (max-width: 640px) {
-      .slip-card { min-width: 92vw; max-width: 98vw; }
+      .slip-card { min-width: 92%; max-width: 92%; }
+    }
+    @media (max-width: 400px) {
+      .slip-card { 
+        margin: 0 20px;}
     }
 
 
@@ -3576,3 +3584,10 @@ footer p{
 .tacs{
   color:#007BFF
 }
+
+
+
+@media (max-width: 699px) {
+      .htables { 
+       display:none}
+    }

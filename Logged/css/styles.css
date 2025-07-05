@@ -98,6 +98,8 @@ header {
   position: fixed;
   top: 0;
   background-color: rgba(0,0,0,0.7); /* Darker header background */
+  backdrop-filter: blur(10px);         /* Blur effect */
+  -webkit-backdrop-filter: blur(10px);
   padding: 0 20px;
   z-index: 100000000;
   box-sizing: border-box;
@@ -2742,8 +2744,8 @@ body {
 }
 
 .slip-card {
-  min-width: 180px;
-  max-width: 260px;
+ min-width: 200px;
+      max-width: 260px;
   padding: 1.1rem 1rem 0.9rem 1rem;
   margin: 0 auto;
   border-radius: 16px;
@@ -2911,12 +2913,13 @@ body {
   animation: pulse 1.2s infinite alternate;
 }
 
-@media (max-width: 640px) {
-  .slip-card {
-    min-width: 92vw;
-    max-width: 98vw;
-  }
-}
+ @media (max-width: 640px) {
+      .slip-card { min-width: 92%; max-width: 92%; }
+    }
+    @media (max-width: 400px) {
+      .slip-card { 
+        margin: 0 20px;}
+    }
 
 
 
@@ -3443,3 +3446,8 @@ body {
 .tacs{
   color:#007BFF
 }
+
+@media (max-width: 699px) {
+      .htables { 
+       display:none}
+    }

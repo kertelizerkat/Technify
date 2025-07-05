@@ -579,7 +579,7 @@ function product4(){
       const matches = data4.slips;
 
          storeInfo('late4', 'done')
-      // console.log(data4)
+      console.log(data4)
       const container = document.getElementById("betslip-container");
       const stake = 20;
       const slipsByCategory = { pending: [], won: [], lost: [], completed: [] };
@@ -4036,10 +4036,10 @@ function getproducts_2_3() {
       // Draws:
       //   - "drawW" holds draws predicted correctly.
       //   - "drawL" holds draws lost.
-      const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction "]).length : 0;
+      const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction"]).length : 0;
       const drawsLost = data.drawL ? Object.values(data.drawL).length : 0;
 
-      const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction "]).length : 0;
+      const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction"]).length : 0;
       const losses = data.loss ? Object.values(data.loss) : [];
       const winLostByDraw = losses.filter(match => match["actual results"].toLowerCase() === "draw").length;
       const winLost = losses.length - winLostByDraw;
