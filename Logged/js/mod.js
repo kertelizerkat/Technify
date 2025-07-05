@@ -4,10 +4,24 @@ let steps_to_remove_loader = 0
 let state__p = ''
 let extact3_no=0
 let product4_no=0
-// storeInfo('lastStoredTime','')
+let pieChart=null;
+let lineChart=null;
+let lineChart2=null;
+let lineChart3=null;
+storeInfo('refresh','disallow')
+
 // --- Helper function to animate numbers ---
 
 function extract3(){
+
+  storeInfo('refresh','disallow')
+   let refreshBtn3=document.getElementById('refreshBtn')
+   if (refreshBtn3){
+refreshBtn3.classList.remove('refresh-active')
+ refreshBtn3.style.cursor="none"
+refreshBtn3.style.opacity='0.5'
+   }
+  
 
 
 
@@ -36,6 +50,17 @@ function extract3(){
       }
       let allMatches = summary.allMatches
 
+      try{
+             let rawData=summary.histdata_
+             if (rawData){
+              analysis3(rawData)
+
+             }
+             
+      }catch{
+
+      }
+   
 
       // start
 
@@ -79,7 +104,10 @@ function extract3(){
 
       // --- Create Pie Chart with initial zero data ---
       const pieCtx = document.getElementById('pieChart').getContext('2d');
-      const pieChart = new Chart(pieCtx, {
+      if (pieChart){
+        pieChart.destroy()
+      }
+       pieChart = new Chart(pieCtx, {
         type: 'pie',
         data: {
           labels: ['Draws Correct', 'Draws Lost', 'Win Correct', 'Win Lost', 'Win Lost by Draw'],
@@ -121,8 +149,11 @@ function extract3(){
       }
 
       // Create line chart with empty datasets.
-      const lineCtx = document.getElementById('lineChart').getContext('2d');
-      const lineChart = new Chart(lineCtx, {
+      if (lineChart){
+          lineChart.destroy()
+      }
+       lineCtx = document.getElementById('lineChart').getContext('2d');
+       lineChart = new Chart(lineCtx, {
         type: 'line',
         data: {
           datasets: [
@@ -174,11 +205,31 @@ function extract3(){
         lineChart.update();
         currentIndex++;
         if (currentIndex >= maxPoints) clearInterval(lineInterval);
-      }, 200); // Adjust delay (in ms) per data point as needed.
+      },10);
 
       // --- Populate the Matches Table ---
-      const tbody = document.getElementById('match-table');
-      tbody.innerHTML = summary.tbdinner
+      let tbody = document.getElementById('match-table');
+        if (summary.tbdinner) {
+
+      
+
+      } else {
+        storeInfo('matchSummary', '')
+        storeInfo('lastStoredTime', '')
+        window.location.reload()
+
+      }
+      if (tbody){
+        tbody.innerHTML = summary.tbdinner
+
+      }else{
+        let tbody2=document.querySelector('.mainT')
+        if (tbody2){
+        tbody2.innerHTML = summary.tbdinner
+
+      }
+      }
+      
 
 
       if (summary.tbdinner) {
@@ -195,9 +246,27 @@ function extract3(){
 
       //end
       if (!(localStorage.getItem('continueoff')=='allow')){
+
         updatecontent()
 
+      
+
       }
+   setTimeout(()=>{
+
+    let refreshBtn2=document.getElementById('refreshBtn')
+          if (refreshBtn2){
+            storeInfo('refresh','allow')
+            refreshBtn2.style.opacity=1
+             refreshBtn2.style.cursor="pointer"
+            refreshBtn2.classList.add('refresh-active')
+
+            
+          }
+
+   },20000)
+      
+        
       
 
 
@@ -510,7 +579,7 @@ function product4(){
       const matches = data4.slips;
 
          storeInfo('late4', 'done')
-      console.log(data4)
+      // console.log(data4)
       const container = document.getElementById("betslip-container");
       const stake = 20;
       const slipsByCategory = { pending: [], won: [], lost: [], completed: [] };
@@ -3869,7 +3938,7 @@ function updatecontent() {
           clearInterval(state__int)
         }
 
-      }, 6000)
+      }, 9000)
 
 
 
@@ -3914,7 +3983,9 @@ function getproducts_2_3() {
     })
     .then(data3 => {
       let data = data3.message;
+      analysis3(data)
       console.log(data)
+      let histdata_=data
  
 
 
@@ -3979,8 +4050,13 @@ function getproducts_2_3() {
 
 
       // --- Create Pie Chart with initial zero data ---
-      const pieCtx = document.getElementById('pieChart').getContext('2d');
-      const pieChart = new Chart(pieCtx, {
+       let pieCtx = document.getElementById('pieChart').getContext('2d');
+      
+       if (pieChart){
+        pieChart.destroy()
+      }
+
+       pieChart = new Chart(pieCtx, {
         type: 'pie',
         data: {
           labels: ['Draws Correct', 'Draws Lost', 'Win Correct', 'Win Lost', 'Win Lost by Draw'],
@@ -4015,7 +4091,10 @@ function getproducts_2_3() {
 
       // Create line chart with empty datasets.
       const lineCtx = document.getElementById('lineChart').getContext('2d');
-      const lineChart = new Chart(lineCtx, {
+       if (lineChart){
+          lineChart.destroy()
+      }
+       lineChart = new Chart(lineCtx, {
         type: 'line',
         data: {
           datasets: [
@@ -4067,7 +4146,7 @@ function getproducts_2_3() {
         lineChart.update();
         currentIndex++;
         if (currentIndex >= maxPoints) clearInterval(lineInterval);
-      }, 200); // Adjust delay (in ms) per data point as needed.
+      }, 10); // Adjust delay (in ms) per data point as needed.
 
       // --- Populate the Matches Table ---
       const tbody = document.getElementById('match-table');
@@ -4085,7 +4164,8 @@ function getproducts_2_3() {
       });
       let tbdinner = tbody.innerHTML
       
-      const summaryData = { finalPieData, allMatches, avgConfidence, correctCount, totalMatches, winMatches, lossMatches, finalWinData, finalLossData, tbdinner };
+
+      const summaryData = { finalPieData, allMatches, avgConfidence, correctCount, totalMatches, winMatches, lossMatches, finalWinData, finalLossData, tbdinner, histdata_ };
       localStorage.setItem("matchSummary", JSON.stringify(summaryData));
       storeCurrentTime()
       steps_to_remove_loader = 2
@@ -4096,6 +4176,26 @@ function getproducts_2_3() {
       }
       
 
+      let dtt= document.getElementById('histecc')
+        let lod2= document.getElementById('mainloader2')
+        if (lod2 && dtt){
+           lod2.classList.add('hide')
+           dtt.setAttribute('style','position:relative')
+
+        }
+         setTimeout(()=>{
+
+    let refreshBtn2=document.getElementById('refreshBtn')
+          if (refreshBtn2){
+            storeInfo('refresh','allow')
+            refreshBtn2.style.opacity=1
+             refreshBtn2.style.cursor="pointer"
+            refreshBtn2.classList.add('refresh-active')
+
+            
+          }
+
+   },20000)
 
 
 
@@ -4113,8 +4213,34 @@ function getproducts_2_3() {
 
         loader.style.display = 'none'
       }
+   console.log(`something went wrong :${error}`)
+
+       
       
       storeInfo('late2', 'failed')
+ let dtt= document.getElementById('histecc')
+        let lod2= document.getElementById('mainloader2')
+        if (lod2 && dtt){
+           lod2.classList.add('hide')
+           dtt.setAttribute('style','position:relative')
+
+        }
+         setTimeout(()=>{
+
+    let refreshBtn2=document.getElementById('refreshBtn')
+          if (refreshBtn2){
+            storeInfo('refresh','allow')
+            refreshBtn2.style.opacity=1
+             refreshBtn2.style.cursor="pointer"
+            refreshBtn2.classList.add('refresh-active')
+
+            
+          }
+
+   },20000)
+
+
+
       // console.log('failed to recieve data:' + error)
 
     });
@@ -4204,7 +4330,7 @@ function updatecontent_2_3() {
         }
 
 
-      }, 5000)
+      }, 10000)
 
 
 
@@ -4229,7 +4355,12 @@ function sort_tables(){
 
 
   // Get the original tbody and table
-const originalTbody = document.getElementById('match-table');
+let originalTbody = document.getElementById('match-table');
+if (originalTbody){
+}else{
+originalTbody= document.querySelector('.mainT')
+}
+
 const originalTable = originalTbody.parentElement;
 const originalThead = originalTable.querySelector('thead');
 
@@ -4518,5 +4649,155 @@ function updatecontent7_0() {
     
 }
 
+setTimeout(updatecontent7_0,20000)
 
-updatecontent7_0()
+// updatecontent7_0()
+
+
+
+ function toggleTheme_z() {
+      const dark = document.querySelector('.st_and_ac').classList.toggle('dark-mode22');
+      document.querySelector('.toggle-button').textContent = dark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    }
+
+
+// Function to parse 'DD-MM-YYYY' dates into Date objects
+function parseDate(dateStr) {
+  const [day, month, year] = dateStr.split('-');
+  return new Date(`${year}-${month}-${day}`);
+}
+
+function analysis3(rawData) {
+  console.log('analysis3');
+  // console.log(rawData);
+  const winCounts = {}, lossCounts = {}, accuracy = {};
+  const matchData = {};
+
+  // Process wins
+  for (const [k, entry] of Object.entries(rawData.win || {})) {
+    const date = entry.date;
+    winCounts[date] = (winCounts[date] || 0) + 1;
+    if (!matchData[date]) matchData[date] = [];
+    matchData[date].push(`✅ ${entry.match}`);
+  }
+
+  // Process losses
+  for (const [k, entry] of Object.entries(rawData.loss || {})) {
+    const date = entry.date;
+    lossCounts[date] = (lossCounts[date] || 0) + 1;
+    if (!matchData[date]) matchData[date] = [];
+    matchData[date].push(`❌ ${entry.match}`);
+  }
+
+  // Collect all unique date strings
+  const allDateStr = Array.from(new Set([...Object.keys(winCounts), ...Object.keys(lossCounts)]));
+
+  // Calculate accuracy for each date
+  allDateStr.forEach(dateStr => {
+    const win = winCounts[dateStr] || 0;
+    const loss = lossCounts[dateStr] || 0;
+    accuracy[dateStr] = (win + loss) > 0 ? (win / (win + loss)) * 100 : 0;
+  });
+
+  // Sort dates chronologically
+  const datePairs = allDateStr.map(dateStr => [dateStr, parseDate(dateStr)]);
+  datePairs.sort((a, b) => a[1] - b[1]);
+  const sortedDateStr = datePairs.map(pair => pair[0]);
+  const earliestDate = datePairs[0][1];
+  const dayDifferences = datePairs.map(pair => Math.floor((pair[1] - earliestDate) / (1000 * 60 * 60 * 24)));
+  const labels = dayDifferences.map(diff => diff + 1);
+
+  // Prepare data arrays in sorted order
+  const winData = sortedDateStr.map(dateStr => winCounts[dateStr] || 0);
+  const lossData = sortedDateStr.map(dateStr => lossCounts[dateStr] || 0);
+  const accuracyData = sortedDateStr.map(dateStr => accuracy[dateStr] || 0);
+
+  // Calculate totals and overall accuracy
+  const totalWins = Object.values(winCounts).reduce((a, b) => 
+
+ a + b, 0);
+  const totalLosses = Object.values(lossCounts).reduce((a, b) => a + b, 0);
+  const overallAccuracy = (totalWins + totalLosses) > 0 ? (totalWins / (totalWins + totalLosses) * 100).toFixed(2) : 0;
+
+  // Update stats display
+  document.getElementById('stats').innerHTML = `<strong><span class='twns'>Total Wins:</span></strong> ${totalWins} | <strong><span class='tlss'>Total Losses:</span></strong> ${totalLosses} | <strong><span class='tacs'>Accuracy:</span></strong> ${overallAccuracy}%`;
+
+  // Get chart contexts
+  const ctx11 = document.getElementById('resultsChart').getContext('2d');
+  const ctx22 = document.getElementById('accuracyChart').getContext('2d');
+
+  // Destroy existing charts if they exist
+  if (lineChart2) {
+    lineChart2.destroy();
+  }
+  if (lineChart3) {
+    lineChart3.destroy();
+  }
+
+  // Create Wins/Losses chart with numerical labels
+  lineChart2 = new Chart(ctx11, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Wins',
+          data: winData,
+          borderColor: 'limegreen',
+          backgroundColor: 'rgba(50,205,50,0.2)',
+          tension: 0.4,
+          fill: true
+        },
+        {
+          label: 'Losses',
+          data: lossData,
+          borderColor: 'crimson',
+          backgroundColor: 'rgba(220,20,60,0.2)',
+          tension: 0.4,
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      animation: { duration: 1000, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { labels: { color: getComputedStyle(document.body).color } }
+      },
+      scales: {
+        x: { ticks: { color: getComputedStyle(document.body).color } },
+        y: { ticks: { color: getComputedStyle(document.body).color } }
+      }
+    }
+  });
+
+  // Create Accuracy chart with numerical labels
+  lineChart3 = new Chart(ctx22, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Accuracy (%)',
+        data: accuracyData,
+        borderColor: 'deepskyblue',
+        backgroundColor: 'rgba(0,191,255,0.2)',
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: { duration: 1000, easing: 'easeInOutCubic' },
+      plugins: {
+        legend: { labels: { color: getComputedStyle(document.body).color } }
+      },
+      scales: {
+        x: { ticks: { color: getComputedStyle(document.body).color } },
+        y: { ticks: { color: getComputedStyle(document.body).color } }
+      }
+    }
+  });
+};
+    
+
+   

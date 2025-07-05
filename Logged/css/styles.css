@@ -89,6 +89,7 @@ body {
 }
 
 header {
+  
   display: flex;
   width: 100vw;
   height: 70px;
@@ -102,6 +103,7 @@ header {
   box-sizing: border-box;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s ease;
+  
 }
 
 header nav ul {
@@ -1580,6 +1582,76 @@ body {
 }
 
 /* fdd */
+
+
+
+ .st_and_ac {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin:20px 0;
+        display: flex;
+        flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: #f0f0f0;
+      width:100%;
+      transition: background-color 0.5s ease, color 0.5s ease;
+     
+    }
+      .dark-mode22 {
+      background-color: transparent;
+      color: #f0f0f0;
+    }
+    .toggle-button {
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      cursor: pointer;
+      background-color: #333;
+      color: white;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+     .st_and_ac canvas {
+      
+     
+      max-height: 300px;
+
+  
+    }
+    .st_and_ac #stats {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+          color:#f0f0f0;
+    }
+    .st_and_ac h2 {
+      text-align: center;
+         color:#f0f0f0;
+    }
+  
+.b_pd{
+  display:flex;
+  flex-wrap: wrap;
+ 
+  margin: 10px auto;
+  max-width:100%;
+  min-width:100%;
+  justify-content: center;
+  align-items: center;
+ 
+  height:auto;
+  /* padding:10px; */
+}
+
+.acpd,.wpd{
+  min-width:45%;
+  max-width:45%;
+
+}
+
+
+
 /* Base styles for the main containers */
 .lineg,
 #gfl {
@@ -1588,26 +1660,44 @@ body {
 }
 
 /* Container card styling */
-.lineg {
+.lineg  {
   width: 90%;
+  /* max-width: 700px; */
   min-height: 400px;
   margin: 1rem auto;
   box-sizing: border-box;
 }
 
 /* Chart container */
-.lineg .chart-container {
+.lineg .chart-container  {
   position: relative;
   max-width: 630px;
-  margin: 1rem auto;
+   margin: 1rem auto;
   height: 90%;
   padding: 20px;
   box-sizing: border-box;
-  margin-top: -10px;
+  margin-top: -10px;;
+}
+.lineg .chart-container  {
+  position: relative;
+  max-width: 550px;
+   margin: 1rem auto;
+  height: 90%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: -10px;}
+.acpd,.wpd  {
+  position: relative;
+  max-width: 550px;
+   margin: 10px auto;
+  height: 90%;
+  /* padding: 20px; */
+  box-sizing: border-box;
+
 }
 
 /* Canvas element filling its container */
-.lineg canvas {
+.lineg canvas,.st_and_ac canvas  {
   width: 100% !important;
   height: 100% !important;
 }
@@ -1620,7 +1710,8 @@ body {
   justify-content: center;
   gap: 10px;
   margin: 0 0;
-  width: 100%;
+  width:100%;
+
 }
 
 /* Toggle label */
@@ -1650,7 +1741,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #CCC;
+  background-color: #ccc;
   transition: 0.4s;
   border-radius: 24px;
 }
@@ -1662,7 +1753,7 @@ body {
   width: 18px;
   left: 3px;
   bottom: 3px;
-  background-color: #FFFFFF;
+  background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -1677,13 +1768,13 @@ body {
 
 /* Theme modes for the parent container */
 #gfl.light-mode {
-  background-color: #1a1a1a; /* Changed to dark */
-  color: #e0e0e0; /* Changed to light */
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 #gfl.dark-mode {
   background-color: #1e1e1e;
-  color: #EEE;
+  color: #eee;
 }
 
 #gfl {
@@ -1693,34 +1784,43 @@ body {
 }
 
 /* --- Responsive Adjustments --- */
+
 /* For tablets and mid-sized devices */
 @media (max-width: 768px) {
-  .container22, #contentArea {
+    .container22,#contentArea{
     border-radius: none;
   }
   .lineg {
     width: 95%;
+    /* Let the container adjust its height if needed */
     min-height: auto;
     padding: 10px;
   }
-  .lineg .chart-container {
+  
+  .lineg .chart-container,.acpd,.wpd   {
     padding: 10px;
   }
+  
+  /* Stack theme toggle items vertically & reduce gaps */
   .lineg .theme-toggle {
     flex-direction: column;
     gap: 5px;
     padding: 0 10px;
   }
+  
+  /* Optionally adjust the switch to be slightly smaller */
   .lineg .switch {
     width: 40px;
     height: 20px;
   }
+  
   .lineg .slider:before {
     height: 16px;
     width: 16px;
     left: 2px;
     bottom: 2px;
   }
+  
   .lineg input:checked + .slider:before {
     transform: translateX(20px);
   }
@@ -1728,18 +1828,32 @@ body {
 
 /* For mobile devices */
 @media (max-width: 480px) {
-  .container22 {
+  .container22{
     border-radius: none;
   }
   .lineg {
     width: 100%;
+  
     padding: 5px;
   }
-  .lineg .chart-container {
+  
+  .lineg .chart-container{
     padding: 5px;
     min-height: 400px;
     max-height: 400px;
   }
+
+  .st_and_ac canvas{
+    min-height:300px;
+    max-height:300px;
+
+  }
+
+  .wnp,.acpd{
+    width: 95%;
+    margin: 10 auto;
+  }
+  
   .lineg .theme-toggle {
     padding: 0 5px;
   }
@@ -3199,3 +3313,133 @@ body {
 
 
 
+.whitec{
+  color:#fff;
+}
+
+
+ :root {
+        --primary-blue: #007BFF;
+        --accent: #00ffe7;
+        --dark-blue: #0056B3;
+        --light-gray: #222c38;
+        --shadow: 0 4px 24px #007bff33;
+        --background: linear-gradient(135deg, #0a0a23 0%, #23234a 100%);
+        --btn-bg: rgba(0, 20, 40, 0.7);
+        --btn-hover: #007BFF;
+        --btn-text: #fff;
+        --cir1: #00ffe7;
+        --cir2: #007BFF;
+        --cir3: #fff;
+    }
+
+.refresh-btn {
+        background: var(--btn-bg);
+        border: none;
+        color: var(--btn-text);
+        border-radius: 50%;
+        box-shadow: var(--shadow);
+        width: 64px;
+        height: 64px;
+        display: flex;
+        transform: scale(0.7);
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 10px auto;
+        position: relative;
+        padding: 0;
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        overflow: visible;
+        outline: none;
+        user-select: none;
+        border: 2px solid var(--primary-blue);
+        animation: popIn22 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes popIn22 {
+        0% { transform: scale(0.5); opacity: 0; }
+        80% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+    .refresh-active:hover, .refresh-active:focus {
+        background: var(--btn-hover);
+        color: var(--btn-text);
+        box-shadow: 0 8px 24px var(--primary-blue, #007BFF);
+        transform: scale(0.85) rotate(-2deg);
+    }
+    .refresh-btn span {
+        z-index: 2;
+        position: relative;
+        font-size: 1.1em;
+        font-weight: 700;
+        text-shadow: 0 2px 8px #0002;
+    }
+    .cir, .cir2, .cir3 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        border-radius: 50%;
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .cir {
+        width: 100%;
+        height: 100%;
+        border: 2.5px solid var(--cir1);
+        border-bottom-color: transparent;
+        border-top-color: transparent;
+        box-shadow: 0 0 16px var(--cir1);
+        opacity: 0.7;
+        z-index: 1;
+    }
+    .cir2 {
+        width: 70%;
+        height: 70%;
+        border: 2px solid var(--cir2);
+        border-right-color: transparent;
+        border-left-color: transparent;
+        opacity: 0.5;
+        z-index: 1;
+    }
+    .cir3 {
+        width: 48%;
+        height: 48%;
+        border: 2px dashed var(--cir3);
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        opacity: 0.4;
+        z-index: 1;
+    }
+     .refresh-active:hover .cir {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1.08);
+        box-shadow: 0 0 32px var(--cir1);
+    }
+     .refresh-active:hover .cir2 {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-180deg) scale(1.1);
+    }
+     .refresh-active:hover .cir3 {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.15);
+        opacity: 0.7;
+    }
+     .refresh-active:active {
+        transform: scale(0.97) rotate(2deg);
+        box-shadow: 0 2px 8px var(--primary-blue, #007BFF);
+    }
+
+
+.twns{
+  color: rgba(0,255,0)
+}
+.tlss{
+  color: rgba(255,0,0)
+}
+
+.tacs{
+  color:#007BFF
+}

@@ -497,30 +497,30 @@ h5{
           class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6">
           <div class="flex justify-between items-center">
 
-            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900"><img
+            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900 whitec"><img
                 style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../../sources/ball.png">
               TechNify</h2>
-            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900">×</button>
+            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900 whitec">×</button>
           </div>
           <a href="../index.html"
-            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
             🏠 <span>Dashboard</span>
           </a>
           <a href="#"
-            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
             👤 <span>Profile</span>
           </a>
           
           <a href="#"
-            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
             👥 <span>Users</span>
           </a>
           <a href="../posts/index.html"
-            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
             📈 <span>Trends</span>
           </a>
           <a href="#" onclick="logout()"
-            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200">
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
             🚪 <span>Log Out</span>
           </a>
         </div>
@@ -536,6 +536,10 @@ h5{
               document.getElementById('hmen').setAttribute('class','text-2xl font-extrabold text-white-900')
               
               document.getElementById('side-menu').setAttribute('class','fixed top-0 right-0 w-80 h-full bg-black bg-opacity-70 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6')
+
+               document.querySelectorAll('.whitec').forEach(element =>{
+                element.setAttribute('class','flex items-center gap-2 text-lg text-white-700 hover:text-indigo-600 transition-all duration-200 whitec')
+              })
 
 
           }

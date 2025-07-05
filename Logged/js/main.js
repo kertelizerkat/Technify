@@ -583,8 +583,9 @@ else{
             holder.classList.add("flex")
             out.innerHTML = res
       
-            predicter_innerhtml=cont.innerHTML
+            
             cencon.innerHTML=ocikon
+            predicter_innerhtml=cont.innerHTML
         })
         .catch(error => {
             console.log("something wrong with the response", error)
