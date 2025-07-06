@@ -114,6 +114,7 @@ html {
     position: fixed;
     top: 0;
   
+    
     background-color: rgba(0, 0, 0, 0.46); /* Darker header background */
     padding: 0 20px;
     z-index: 100000000;
@@ -1489,6 +1490,9 @@ footer p{
   
   
   }
+   .bluee{
+    color: #0056B3
+  }
   
   .container33 .pr{
     font-weight:700px;
@@ -1531,6 +1535,14 @@ footer p{
        margin:20px auto;
        border: 1px solid #3C3C3C;
        
+  }
+  .container33 .POutcome{
+
+    border: 1px solid #008000;
+
+  }
+ .bluee{
+    color: #0056B3
   }
   .container33 .info_line{
       
@@ -3573,7 +3585,7 @@ footer p{
     }
 
 .twns{
-  color: rgba(0,255,0)
+  color: #008000
 }
 .tlss{
   color: rgba(255,0,0)

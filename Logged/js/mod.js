@@ -207,8 +207,18 @@ refreshBtn3.style.opacity='0.5'
         if (currentIndex >= maxPoints) clearInterval(lineInterval);
       },10);
 
+
+     let tbody = document.getElementById('match-table');
+      if (!tbody){
+        tbody=document.querySelector('.mainT')
+      }
+      if (!tbody){
+        tbody=document.querySelector('tbody')
+      }
+
+
       // --- Populate the Matches Table ---
-      let tbody = document.getElementById('match-table');
+    
         if (summary.tbdinner) {
 
       
@@ -219,17 +229,12 @@ refreshBtn3.style.opacity='0.5'
         window.location.reload()
 
       }
+
+
       if (tbody){
         tbody.innerHTML = summary.tbdinner
 
-      }else{
-        let tbody2=document.querySelector('.mainT')
-        if (tbody2){
-        tbody2.innerHTML = summary.tbdinner
-
       }
-      }
-      
 
 
       if (summary.tbdinner) {
@@ -1372,7 +1377,7 @@ function renderMatchCard(category, key, matchData) {
     score_p,
     real_score,
     ["actual results"]: actualResults,
-    ["correct_prediction "]: correct
+    ["correct_prediction"]: correct
   } = matchData;
 
   const isCorrect = !!correct;
@@ -3954,7 +3959,7 @@ function updatecontent() {
 }
 
 
-function getproducts_2_3() {
+function getproducts_2_3(update_=true) {
 
 
   // alert('fetching')
@@ -4010,7 +4015,7 @@ function getproducts_2_3() {
 
       // --- Summary Calculations ---
       const totalMatches = Math.floor(allMatches.length);
-      const correctCount = allMatches.filter(match => match["correct_prediction "]).length;
+      const correctCount = allMatches.filter(match => match["correct_prediction"]).length;
       const avgConfidence = allMatches.reduce((sum, match) => sum + match.prediction_p, 0) / totalMatches;
 
 
@@ -4036,10 +4041,10 @@ function getproducts_2_3() {
       // Draws:
       //   - "drawW" holds draws predicted correctly.
       //   - "drawL" holds draws lost.
-      const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction "]).length : 0;
+      const drawsCorrect = data.drawW ? Object.values(data.drawW).filter(match => match["correct_prediction"]).length : 0;
       const drawsLost = data.drawL ? Object.values(data.drawL).length : 0;
 
-      const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction "]).length : 0;
+      const winCorrect = data.win ? Object.values(data.win).filter(match => match["correct_prediction"]).length : 0;
       const losses = data.loss ? Object.values(data.loss) : [];
       const winLostByDraw = losses.filter(match => match["actual results"].toLowerCase() === "draw").length;
       const winLost = losses.length - winLostByDraw;
@@ -4149,14 +4154,21 @@ function getproducts_2_3() {
       }, 10); // Adjust delay (in ms) per data point as needed.
 
       // --- Populate the Matches Table ---
-      const tbody = document.getElementById('match-table');
+      let tbody = document.getElementById('match-table');
+      if (!tbody){
+        tbody=document.querySelector('.mainT')
+      }
+      if (!tbody){
+        tbody=document.querySelector('tbody')
+      }
+      tbody.innerHTML=''
       allMatches.reverse().forEach(match => {
         tbody.innerHTML += `
         <tr class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700">
           <td class="px-4 py-2 border">${match.match}</td>
           <td class="px-4 py-2 border">${match.prediction}</td>
           <td class="px-4 py-2 border">${match["actual results"]}</td>
-          <td class="px-4 py-2 border">${match["correct_prediction "] ? '✅' : '❌'}</td>
+          <td class="px-4 py-2 border">${match["correct_prediction"] ? '✅' : '❌'}</td>
           <td class="px-4 py-2 border dttt">${match.date}</td>
           <td class="px-4 py-2 border">${match.real_score}</td>
         </tr>
@@ -4171,9 +4183,13 @@ function getproducts_2_3() {
       steps_to_remove_loader = 2
       
       updatecontent()
-      try{sort_tables()}catch{
+      if (update_){
+        try{sort_tables()}catch{
         
       }
+
+      }
+      
       
 
       let dtt= document.getElementById('histecc')
@@ -4355,11 +4371,15 @@ function sort_tables(){
 
 
   // Get the original tbody and table
+
+
 let originalTbody = document.getElementById('match-table');
-if (originalTbody){
-}else{
-originalTbody= document.querySelector('.mainT')
-}
+      if (!originalTbody){
+        tbody=document.querySelector('.mainT')
+      }
+      if (!originalTbody){
+        originalTbody=document.querySelector('tbody')
+      }
 
 const originalTable = originalTbody.parentElement;
 const originalThead = originalTable.querySelector('thead');

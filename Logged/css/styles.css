@@ -98,7 +98,7 @@ header {
   position: fixed;
   top: 0;
   background-color: rgba(0,0,0,0.7); /* Darker header background */
- 
+
   padding: 0 20px;
   z-index: 100000000;
   box-sizing: border-box;
@@ -1372,6 +1372,9 @@ body {
   padding: 40px;
   margin: 80px;
 }
+ .bluee{
+    color: #0056B3
+  }
 
 @media (max-width: 706px) {
   .container33 #vs_info {
@@ -1382,6 +1385,15 @@ body {
     padding: 10px;
     margin: 20px auto;
     border: 1px solid #666; /* Changed to lighter */
+  }
+  .container33 .POutcome{
+    border: 1px solid #0056B3;
+    padding:10px;
+   
+
+  }
+  .bluee{
+    color: #0056B3
   }
   .container33 .info_line {
     min-width: 45%;

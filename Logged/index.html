@@ -317,7 +317,7 @@
               <p id="accuracy" class="text-2xl">0%</p>
             </div>
             <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
-              <h2 class="text-xl font-semibold">Average Confidence</h2>
+              <h2 class="text-xl font-semibold">Average Prediction%</h2>
               <p id="avg-confidence" class="text-2xl">0%</p>
             </div>
           </div>
@@ -411,7 +411,7 @@
               dtdata.style.minHeight='500px'
               dtdata.style.maxHeight='500px'
               dtdata.style.overflow='hidden'
-              getproducts_2_3()
+              getproducts_2_3(false)
               localStorage.setItem('refresh','disallow')
               refreshBtn.style.opacity='0.5'
               refreshBtn.style.cursor="none"
