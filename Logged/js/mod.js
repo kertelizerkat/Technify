@@ -4700,9 +4700,21 @@ function analysis3(rawData) {
     if (!matchData[date]) matchData[date] = [];
     matchData[date].push(`✅ ${entry.match}`);
   }
+  for (const [k, entry] of Object.entries(rawData.drawW || {})) {
+    const date = entry.date;
+    winCounts[date] = (winCounts[date] || 0) + 1;
+    if (!matchData[date]) matchData[date] = [];
+    matchData[date].push(`✅ ${entry.match}`);
+  }
 
   // Process losses
   for (const [k, entry] of Object.entries(rawData.loss || {})) {
+    const date = entry.date;
+    lossCounts[date] = (lossCounts[date] || 0) + 1;
+    if (!matchData[date]) matchData[date] = [];
+    matchData[date].push(`❌ ${entry.match}`);
+  }
+  for (const [k, entry] of Object.entries(rawData.drawL || {})) {
     const date = entry.date;
     lossCounts[date] = (lossCounts[date] || 0) + 1;
     if (!matchData[date]) matchData[date] = [];
