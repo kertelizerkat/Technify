@@ -2,9 +2,10 @@
 <html lang="en" >
    
 <head>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNify | Main</title>
+    <title>TPREDICTIONS | Main</title>
     <script src="js/mod.js"></script>
     <script src="js/allhandler.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,13 +16,14 @@
      <div id='mainloader' class="loading-container11">
         <div class="title11">
           <span class="letter11">T</span>
-          <span class="letter11">e</span>
-          <span class="letter11">c</span>
-          <span class="letter11">h</span>
+          <span class="letter11">E</span>
+          <span class="letter11">C</span>
+          <span class="letter11">H</span>
           <span class="letter11">N</span>
-          <span class="letter11">i</span>
-          <span class="letter11">f</span>
-          <span class="letter11">y</span>
+          <span class="letter11">I</span>
+          <span class="letter11">F</span>
+          <span class="letter11">Y</span>
+      
         </div>
         <div class="loader11"></div>
         <div id="username_loader11" class="subtitle11"></div>
@@ -47,16 +49,16 @@
    <header class="flex ">
       <div class="logo flex items-center gap-3 animate-fade-in-down">
         <div class="logo_img ">
-          <img id="iconm" style="border-radius: 50%;width:50px;height:50px" src="sources/ball.png" alt="">
+          <img id="iconm" style="border-radius: 50%;width:50px;height:50px" src="favicon.ico" alt="">
         </div>
-        <div class="logo_name" id='usname'style="text-transform: uppercase;">TechNify</div>
+        <div class="logo_name" id='usname'style="text-transform: uppercase;">TPREDICTIONS</div>
       </div>
       <nav>
         <ul class="">
           <li><a href="#"class="active_ anc"   id="Dashboard" >Main</a></li>
       
           <li><a href="Logged/posts/index.html" class="anc"  id="BTS" >Trends</a></li>
-          <li style="margin-right: 20px;"><a id="ll1" class="anc" style="color:darkslategray" onclick="register()" href="#">SignUp</a></li>
+          <li style="margin-right: 20px;"><a id="ll1" class="anc" style="color:white" onclick="register()" href="#">SignUp</a></li>
         </ul>
         <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
           <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
@@ -74,8 +76,8 @@
           <div class="flex justify-between items-center">
 
             <h2 id="hmen" class="text-2xl font-extrabold text-gray-900 whitec"><img
-                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="sources/ball.png">
-              TechNify</h2>
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="favicon.ico">
+              </h2>
             <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900 whitec">×</button>
           </div>
           <a href="#" id='ot3'
@@ -325,7 +327,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>TechNify</h3>
+                    <h3>TPREDICTIONS</h3>
                     <p>The most advanced football prediction system, combining statistical analysis, and real-time data processing.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -366,7 +368,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 TechNify. All rights reserved. | This is a demonstration interface for a football prediction system.</p>
+                <p>&copy; 2025 TPREDICTIONS All rights reserved. | This is a demonstration interface for a football prediction system.</p>
             </div>
         </div>
     </footer>
@@ -422,6 +424,31 @@
         window.addEventListener('scroll', animateOnScroll);
         // Initial check in case elements are already in view
         window.addEventListener('load', animateOnScroll);
+    </script>
+
+ <script>
+        function getHomePath(){
+  basePath= window.location.pathname.split('/')
+
+       let npath=''
+       if (line=='https://sculpin-charming-directly.ngrok-free.app'){
+
+        npath=bpath
+       }else{
+             for ( i in basePath){
+          npath=npath + '/' + basePath[i]
+          // console.log(npath)
+          if (basePath[i]=='WEBAPP'){
+            break
+          }
+      }
+       }
+       
+    return npath
+}
+        let homepath= getHomePath()
+        localStorage.setItem('Freeprev_path',`${homepath}/index.html`)
+        localStorage.setItem('typeOfPath','Return to Home')
     </script>
 </body>
 </html>

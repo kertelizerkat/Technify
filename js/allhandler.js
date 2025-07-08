@@ -13,8 +13,14 @@ window.addEventListener('DOMContentLoaded',()=>{
         // localStorage.setItem('prev_path',currentPath)
 
        basePath= currentPath.split('/')
-       let npath='https://tpredictions.online'
-       
+       let npath=''
+        for ( i in basePath){
+          npath=npath + '/' + basePath[i]
+          // console.log(npath)
+          if (basePath[i]=='WEBAPP' ){
+            break
+          }
+      }
       // console.log(npath)
 
       window.location.assign(`${getHomePath()}/theme.html`)
@@ -22,13 +28,19 @@ window.addEventListener('DOMContentLoaded',()=>{
     }
 })
 let line="https://sculpin-charming-directly.ngrok-free.app"
-// line="http://localhost:5700"
+line="http://localhost:5700"
 // let theme_m=''
 // localStorage.setItem('theme_+-----', theme_m)
 let access_="domaContent"
 let online=false
 let cpath = window.location.pathname;
+let bpath;
+if (line=='https://sculpin-charming-directly.ngrok-free.app'){
+  // bpath='https://tpredictions.online'
+  bpath='https://kertelizerkat.github.io/Technify'
+}else{
 
+}
 
 
 
@@ -125,8 +137,21 @@ if(!localStorage.getItem('Freeprev_path')){
 
 function getHomePath(){
   basePath= window.location.pathname.split('/')
-       let npath='https://tpredictions.online'
-        
+
+       let npath=''
+       if (line=='https://sculpin-charming-directly.ngrok-free.app'){
+
+        npath=bpath
+       }else{
+             for ( i in basePath){
+          npath=npath + '/' + basePath[i]
+          // console.log(npath)
+          if (basePath[i]=='WEBAPP'){
+            break
+          }
+      }
+       }
+       
     return npath
 }
 
@@ -143,6 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => response.json())
     .then(data => {
+
+
+         
         if (data.message=='okay'){
            
           localStorage.setItem('online','true')
@@ -186,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNify | offline</title>
+    <title>TPREDICTIONS | OFFLINE</title>
     
     <style>
         body{
@@ -222,7 +250,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .headl{
     font-size: 2rem;
-    color: aqua;
+    color: white;
+    letter-spacing: 5px;
 }
 .hide{
     visibility: hidden;
@@ -564,7 +593,7 @@ h5{
 </head>
 <body>
     <div class="loader" id="loader">
-        <div class="headl">TechNify </div>
+        <div class="headl">TPREDICTIONS </div>
         
         <div class="spinner-box">
             <div class="blue-orbit leo">
