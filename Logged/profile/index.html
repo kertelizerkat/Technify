@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechNify | Profile</title>
+  <title>TPREDICTIONS | Profile</title>
   <link rel="stylesheet" href="css/styles.css">
    <script>
   
@@ -37,8 +37,16 @@
          
           <li><a href="../users/index.html">Users</a></li>
            <li><a href="../posts/index.html" id="BTS" class="unactive_">Trends</a></li>
-          <li style="margin-right: 20px;"><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
+          <li style="margin-right: 20px;"><a id="lgout"style="color:white" onclick="logout()" href="#">Log Out</a></li>
         </ul>
+        <script>
+    if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
+            let lgo= document.getElementById('lgout')
+            lgo.style.color= "rgba(0,0,0,0.8)"
+
+          }
+        </script>
+       
         <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
           <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
           <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
@@ -57,8 +65,8 @@
           <div class="flex justify-between items-center">
 
             <h2 id="hmen" class="text-2xl font-extrabold text-gray-900 whitec"><img
-                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../../sources/ball.png">
-              TechNify</h2>
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../../favicon.ico">
+              </h2>
             <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900 whitec">×</button>
           </div>
           <a href="../index.html"
@@ -113,7 +121,38 @@
       <div class="line"></div>
     </div>
 
-    <main class="profile-main">
+    <main class="profile-main" style="position: relative;">
+        <div id='mainloader2' class="loading-container11 ">
+        <div class="title11">
+          <span style="font-size: 30px" class="letter11">S</span>
+          <span style="font-size: 30px" class="letter11">i</span>
+          <span style="font-size: 30px" class="letter11">t</span>
+          <span style="font-size: 30px" class="letter11">e</span>
+          <span style="font-size: 30px" class="letter11">&nbsp; b</span>
+          <span style="font-size: 30px" class="letter11">u</span>
+          <span style="font-size: 30px" class="letter11">s</span>
+          <span style="font-size: 30px" class="letter11">y</span>
+        </div>
+        <!-- <div class="loader11"></div> -->
+        <div id="username_loader11" class="subtitle11"></div>
+        <div id="state_loader11" class="subtitle11"></div>
+
+        <div class="checkbox-container11">
+          <!-- <div id="vdata" class="check-box  hide_bx11">Validation</div> -->
+          <!-- <div id="fdata__" class="check-box  hide_bx11">Fetching Data</div> -->
+          <!-- <div id="ldata" class="check-box  hide_bx11">Loading Data</div> -->
+        </div>
+        <div class="particles11">
+          <div class="particle11" style="left: 10%; animation-delay: 0s;"></div>
+          <div class="particle11" style="left: 25%; animation-delay: 0.8s;"></div>
+          <div class="particle11" style="left: 40%; animation-delay: 1.6s;"></div>
+          <div class="particle11" style="left: 60%; animation-delay: 2.4s;"></div>
+          <div class="particle11" style="left: 80%; animation-delay: 3.2s;"></div>
+          <div class="particle11" style="left: 95%; animation-delay: 4s;"></div>
+        </div>
+
+    </div>
+
       <!-- Grid container to share space between the cover and info -->
       <div class="cover-container">
         <img style="width: 100%;" src="../../sources/Pman.png" alt="cover" class="cover">
@@ -121,11 +160,29 @@
 
       <div class="profile-info">
         <div class="profile-section">
-          <img src="../../Non-chalant.JPG" alt="avatar" class="avatar">
+          <img src="../../sources/AvatarD.png" alt="avatar" class="avatar">
+          <script>
+              if (localStorage.getItem("theme_+-----")=='Dark'){
+                
+              }else{
+                document.querySelector('.avatar').setAttribute('src','../../sources/AvatarD2.png')
+                document.querySelector('.avatar').style.borderColor='rgba(0,0,0,0.6)'
+              }
+
+          </script>
+         
           <div class="details">
             <h2>@ <span id="username"></span></h2>
-            <p>Founder of TechNify <img style="display: inline;border-radius: 50%;" width="30" height="30" src="../../sources/ball2.png" alt=""> </p>
-            <p>📍RSA Gauteng,Pretoria </p>
+            <p ><span id="bio"  spellcheck="false"
+     autocorrect="off"
+     autocapitalize="off"
+     data-gramm="false"
+     data-enable-grammarly="false"  contenteditable='true'>Write your Bio here..</span> <img id="icon_f" style="display: inline;border-radius: 50%;" width="30" height="30" src="../../favicon.ico" alt=""> </p>
+            <p id='Location_'  spellcheck="false"
+     autocorrect="off"
+     autocapitalize="off"
+     data-gramm="false"
+     data-enable-grammarly="false"  contenteditable='true'>📍Address </p>
           </div>
         </div>
          <!-- Tabs Navigation -->
@@ -155,21 +212,18 @@
           </div>
           <div class="info-card">
             <strong>Website:</strong>
-            <p><a style="width:100%" href="https://kertelizerkat.github.io/katlegoM"
-                target="_blank"> kertelizerkat-github</a></p>
+            <p><a id="website" style="width:100%" href="#"
+                target="" spellcheck="false"
+     autocorrect="off"
+     autocapitalize="off"
+     data-gramm="false"
+     data-enable-grammarly="false"  contenteditable='true'> https://</a></p>
           </div>
         </div>
 
         <!-- Info Content: Skills -->
         <div class="info-content hidden" id="skills">
-          <div class="info-card">
-            <strong>Languages:</strong>
-            <p>JavaScript, TypeScript, Python, Html, Css</p>
-          </div>
-          <div class="info-card">
-            <strong>Libraries/Frameworks:</strong>
-            <p>React, Vue, Node.js, TailwindCSS</p>
-          </div>
+        
           <div class="info-card">
             <strong>Tools:</strong>
             <p>Git and  VS Code</p>
@@ -330,7 +384,7 @@
 
 
     <footer class="mt-12 text-center text-sm text-gray-500">
-      <p>&copy; <span id="current-year"></span> TechNify . All rights reserved.</p>
+      <p>&copy; <span id="current-year"></span> TPREDICTIONS . All rights reserved.</p>
     </footer>
   </div>
 

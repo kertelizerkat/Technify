@@ -7,7 +7,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechNify | Dashboard</title>
+  <title>TPREDICTIONS | Dashboard</title>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
   <link rel="stylesheet" href="css/styles.css">
   <script>
@@ -86,8 +86,16 @@
 
           <li><a href="users/index.html">Users</a></li>
           <li><a href="posts/index.html" id="BTS" class="unactive_">Trends</a></li>
-          <li style="margin-right: 20px;"><a style="color:darkslategray" onclick="logout()" href="#">Log Out</a></li>
+          <li style="margin-right: 20px;"><a id="lgout" style="color:white" onclick="logout()" href="#">Log Out</a></li>
         </ul>
+<script>
+if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
+        let lgo= document.getElementById('lgout')
+        lgo.style.color= "rgba(0,0,0,0.8)"
+
+      }
+</script>
+      
 
 
         <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
@@ -111,7 +119,7 @@
           <div class="flex justify-between items-center">
 
             <h2 id="hmen" class="text-2xl font-extrabold text-gray-900  whitec"><img
-                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../sources/ball.png"> TechNify
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../favicon.ico"> 
             </h2>
             <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900 whitec ">×</button>
           </div>
@@ -448,7 +456,7 @@
 
 
   <footer>
-    <p>&copy; <span id="current-year"></span> Technify. All rights reserved.</p>
+    <p>&copy; <span id="current-year"></span> TPREDICTIONS. All rights reserved.</p>
   </footer>
   </div>
   <script src="js/verify.js"></script>

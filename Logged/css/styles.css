@@ -3141,7 +3141,7 @@ body {
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 111;
-  pointer-events: none; /* optional if you want clicks to pass through */
+
   margin: 0;
 }
 
