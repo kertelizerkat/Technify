@@ -619,7 +619,7 @@ h5{
           <p>This section is temporarily disconnected!</p><br>
           <p><a style='color: red;text-decoration:underline;' href=${localStorage.getItem('Freeprev_path')}>${localStorage.getItem('typeOfPath')} </a></p><br><br><br>
           <footer>
-              <h5>Copyright 2025 &copy; TechNify . All rights reserved</h5>
+              <h5>Copyright 2025 &copy; TPREDICTIONS . All rights reserved</h5>
             </footer>
         </div>
     </div>
