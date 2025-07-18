@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     }
 })
 let line="https://sculpin-charming-directly.ngrok-free.app"
-// line="http://localhost:5700"
+line="http://localhost:5700"
 // let theme_m=''
 // localStorage.setItem('theme_+-----', theme_m)
 let access_="domaContent"
@@ -724,35 +724,18 @@ setInterval(check,5000)
 //     });
 //   }
 
-//   // The function that checks window.innerWidth and toggles the content.
-//   function checkScreenWidth() {
-//     if (window.innerWidth <= 320) {
-//       // If we're already showing the compatibility message do nothing.
-//       if (!document.getElementById("compatibilityMessage")) {
-//         // Fade out the current body content.
-//         animateElement(document.body, { opacity: 0 }, 300, function() {
-//           // Clear body and show the message overlay.
-//           document.body.innerHTML = "";
-//           document.body.appendChild(messageDiv);
-//           animateElement(messageDiv, { opacity: 1 }, 300);
-//         });
-//       }
-//     } else {
-//       // When width grows larger than 320px, restore original page content.
-//       if (document.getElementById("compatibilityMessage")) {
-//         animateElement(messageDiv, { opacity: 0 }, 300, function() {
-//           document.body.innerHTML = originalContent;
-//           animateElement(document.body, { opacity: 1 }, 300);
-//         });
-//       }
-//     }
-//   }
+  // The function that checks window.innerWidth and toggles the conte
 
-//   // Check width on page load.
-//   document.addEventListener("DOMContentLoaded", checkScreenWidth);
-//   // Continuously monitor for window resize events.
-//   window.addEventListener("resize", checkScreenWidth);
-// })();
 function register(){
      window.location.assign(`${getHomePath()}/register/index.html`)
   }
+
+
+
+  function scrollDown100px() {
+  window.scrollBy({
+    top: 250,
+    left: 0,
+    behavior: 'smooth' // Optional: makes the scroll animated
+  });
+}
