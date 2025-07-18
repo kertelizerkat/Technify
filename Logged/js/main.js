@@ -26,7 +26,8 @@
         <div class="holder">
           <div id="cencon" class="container-bts">
             <div class="form">
-              <div class="cap">TechNified Predictions <span id="M">M</span>.<span id="T">T</span>.<span id="E">E</span></div>
+              <div class="cap"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../favicon.ico"> TPREDICTIONS <span id="M"></span><span id="T"></span><span id="E"></span></div>
               <label id='label33' style='font-size: small' for="input"
                 >Match:
                 <input
@@ -586,6 +587,7 @@ else{
             
             cencon.innerHTML=ocikon
             predicter_innerhtml=cont.innerHTML
+            scrollDown100px() 
         })
         .catch(error => {
             console.log("something wrong with the response", error)
