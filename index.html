@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" >
    
-<head>
+<head> 
    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <script src="js/taiwan.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body style="max-width:100vw;height:100vh;">
      <div id='mainloader' class="loading-container11">
         <div class="title11">
-          <span class="letter11">T</span>
-          <span class="letter11">E</span>
-          <span class="letter11">C</span>
-          <span class="letter11">H</span>
-          <span class="letter11">N</span>
-          <span class="letter11">I</span>
-          <span class="letter11">F</span>
-          <span class="letter11">Y</span>
+            <span class="letter11"></span>
+          <span class=""><img style="height:50px;width:50px; border-radius: 50%;display: inline;" src="favicon.ico"></span>
+
+        
+   
       
         </div>
         <div class="loader11"></div>
@@ -96,7 +94,7 @@
           </a>
         </div>
         <script>
-          if (localStorage.getItem("theme_+-----")=='Dark'){
+          if (true){
               const stylesheet =document.getElementById("menu-btn");
                   stylesheet.innerHTML=` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
               <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
@@ -130,7 +128,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <video class="hero-bg-video" autoplay muted loop playsinline poster="sources/ball.png">
-          <source src="sources/v2.mp4" type="video/mp4">
+          <!-- <source src="sources/2.mp4" type="video/mp4"> -->
           <!-- Fallback image if video not supported -->
         </video>
         <div class="hero-overlay"></div>
@@ -154,24 +152,24 @@
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Real-time Analysis</h3>
-                    <p>Processes live match data to provide up-to-the-minute predictions and insights during games.</p>
+                    <h3>Real-time Data Processing</h3>
+                    <p>Continuously updates with the latest match data to provide timely insights.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>AI-Powered Predictions</h3>
-                    <p>Utilizes machine learning algorithms trained on historical data to forecast match outcomes.</p>
+                    <h3>Machine Learning Predictions</h3>
+                    <p>Utilizes a KNN-based model trained on historical data to forecast match outcomes.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Statistical Models</h3>
-                    <p>Employs advanced statistical analysis of team performance, player stats, and historical trends.</p>
+                    <h3>Comprehensive Data Analysis</h3>
+                    <p>Analyzes team performance, player stats, and historical trends from multiple sources.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -179,7 +177,7 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Data Privacy Focus</h3>
-                    <p>Implements strict data anonymization techniques to protect user information and comply with regulations.</p>
+                    <p>Ensures user data is handled securely and in compliance with privacy regulations.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -187,7 +185,7 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3>Global Coverage</h3>
-                    <p>Analyzes matches from over 50 leagues worldwide with localized statistical models.</p>
+                    <p>Covers matches from various leagues and countries worldwide.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -195,7 +193,7 @@
                         <i class="fas fa-cogs"></i>
                     </div>
                     <h3>Adaptive Algorithms</h3>
-                    <p>Continuously improves prediction accuracy by learning from previous match outcomes.</p>
+                    <p>Continuously improves prediction accuracy by learning from new match data.</p>
                 </div>
             </div>
         </div>
@@ -213,48 +211,40 @@
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Data Collection & Processing</h3>
-                        <p>The system aggregates match statistics, team performance metrics, player data, weather conditions, and historical trends from multiple sources. This data is cleaned and normalized for analysis.</p>
+                        <h3>Data Collection</h3>
+                        <p>The system scrapes match data from various sources, including live matches and historical records.</p>
                     </div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Team Capability Analysis</h3>
-                        <p>Our algorithms calculate each team's winning, drawing, and losing capabilities based on historical performance. This includes home/away performance differentials and recent form analysis.</p>
+                        <h3>Data Processing</h3>
+                        <p>Collected data is cleaned, normalized, and stored for further analysis.</p>
                     </div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Comparative Advantage Calculation</h3>
-                        <p>The system computes the advantage of one team over another across multiple dimensions: win advantage, draw advantage, and loss advantage using specialized algorithms.</p>
+                        <h3>Team Analysis</h3>
+                        <p>Using historical performance data, the system calculates each team's capabilities for winning, drawing, and losing.</p>
                     </div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Prediction Threshold Evaluation</h3>
-                        <p>Different strictness levels (WH, WHL, WM, WML, WL, WLL) are applied to determine if a team has sufficient advantage to be considered a predicted winner.</p>
+                        <h3>Prediction Generation</h3>
+                        <p>A machine learning model predicts match outcomes based on the analyzed team capabilities.</p>
                     </div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Probability Calculation</h3>
-                        <p>The system calculates win probabilities for each team and the likelihood of a draw, incorporating real-time factors like injuries and weather conditions.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h3>Result Compilation & Presentation</h3>
-                        <p>Final predictions are compiled with supporting analytics and presented through our web interface and API endpoints for easy integration.</p>
+                        <h3>Result Presentation</h3>
+                        <p>Predictions are compiled and presented through a user-friendly interface for easy access.</p>
                     </div>
                 </div>
             </div>
@@ -272,55 +262,92 @@
             <div class="limitations-grid">
                 <div class="limitation-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> Unpredictable Events</h3>
-                    <p>The system cannot account for unexpected events like last-minute player injuries, referee decisions, or extraordinary individual performances that can dramatically alter match outcomes.</p>
+                    <p>The system cannot account for sudden changes like player injuries or unexpected tactical shifts.</p>
                 </div>
-                
-
-
                 
                 <div class="limitation-card">
                     <h3><i class="fas fa-database"></i> Data Quality Dependencies</h3>
-                    <p>Prediction accuracy is directly tied to the quality and completeness of input data. In leagues with limited statistical history, accuracy may be reduced.</p>
+                    <p>Predictions are only as good as the data they're based on. Incomplete or outdated data can lead to less accurate predictions.</p>
                 </div>
-
-
                 
                 <div class="limitation-card">
                     <h3><i class="fas fa-user-friends"></i> Human Element</h3>
-                    <p>Football matches involve human psychology, team morale, and managerial strategies that are difficult to quantify and incorporate into statistical models.</p>
+                    <p>Factors like team chemistry, player motivation, or coaching strategies are difficult to quantify and may not be fully captured.</p>
                 </div>
                 
                 <div class="limitation-card">
                     <h3><i class="fas fa-cloud-sun"></i> Environmental Factors</h3>
-                    <p>While weather data is included, sudden changes in conditions (torrential rain, extreme heat) can affect match dynamics in ways that are challenging to predict.</p>
+                    <p>While some external factors are considered, sudden changes in weather or pitch conditions can still impact the outcome.</p>
                 </div>
                 
                 <div class="limitation-card">
                     <h3><i class="fas fa-lock"></i> Data Privacy Constraints</h3>
-                    <p>Strict adherence to data privacy regulations (GDPR, etc.) limits the types of player performance data that can be collected and analyzed.</p>
+                    <p>To comply with regulations, certain data might not be collected or used, potentially limiting the model's accuracy.</p>
                 </div>
                 
                 <div class="limitation-card">
                     <h3><i class="fas fa-chart-bar"></i> Statistical Probabilities</h3>
-                    <p>All predictions represent probabilities, not certainties. Even predictions with 90% confidence can occasionally be incorrect due to football's inherent unpredictability.</p>
+                    <p>Even with advanced algorithms, football matches can be unpredictable, and there's always a margin of error in predictions.</p>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- CTA Section -->
     <section class="cta" id="cta">
-        <div class="container">
-            <div class="cta-content">
+        <div id="cta_main" class="container">
+            <div id='ctac' class="cta-content ">
                 <h2>Ready to Transform Your Football Predictions?</h2>
                 <p>Join thousands of analysts, bettors, and football enthusiasts who use our system to gain a competitive edge.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Start Free Trial</a>
-                    <a href="#" class="btn btn-outline">Request Demo</a>
+                    <a href="#" id='tbtn'class="btn btn-primary">Start Free Trial</a>
+                    <a href="#" id="dbtn" class="btn btn-outline">Request Demo</a>
                 </div>
             </div>
+
+             
+                  <div id="demoss" class="container33 hide ">
+
+        <div class="holder">
+          <div id="cencon" class="container-bts">
+            <div class="form">
+              <div class="cap"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="favicon.ico"> TPREDICTIONS<span id="M"></span><span id="T"></span><span id="E"></span></div>
+              <label id='label33' for="input">Match: <input id="input" placeholder="liverpool vs chealsea" type="text" minlength="4"/></label>
+              <button class="btn btn33" onclick="predict()" >submit</button>
+             
+             
+            </div>
+          </div>
+          
+          <div>
+            <div class="output"></div>
+            <div class="progress-container hide">
+        <div class="progress-bar" id="progress-bar">50%</div>
+    </div>
+    <div class="progress-label hide">Progress: <span id="progress-text">50%</span></div>
+    
+          </div>
+        </div>
+      </div>
+       
         </div>
     </section>
+
+    <script>
+        let demo = document.getElementById('demoss')
+        let ctac = document.getElementById('ctac')
+        let dbtn = document.getElementById('dbtn')
+        dbtn.addEventListener('click',()=>{
+            demo.classList.remove('hide')
+            demo.classList.add('cta-content')
+            ctac.classList.add('hide')
+
+        })
+       
+
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -368,7 +395,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 TPREDICTIONS All rights reserved. | This is a demonstration interface for a football prediction system.</p>
+                <p>&copy; 2025 TPREDICTIONS All rights reserved. |  <span class="message m2"><a href='Terms _and_Conditions/index.html'>Terms and Conditions</a></span></p>
             </div>
         </div>
     </footer>
