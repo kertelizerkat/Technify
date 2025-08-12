@@ -21,9 +21,14 @@ html {
 
 }
 
+.whitec{
+  color:white;
+}
+
   /* Dark Theme Styling */
   body {
-   
+    width:100vw;
+   overflow-x: hidden;
 
     color: #e0e0e0; /* Light text color */
     font-family: Arial, sans-serif;

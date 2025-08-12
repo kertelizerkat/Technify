@@ -97,6 +97,8 @@ html {
 
   /* Dark Theme Styling */
   body {
+     width:100vw;
+   overflow-x: hidden;
     background-color: white; /* Dark background */
     color: #121212; /* Light text color */
     font-family: Arial, sans-serif;

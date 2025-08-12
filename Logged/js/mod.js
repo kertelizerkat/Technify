@@ -549,7 +549,7 @@ function updatecontent4() {
         }
 
 
-      }, 7000)
+      }, 16000)
 
 
 

@@ -83,6 +83,8 @@ html {
 
 /* Dark Theme Styling */
 body {
+   width:100vw;
+   overflow-x: hidden;
   background-color: #000; /* Dark background */
   color: #e0e0e0; /* Light text color */
   font-family: Arial, sans-serif;

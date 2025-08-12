@@ -21,7 +21,8 @@ html {
 
   /* Dark Theme Styling */
   body {
-   
+    width:100vw;
+   overflow-x: hidden;
 
     color: #e0e0e0; /* Light text color */
     font-family: Arial, sans-serif;
@@ -684,10 +685,10 @@ header {
 
   margin: 0;
 }
-.ts-switch,.ts-heading{
-  z-index:1002
+/* .ts-switch,.ts-heading{
+  z-index:200
 }
-
+ */
 
 .loading-container11 .title11 {
   font-size: 5rem;
