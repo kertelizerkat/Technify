@@ -34,8 +34,7 @@
 </head>
 
 <body class="">
-  <div class="container 8">
-    <header class="flex ">
+   <header class="flex ">
       <div class="logo flex items-center gap-3 animate-fade-in-down">
         <div class="logo_img ">
           <img style="border-radius: 50%;width:50px;height:50px" src="../../favicon.ico" alt="">
@@ -108,6 +107,8 @@
 
 
     </header>
+  <div class="container c8">
+   
      <script>
     
           if (localStorage.getItem("theme_+-----")=='Dark'){
@@ -167,7 +168,7 @@
 
       <!-- Grid container to share space between the cover and info -->
       <div class="cover-container">
-        <img style="width: 100%;" src="../../sources/Pman.png" alt="cover" class="cover">
+        <img style="width: 60%;" src="../../favicon.ico" alt="cover" class="cover">
       </div>
 
       <div class="profile-info">
@@ -189,19 +190,19 @@
      autocorrect="off"
      autocapitalize="off"
      data-gramm="false"
-     data-enable-grammarly="false"  contenteditable='true'>Write your Bio here..</span> <img id="icon_f" style="display: inline;border-radius: 50%;" width="30" height="30" src="../../favicon.ico" alt=""> </p>
+     data-enable-grammarly="false" >Write your Bio here..</span> <img id="icon_f" style="display: inline;border-radius: 50%;" width="30" height="30" src="../../favicon.ico" alt=""> </p>
             <p id='Location_'  spellcheck="false"
      autocorrect="off"
      autocapitalize="off"
      data-gramm="false"
-     data-enable-grammarly="false"  contenteditable='true'>📍Address </p>
+     data-enable-grammarly="false"  >Address </p>
           </div>
         </div>
          <!-- Tabs Navigation -->
         <div class="info-tabs">
           <button class="tab active" onclick="showTab('contact', event)">Contact</button>
           <button class="tab" onclick="showTab('skills', event)">Skills</button>
-          <button class="tab" onclick="showTab('bio', event)">About</button>
+          <button class="tab" onclick="showTab('Bioo', event)">About</button>
         </div>
       </div>
       
@@ -209,7 +210,7 @@
        
 
         <!-- Info Content: Contact -->
-        <div class="info-content" id="contact">
+        <div class="info-content " id="contact">
           <div class="info-card">
             <strong>Email:</strong>
             <p id="email"></p>
@@ -229,7 +230,7 @@
      autocorrect="off"
      autocapitalize="off"
      data-gramm="false"
-     data-enable-grammarly="false"  contenteditable='true'> https://</a></p>
+     data-enable-grammarly="false" > https://</a></p>
           </div>
         </div>
 
@@ -248,7 +249,7 @@
 
         <!-- Info Content: Bio -->
 
-        <div class="info-content hidden" id="bio">
+        <div class="info-content hidden" id="Bioo">
           <div class="info-card">
             <strong>Bio:</strong>
             <p>Delivering accurate and data-driven soccer match predictions.</p>
@@ -271,9 +272,179 @@
    <h1 class="ts-heading"> </h1>
       <label class="ts-switch">
         <input type="checkbox" id="ts-theme-toggle">
-        <span class="ts-slider"></span>
+         <span class="ts-slider"></span>
       </label>
+  <style>
+    .edit-save-btn{
+      display: flex;
+      width:90%;
+      justify-content: center;
+      align-items: center;
+       /* border: 1px solid aqua; */
+      /* gap:20px; */
+    }
+    .pbtn{
+      border: 1px solid aqua;
+      padding: 5px 10px;
+      border-radius: 0 10px;
+      margin: 0 10px;
+      cursor:pointer
+
+    }
+    .edit{
+      color: #007ACC;
+      font-weight: bold;
+    }
+    .save{
+      color: rgba(0,255,0);
+      font-weight: bold;
+      display:none;
+    }
+    .save:hover{
+      background-color: rgba(0,255,0,0.1);
+    }
+    .edit:hover{
+      background-color: rgba(0,0,255,0.1);
+    }
+  </style>
+  <div class="edit-save-btn">
+    <div id="edit" class="edit pbtn">Edit</div>
+    <div id="save" class="save pbtn">Save</div>
+  </div>
+ <script>
+  let edit= document.getElementById('edit')
+  let save= document.getElementById('save')
+  let name= document.getElementById('username')
+  let bio= document.getElementById('bio')
+  let website= document.getElementById('website')
+  let loc= document.getElementById('Location_')
+  function make_editable(e){
+     if (localStorage.getItem("theme_+-----")=='Dark'){
+       e.style.border="1px solid white";
     
+
+     }else{
+      e.style.border="1px solid #0056b3";
+  
+     }
+  e.style.borderRadius="4px"
+  e.style.padding="4px"
+  e.setAttribute("contenteditable","true")
+
+   
+
+  }
+  function unmake_editable(e){
+    e.setAttribute("style",'')
+    e.setAttribute("contenteditable","")
+
+  }
+  edit.addEventListener("click",()=>{
+    edit.style.display="none";
+    save.style.display="unset"
+    make_editable(name)
+    make_editable(bio)
+    make_editable(loc)
+    make_editable(website)
+
+    
+
+  })
+  save.addEventListener('click',()=>{
+    let sname=name.textContent
+    let sbio=bio.textContent
+    let sloc=loc.textContent
+    let swebsite=website.textContent
+    let kd=[sname,sbio,sloc,swebsite]
+    let password=de(accessInfo(en('password',date1)),date1)
+    let email=de(accessInfo(en('email',date1)),date1)
+
+    let data9={ data: `${sname}(@)${sloc}(@)${sbio}(@)${swebsite}(@)${password}(@)${email}(@)` }
+    sendFormData(data9,kd)
+    unmake_editable(bio)
+    unmake_editable(loc)
+    unmake_editable(website)
+    unmake_editable(name)
+    edit.setAttribute('style',"")
+    save.setAttribute('style',"")
+    
+    
+
+function sendFormData(data,kd) {
+    // Send data to Flask application using fetch
+
+    const http = line + "/saveP";
+     fetch(http, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+
+            if (!response.ok) 
+                { throw new Error("Something went wrong, Please try again!");
+                    
+                } 
+                
+                return response.json();
+
+        })
+        .then(data => {
+            console.log("Data from server:", data);
+            if (data['message'] == 'Saving Passed!') {
+              storeInfo(en('username',date1),en(kd[0],17))
+               storeInfo(en('bio',date1),en(kd[1],17))
+              storeInfo(en('website',date1),en(kd[3],17))
+              storeInfo(en('address',date1),en(kd[2],17))
+              // alert("saved!!")
+              window.location.reload()
+             
+                
+        
+                
+                
+            } else {
+              
+                // if (data['reason']=="EXemail"){
+                //   alert('Verification Failed')
+                
+
+                // }
+                // if (data['reason']=="email"){
+            
+                // }
+            
+                // if (data['reason']=="password"){
+                //   alert('Verification Failed')
+               
+
+                // }
+                
+                alert("Failed")
+                
+            
+
+             
+            }
+
+
+        })
+        .catch(error => {
+            console.log("Something went wrong with the response", error);
+            
+         
+
+        });
+
+    // return "passed"// Prevent form from submitting the traditional way n Incorrect2007@
+}
+
+
+    
+  })
+ </script>
       
 
   <style>
@@ -342,7 +513,7 @@
  const tsToggle = document.getElementById('ts-theme-toggle');
     const tsCurrentTheme = localStorage.getItem('theme_+-----');
     let tsh=document.querySelector('.ts-heading')
-    tsh.textContent=`${localStorage.getItem('theme_+-----')} Mode :`
+    tsh.textContent=`${localStorage.getItem('theme_+-----')} Mode` + " : ."
 
     if (tsCurrentTheme === 'Dark') {
       tsToggle.checked = true;
@@ -402,6 +573,10 @@
 
   <script src="js/verify.js"></script>
   <script>
+  
+  </script>
+  <script>
+
     document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
   <script src="../../js/onchecker.js"></script>

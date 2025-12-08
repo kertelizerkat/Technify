@@ -4659,7 +4659,7 @@ function updatecontent7_0() {
          
         }
 
-      }, 20000)
+      }, 120000)
 
 
 

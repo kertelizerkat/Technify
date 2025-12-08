@@ -594,7 +594,17 @@ else{
             if (String(error) == "SyntaxError: Unexpected end of JSON input") {
                 error = "Content being updated in the server, please try again later!"
             }
-            
+
+             if (String(error)=="TypeError: Failed to fetch"){
+               out.innerHTML = `<span id='red' style='text-align:center'>👥: SORRY, WE ARE OFFLINE !!!<br>Please try again later.</span>`
+
+
+            }else{
+               out.innerHTML = `<span id='red'>${error}</span>`
+
+
+            }
+           
           
        
          

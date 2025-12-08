@@ -115,6 +115,11 @@ header {
   
   body {
     position: relative;
+    display:flex;
+    justify-content: center;
+    margin:0;
+    padding:0
+
   }
   
   header nav a {
@@ -204,10 +209,10 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+  
     margin-top: 30px;
     margin-bottom: 20px;
-    width:90vw;
+    width:100vw;
     margin-left: auto;
     margin-right: auto;
      /* Adds space between header and content */
@@ -347,8 +352,9 @@ header {
 
         width:95%;
         margin: 2rem auto;
-       
+      
         background: rgba(0, 0, 0, 0.1);
+         
    
   
       }
@@ -356,6 +362,9 @@ header {
         display:flex;
        justify-content: center;
        align-items: center;
+       margin-left: auto;
+       margin-right: auto;
+       
       }
 
       /* Cover container settings */
@@ -363,33 +372,42 @@ header {
         /* Limit the cover's influence by constraining its maximum size */
         max-width: 40%;
         overflow: hidden;
+ 
       }
 
       .cover {
+    
         width: 100%;
         height: auto;
         object-fit: cover;
         border-radius: 10px;
         /* Optional: set a max height to prevent it from growing too tall */
         max-height: 300px;
+      
       }
 
       /* Profile info container on the right-hand side */
       .profile-info {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
         width:50%;
+        margin-bottom: 20px;
 
+        /* border: 1px solid #0056b3; */
      
       
       }
 
       /* Profile section (avatar and details) */
       .profile-section {
+      
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1.5rem;
     
       }
@@ -400,17 +418,25 @@ header {
         border-radius: 50%;
         border: 4px solid white;
         object-fit: cover;
+        margin:0 auto;
+
       }
 
       .details h2 {
         margin: 0;
         font-size: 1.5rem;
         color: #007ACC;
+          margin-left: auto;
+       margin-right: auto;
+        
       }
 
       .details p {
         margin: 0.25rem 0;
         color: #555;
+          margin-left: auto;
+       margin-right: auto;
+         
       }
 
       /* Tabs */
@@ -871,3 +897,22 @@ header {
 
 
 
+body{
+
+  padding: 0;
+}
+
+.container{
+ padding:0;
+ margin:0;
+
+
+}
+
+.c8{
+   padding:0;
+ margin:0;
+
+ border-radius: 0;
+
+}

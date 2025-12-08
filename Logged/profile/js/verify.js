@@ -1,30 +1,44 @@
 
 window.addEventListener('DOMContentLoaded',()=>{
-    let date2=18
+    let date2=18 
     let date1=17
     let pstate=accessInfo(en('state',date2))
     let pasw=accessInfo(en('password',date1))
     let phone=accessInfo(en('phone',date1))
     let usern=accessInfo(en('username',date1))
     let email= accessInfo(en('email',date1))
+    let bio= accessInfo(en('bio',date1))
+    let web= accessInfo(en('website',date1))
+    let loc= accessInfo(en('address',date1))
     let logged= accessInfo(en('logged',date1))
     if (pasw && phone && usern && email && logged=='true'){
         
         if (!(pstate=='cost' || pstate=='login' || pstate=='verify' || pstate=='register' || pstate=='BTS'|| pstate=="logged")){window.location.assign('../logged')};
         pstate=accessInfo(en('state',date2))
          
-         phone=de(accessInfo(en('phone',date1)),date1)
-         usern=de(accessInfo(en('username',date1)),date1)
-         email= de(accessInfo(en('email',date1)),date1)
-         logged= accessInfo(en('logged',date1))
+         phone=de(phone,date1)
+         usern=de(usern,date1)
+         email= de(email,date1)
+         bio= de(bio,date1)
+         web= de(web,date1)
+         loc= de(loc,date1)
+       
         let username= document.getElementById('username');
         let emailA= document.getElementById('email');
         let phonen= document.getElementById('phone');
-        let password= document.getElementById('password');
+        // let password= document.getElementById('password');
+
+
+        let bioA= document.getElementById('bio')
+        let webA= document.getElementById('website')
+        let locA= document.getElementById('Location_')
         let lgname=document.querySelector('.logo_name')
         emailA.textContent=email
         phonen.textContent=phone
         username.textContent=usern
+        bioA.textContent=bio
+        webA.textContent=web
+        locA.textContent=loc
    
         lgname.textContent=usern
     const emailC=email
