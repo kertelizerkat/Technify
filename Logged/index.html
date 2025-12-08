@@ -10,6 +10,7 @@
   <title>TPREDICTIONS | Dashboard</title>
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
   <link rel="stylesheet" href="css/styles.css">
+
   <script>
     
 
@@ -40,6 +41,28 @@
 </head>
 
 <body>
+   <div id="noti" class="cont2">
+
+    
+    <div class="cont">
+        <div class="cheader">
+             <div class="lh"><img style="border-radius: 50%;width:18px;height:15px" src="../favicon.ico" alt="">&nbsp;TPREDICTIONS</div>
+        <div id="notcl" class="rh">x</div>
+
+        </div>
+        <div class="body">
+           <marquee id="text_"> Predict Now! 📈</marquee>
+
+        </div>
+        <footer>
+              <div class="lf">link:&nbsp;</div>
+            <div id="ActionElement" class="rf"><a href="#" onclick=""></a></div>
+          
+        </footer>
+       
+    </div>
+    </div>
+  
 
   <div class="loading-container">
     <div class="title">
@@ -319,7 +342,7 @@ if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
               <p id="accuracy" class="text-2xl">0%</p>
             </div>
             <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
-              <h2 class="text-xl font-semibold">Average Prediction%</h2>
+              <h2 class="text-xl font-semibold">Average PRC</h2>
               <p id="avg-confidence" class="text-2xl">0%</p>
             </div>
           </div>
@@ -466,7 +489,7 @@ if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
 
   <script>
     document.querySelector('head').innerHTML = document.querySelector('head').innerHTML + `
-    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -477,7 +500,134 @@ if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
   </script>
 
 
+ <script>
+  function transfere(text_,ActionElement){
+    function bop(){
+      if (localStorage.getItem('theme_+-----')=="Dark"){
+        return "Light"
+      }else{
+        return "Dark"
+      }
+    }
+ let number= Math.round(Math.random()*10) 
+  
+ console.log(number)
+ if ( number>4){
+ number= number-4
+ }
+ 
+ if ( number>4){
+ number= number-4
+ }
 
+
+
+
+ if ( number>4){
+  return False
+ }else{
+      document.addEventListener("click",()=>{
+          noti.click()
+        })
+ 
+  let valuesl=["Predicter","Sys Bets","Theme","Bio","Address"]
+
+   let valuesd={
+      "Predicter":{
+        "text": "Pedict Now! 📈",
+        "text2": "Try Liverpool vs Chelsea 👤",
+        "onclick": `switchContent('predicter')`,
+        "link":"/Predicter",
+        "reason": false
+      },
+      "Sys Bets":{
+        "text": "See Wining slips  📈 !!",
+        "onclick":"switchContent('analysis')",
+         "link":"/Slips",
+          "reason": false
+
+      },
+
+      "Theme":{
+       "text":  `👤: Want to change to ${bop()} theme?` ,
+       "href": `${getHomePath()}/theme.html`,
+       "link" : "/theme",
+       "onclick":false,
+        "reason": false
+      },
+      "Bio":{
+        "text": " 👤: Update Your Bio !!",
+        "href": `${getHomePath()}/Logged/profile/index.html`,
+        "link": "/profile#Bio",
+        "reason":"Bio",
+         "onclick":false,
+
+      },
+      "Address":{
+        "text": " 👤: You did not add an Address !!",
+        "href": `${getHomePath()}/Logged/profile/index.html`,
+        "link": "/profile#Address",
+        "reason":"Address",
+         "onclick":false
+      }
+
+
+
+    }
+
+    let choice= valuesl[number]
+    ActionElement.textContent= valuesd[choice]['link']
+    ActionElement.style.textDecoration="underline"
+    ActionElement.style.cursor="pointer"
+    text_.textContent=valuesd[choice]['text']
+    if (valuesd[choice]['reason']){
+      ActionElement.addEventListener("click",()=>{
+         localStorage.setItem("noti-profile-r",valuesd[choice]['reason'])
+         window.location.assign(valuesd[choice]['href'])
+
+      })
+     
+    }else{
+      if (!valuesd[choice]['onclick']){
+          ActionElement.addEventListener("click",()=>{
+         window.location.assign(valuesd[choice]['href'])
+
+      })
+        
+      }
+     
+      
+    }
+    if (valuesd[choice]['onclick']){
+      ActionElement.setAttribute("onclick",valuesd[choice]['onclick'])
+    }
+    
+  }
+  
+
+ }
+
+
+
+        let noti=document.getElementById('noti')
+        noti.addEventListener('click',()=>{
+          
+            noti.style.transform="translateX(-20%)"
+        })
+
+   
+       let ntclose= document.getElementById("notcl")
+        ntclose.addEventListener('click',()=>{
+          noti.style.display="none"
+        })
+
+
+        transfere(document.getElementById("text_"),document.getElementById("ActionElement"))
+
+      
+    
+       
+    </script>
 
 </body>
 
