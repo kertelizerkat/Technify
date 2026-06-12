@@ -37,7 +37,7 @@ let cpath = window.location.pathname;
 let bpath;
 if (line=='https://sculpin-charming-directly.ngrok-free.app'){
   // bpath='https://tpredictions.online'
-  bpath='https://kertelizerkat.github.io/Technify'
+  bpath='https://kertelizerkat.github.io/tpredictions.online'
 }else{
 
 }
