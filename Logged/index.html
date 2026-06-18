@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPREDICTIONS | Dashboard</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    
+
+    if (localStorage.getItem("theme_+-----") == 'Light') {
+      const stylesheet = document.querySelector("link");
+      stylesheet.href = 'css/styles2.css'
+
+    }
+  </script>
+
+
+  <script src="js/mod.js"></script>
+  <script src="../js/allhandler.js"></script>
+
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+
+  <script src="js/taiwan.js"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <script src="js/chart_npm.js"></script>
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+   <div id="noti" class="cont2">
+
+    
+    <div class="cont">
+        <div class="cheader">
+             <div class="lh"><img style="border-radius: 50%;width:18px;height:15px" src="../favicon.ico" alt="">&nbsp;TPREDICTIONS</div>
+        <div id="notcl" class="rh">x</div>
+
+        </div>
+        <div class="body">
+           <marquee id="text_"> Predict Now! 📈</marquee>
+
+        </div>
+        <footer>
+              <div class="lf">link:&nbsp;</div>
+            <div id="ActionElement" class="rf"><a href="#" onclick=""></a></div>
+          
+        </footer>
+       
+    </div>
+    </div>
+  
+
+  <div class="loading-container">
+    <div class="title">
+      <span class=""><span class=""><img style="height:80px;width:80px; border-radius: 50%;display: inline;" src="../favicon.ico"></span></span>
+      
+    </div>
+    <div class="loader"></div>
+    <div id="username_loader" class="subtitle"></div>
+    <div id="state_loader" class="subtitle"></div>
+
+    <div class="checkbox-container">
+      <div id="vdata" class="check-box  hide_bx">Validation</div>
+      <div id="fdata__" class="check-box  hide_bx">Fetching Data</div>
+      <div id="ldata" class="check-box  hide_bx">Loading Data</div>
+    </div>
+    <div class="particles">
+      <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+      <div class="particle" style="left: 25%; animation-delay: 0.8s;"></div>
+      <div class="particle" style="left: 40%; animation-delay: 1.6s;"></div>
+      <div class="particle" style="left: 60%; animation-delay: 2.4s;"></div>
+      <div class="particle" style="left: 80%; animation-delay: 3.2s;"></div>
+      <div class="particle" style="left: 95%; animation-delay: 4s;"></div>
+    </div>
+
+  </div>
+  <div class="container">
+    <header class='flex'>
+      <div class="logo flex items-center gap-3 animate-fade-in-down">
+        <div class="logo_img ">
+          <img style="border-radius: 50%; width:50px;height:50px;" src="../favicon.ico" alt="error">
+        </div>
+        <div class="logo_name" style="text-transform: uppercase;"></div>
+      </div>
+      <nav>
+        <ul class="">
+          <li><a href="#" id="Dashboard" class="active_">Dashboard</a></li>
+          <li><a href="profile/index.html">Profile</a></li>
+
+          <li><a href="users/index.html">Users</a></li>
+          <li><a href="posts/index.html" id="BTS" class="unactive_">Trends</a></li>
+          <li style="margin-right: 20px;"><a id="lgout" style="color:white" onclick="logout()" href="#">Log Out</a></li>
+        </ul>
+<script>
+if (localStorage.getItem("theme_+-----") == 'Dark') {}else{
+        let lgo= document.getElementById('lgout')
+        lgo.style.color= "rgba(0,0,0,0.8)"
+
+      }
+</script>
+      
+
+
+        <button id="menu-btn" class="fixed top-7 right-4 z-50 flex flex-col gap-1">
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar1"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar2"></div>
+          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="bar3"></div>
+        </button>
+
+
+
+
+        <!-- Overlay -->
+        <div id="overlay"
+          class="fixed inset-0 bg-white/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        </div>
+
+
+
+        <div id="side-menu"
+          class="fixed top-0 right-0 w-80 h-full bg-white bg-opacity-80 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6">
+          <div class="flex justify-between items-center">
+
+            <h2 id="hmen" class="text-2xl font-extrabold text-gray-900  whitec"><img
+                style="height:50px;width:50px; border-radius: 50%;display: inline;" src="../favicon.ico"> 
+            </h2>
+            <button id="close-btn" class="text-2xl font-bold text-gray-500 hover:text-gray-900 whitec ">×</button>
+          </div>
+          <a href="#"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 ">
+            🏠 <span>Dashboard</span>
+          </a>
+          <a href="profile/index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
+            👤 <span>Profile</span>
+          </a>
+          <a href="posts/index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
+            📈 <span>Trends</span>
+          </a>
+          <a href="users/index.html"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
+            👥 <span>Users</span>
+          </a>
+          <a href="#" onclick="logout()"
+            class="flex items-center gap-2 text-lg text-gray-700 hover:text-indigo-600 transition-all duration-200 whitec">
+            🚪 <span>Log Out</span>
+          </a>
+        </div>
+        <script>
+
+          if (localStorage.getItem("theme_+-----") == 'Dark') {
+            const stylesheet = document.getElementById("menu-btn");
+            stylesheet.innerHTML = ` <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></div>
+              <div class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></div>`
+
+            document.getElementById('overlay').setAttribute('class', 'fixed inset-0 bg-black/60 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out')
+            document.getElementById('hmen').setAttribute('class', 'text-2xl font-extrabold text-white-900')
+
+            document.getElementById('side-menu').setAttribute('class', 'fixed top-0 right-0 w-80 h-full bg-black bg-opacity-70 backdrop-blur-2xl shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-l border-white/50 z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col p-6 gap-6')
+
+            document.querySelectorAll('.whitec').forEach(element => {
+              element.setAttribute('class', 'flex items-center gap-2 text-lg text-white-700 hover:text-indigo-600 transition-all duration-200 whitec')
+            })
+
+
+          }
+        </script>
+      </nav>
+  </div>
+
+  </header>
+  <div class="smoother ">
+    <div class="line "></div>
+  </div>
+
+  <main id="mainc-">
+    <section class="card us" id="user">
+      <h2 style='font-size:large;font-weight:bold'>Welcome, <span class="username"
+          style="font-size:large;font-weight:bold">
+          <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </span></h2>
+      <p></p>
+    </section>
+
+
+
+
+    <!-- Main container holding all prediction cards -->
+    <div class="container22 ">
+      <div class="header">
+        <div id="today" class="active" onclick="switchContent('today')">Sys Predictions <br><span
+            class="loader88"></span></div>
+        <div id="analysis" onclick="switchContent('analysis')">Sys Bets</div>
+
+        <div id="predicter" onclick="switchContent('predicter')">Predicter</div>
+      </div>
+      <div class="content2  text-gray-900 " id="contentArea">
+        <div class="SOM">
+          <div id="conttt" title="Search Live , Upcoming or Ended Games " class="search-container ">
+            <input type="text" class="search-input" placeholder="TechNify Search..." />
+            <div class="search-icon">&#128269;</div>
+          </div>
+          <div class="suggestions-list" id="suggestions"></div>
+
+          <div class="products-grid c1 ">
+            <div class="loading-dots">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div id="behave" class="min-h-screen p-4 bg-gray-100 text-gray-900 dark:bg-black dark:text-gray-100 ">
+
+
+      <!-- Dark Mode Toggle Button -->
+      <div class="flex justify-end mb-4">
+        <button id="toggle-dark-mode" type="button"
+          class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition hide">
+          --
+        </button>
+      </div>
+
+      <div st class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <h1 class="text-4xl font-bold mb-6 text-center">Detailed Data</h1>
+        <div style="opacity: 0.5;"  class="refresh-btn dark_theme" id="refreshBtn">
+          <span>↻</span>
+          <div class="cir"></div>
+          <div class="cir2"></div>
+          <div class="cir3"></div>
+        </div>
+        <script>
+
+          if (localStorage.getItem("theme_+-----") == 'Dark') {
+            const toggleButton = document.getElementById("toggle-dark-mode");
+            document.getElementById('refreshBtn').setAttribute('class', 'refresh-btn light_theme')
+            document.documentElement.classList.toggle("dark");
+
+          }
+
+          // Animation logic (no change needed)
+          let re = document.querySelector('.refresh-btn')
+          let cir = document.querySelector('.cir')
+          let cir2 = document.querySelector('.cir2')
+          let cir3 = document.querySelector('.cir3')
+          re.addEventListener('mouseenter', function () {
+            if (localStorage.getItem('refresh')=="allow"){ 
+              cir2.style.opacity = "1"
+            cir.style.transform = "translate(-50%, -50%) rotate(270deg) scale(1.08)"
+            cir2.style.transform = "translate(-50%, -50%) rotate(90deg) scale(1.1)"
+            cir3.style.transform = "translate(-50%, -50%) rotate(360deg) scale(1.15)"
+            cir2.style.width = "55%"
+            cir2.style.height = "55%"
+            cir2.style.borderRadius = "50%"
+
+            }
+            
+          });
+          re.addEventListener('mouseleave', function () {
+            if (localStorage.getItem('refresh')=="allow"){ 
+              cir.style.transform = "translate(-50%, -50%) rotate(-180deg) scale(1)"
+            cir2.style.transform = "translate(-50%, -50%) rotate(0deg) scale(1)"
+            cir3.style.transform = "translate(-50%, -50%) rotate(0deg) scale(1)"
+            cir2.style.opacity = "0.5"
+            cir2.style.width = "70%"
+            cir2.style.height = "70%"
+            }
+            
+          });
+
+
+
+        </script>
+        <div class="histsec" id="histecc" style="position:relative" >
+          <div id='mainloader2' class="loading-container11 hide">
+        <div class="title11">
+          <span style="font-size: large" class="letter11">U</span>
+          <span style="font-size: large" class="letter11">p</span>
+          <span style="font-size: large" class="letter11">d</span>
+          <span style="font-size: large" class="letter11">a</span>
+          <span style="font-size: large" class="letter11">t</span>
+          <span style="font-size: large" class="letter11">i</span>
+          <span style="font-size: large" class="letter11">n</span>
+          <span style="font-size: large" class="letter11">g...</span>
+        </div>
+        <div class="loader11"></div>
+        <div id="username_loader11" class="subtitle11"></div>
+        <div id="state_loader11" class="subtitle11"></div>
+
+        <div class="checkbox-container11">
+          <!-- <div id="vdata" class="check-box  hide_bx11">Validation</div> -->
+          <!-- <div id="fdata__" class="check-box  hide_bx11">Fetching Data</div> -->
+          <!-- <div id="ldata" class="check-box  hide_bx11">Loading Data</div> -->
+        </div>
+        <div class="particles11">
+          <div class="particle11" style="left: 10%; animation-delay: 0s;"></div>
+          <div class="particle11" style="left: 25%; animation-delay: 0.8s;"></div>
+          <div class="particle11" style="left: 40%; animation-delay: 1.6s;"></div>
+          <div class="particle11" style="left: 60%; animation-delay: 2.4s;"></div>
+          <div class="particle11" style="left: 80%; animation-delay: 3.2s;"></div>
+          <div class="particle11" style="left: 95%; animation-delay: 4s;"></div>
+        </div>
+
+    </div>
+
+
+          <!-- Summary Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+              <h2 class="text-xl font-semibold">Total Matches</h2>
+              <p id="total-matches" class="text-2xl">0</p>
+            </div>
+            <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+              <h2 class="text-xl font-semibold">Accuracy</h2>
+              <p id="accuracy" class="text-2xl">0%</p>
+            </div>
+            <div class="p-4 rounded-xl shadow bg-white dark:bg-gray-800 dark:text-gray-100">
+              <h2 class="text-xl font-semibold">Average PRC</h2>
+              <p id="avg-confidence" class="text-2xl">0%</p>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Pie Chart for Outcome Breakdown -->
+            <div class="relative w-full h-64 md:h-80 lg:h-96">
+              <canvas id="pieChart"></canvas>
+            </div>
+
+           
+
+            
+
+            <!-- Line Chart for Win vs Loss (Prediction Percentage over Matches) -->
+            <div class="relative w-full h-64 md:h-80 lg:h-96">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+           <button class="toggle-button hide" onclick="toggleTheme_z()">Switch to Dark Mode</button>
+          <div class="st_and_ac">
+                <div id="stats"></div>
+                <div class="b_pd">
+                   <div class="wpd">
+                   <h2>Wins vs Losses Per Day</h2>
+                  <canvas id="resultsChart"></canvas>
+
+                </div>
+                <div class="acpd">
+                   <h2>Accuracy Per Day</h2>
+                <canvas id="accuracyChart"></canvas>
+
+                </div>
+
+                </div>
+          </div>
+
+    
+          
+        
+
+          <!-- Matches Table -->
+          <!-- <h2 class="text-2xl font-bold mb-4"></h2> -->
+          <div class="overflow-x-auto  htables">
+            <table class="min-w-full text-sm text-left border-collapse">
+              <thead class="bg-gray-200 dark:bg-gray-700">
+                <tr>
+                  <th class="px-4 py-2 border">Match</th>
+                  <th class="px-4 py-2 border">Prediction</th>
+                  <th class="px-4 py-2 border">Actual</th>
+                  <th class="px-4 py-2 border">Correct</th>
+                  <th class="px-4 py-2 border dttt">Date D-M-Y </th>
+                  <th class="px-4 py-2 border">Score</th>
+                </tr>
+              </thead>
+              <tbody  id="match-table" class="divide-y dark:divide-gray-600 mainT"></tbody>
+            </table>
+          </div>
+
+        </div>
+
+
+        
+      </div>
+
+    </div>
+
+
+<script src="js/update.js"></script>
+
+
+<script>
+           // refresh logic
+
+        let dtdata= document.getElementById('histecc')
+        let mloader2= document.getElementById('mainloader2')
+
+        let refreshBtn=document.getElementById('refreshBtn')
+        refreshBtn.addEventListener('click',()=>{
+              if(localStorage.getItem('refresh')=="allow"){
+                    mloader2.classList.remove('hide')
+               if (localStorage.getItem("theme_+-----") == 'Dark'){
+                 mloader2.style.backgroundColor="rgba(0, 0, 0, 0.8)"
+
+               }else{
+                // mloader2.style.backgroundColor="rgba(0, 0, 0, 0.8)"
+                mloader2.style.background="rgba(0, 0, 0, 0.8) !important"
+               }
+             
+              dtdata.style.minHeight='500px'
+              dtdata.style.maxHeight='500px'
+              dtdata.style.overflow='hidden'
+              getproducts_2_3(false)
+              localStorage.setItem('refresh','disallow')
+              refreshBtn.style.opacity='0.5'
+              refreshBtn.style.cursor="none"
+              refreshBtn.classList.remove('refresh-active')
+
+
+              }else{
+                
+              }
+          
+              // Remove all <canvas> elements 
+
+              
+              
+
+
+
+
+
+
+
+
+
+ 
+
+        })
+        </script>
+
+
+
+  </main>
+
+
+
+
+  <footer>
+    <p>&copy; <span id="current-year"></span> TPREDICTIONS. All rights reserved.</p>
+  </footer>
+  </div>
+  <script src="js/verify.js"></script>
+  <script src="js/main.js"></script>
+  
+
+  <script>
+    // Dynamic year update in footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/onchecker.js"></script>
+
+
+  <script>
+    document.querySelector('head').innerHTML = document.querySelector('head').innerHTML + `
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />`
+  </script>
+
+
+ <script>
+  function transfere(text_,ActionElement){
+    function bop(){
+      if (localStorage.getItem('theme_+-----')=="Dark"){
+        return "Light"
+      }else{
+        return "Dark"
+      }
+    }
+ let number= Math.round(Math.random()*10) 
+  
+ console.log(number)
+ if ( number>4){
+ number= number-4
+ }
+ 
+ if ( number>4){
+ number= number-4
+ }
+
+
+
+
+ if ( number>4){
+  return False
+ }else{
+      document.addEventListener("click",()=>{
+          noti.click()
+        })
+ 
+  let valuesl=["Predicter","Sys Bets","Theme","Bio","Address"]
+
+   let valuesd={
+      "Predicter":{
+        "text": "Pedict Now! 📈",
+        "text2": "Try Liverpool vs Chelsea 👤",
+        "onclick": `switchContent('predicter')`,
+        "link":"/Predicter",
+        "reason": false
+      },
+      "Sys Bets":{
+        "text": "See Wining slips  📈 !!",
+        "onclick":"switchContent('analysis')",
+         "link":"/Slips",
+          "reason": false
+
+      },
+
+      "Theme":{
+       "text":  `👤: Want to change to ${bop()} theme?` ,
+       "href": `${getHomePath()}/theme.html`,
+       "link" : "/theme",
+       "onclick":false,
+        "reason": false
+      },
+      "Bio":{
+        "text": " 👤: Update Your Bio !!",
+        "href": `${getHomePath()}/Logged/profile/index.html`,
+        "link": "/profile#Bio",
+        "reason":"Bio",
+         "onclick":false,
+
+      },
+      "Address":{
+        "text": " 👤: You did not add an Address !!",
+        "href": `${getHomePath()}/Logged/profile/index.html`,
+        "link": "/profile#Address",
+        "reason":"Address",
+         "onclick":false
+      }
+
+
+
+    }
+
+    let choice= valuesl[number]
+    ActionElement.textContent= valuesd[choice]['link']
+    ActionElement.style.textDecoration="underline"
+    ActionElement.style.cursor="pointer"
+    text_.textContent=valuesd[choice]['text']
+    if (valuesd[choice]['reason']){
+      ActionElement.addEventListener("click",()=>{
+         localStorage.setItem("noti-profile-r",valuesd[choice]['reason'])
+         window.location.assign(valuesd[choice]['href'])
+
+      })
+     
+    }else{
+      if (!valuesd[choice]['onclick']){
+          ActionElement.addEventListener("click",()=>{
+         window.location.assign(valuesd[choice]['href'])
+
+      })
+        
+      }
+     
+      
+    }
+    if (valuesd[choice]['onclick']){
+      ActionElement.setAttribute("onclick",valuesd[choice]['onclick'])
+    }
+    
+  }
+  
+
+ }
+
+
+
+        let noti=document.getElementById('noti')
+        noti.addEventListener('click',()=>{
+          
+            noti.style.transform="translateX(-20%)"
+        })
+
+   
+       let ntclose= document.getElementById("notcl")
+        ntclose.addEventListener('click',()=>{
+          noti.style.display="none"
+        })
+
+
+        transfere(document.getElementById("text_"),document.getElementById("ActionElement"))
+
+      
+    
+       
+    </script>
+
+</body>
+
+</html>
